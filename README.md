@@ -63,7 +63,7 @@
 ```bash
 # 克隆仓库
 git clone https://github.com/blackswan-ai-immunity/full-spectrum-ethics.git
-cd network
+cd full-spectrum-ethics
 
 # 查看技术规范
 cat docs/protocols/FSHI_Protocol_技术规范.md
