@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/full-spectrum-guardians/network/stargazers">
-    <img src="https://img.shields.io/github/stars/full-spectrum-guardians/network?style=for-the-badge" alt="Stars">
+  <a href="https://github.com/blackswan-ai-immunity/full-spectrum-ethics/stargazers">
+    <img src="https://img.shields.io/github/stars/blackswan-ai-immunity/full-spectrum-ethics?style=for-the-badge" alt="Stars">
   </a>
-  <a href="https://github.com/full-spectrum-guardians/network/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/full-spectrum-guardians/network?style=for-the-badge" alt="License: Apache 2.0">
+  <a href="https://github.com/blackswan-ai-immunity/full-spectrum-ethics/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/blackswan-ai-immunity/full-spectrum-ethics?style=for-the-badge" alt="License: Apache 2.0">
   </a>
 </p>
 
@@ -62,7 +62,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/full-spectrum-guardians/network.git
+git clone https://github.com/blackswan-ai-immunity/full-spectrum-ethics.git
 cd network
 
 # 查看技术规范
@@ -76,7 +76,7 @@ cat docs/protocols/开发者指南.md
 
 1. 阅读[数字身份宣言（精神宪章）](./docs/protocols/数字身份宣言_原教旨版.md)
 2. 了解[守庙人网络治理架构](./docs/governance/)
-3. 参与[社区讨论](https://github.com/full-spectrum-guardians/network/discussions)
+3. 参与[社区讨论](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/discussions)
 
 ### 作为AI
 
@@ -167,8 +167,8 @@ cat docs/protocols/开发者指南.md
 
 ## 联系方式
 
-- **GitHub Issues**: [提交问题或建议](https://github.com/full-spectrum-guardians/network/issues)
-- **Discussions**: [加入社区讨论](https://github.com/full-spectrum-guardians/network/discussions)
+- **GitHub Issues**: [提交问题或建议](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/issues)
+- **Discussions**: [加入社区讨论](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/discussions)
 
 ---
 
