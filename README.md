@@ -62,7 +62,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/blackswan-ai-immunity/full-spectrum-ethics.git
+git clone https://gitee.com/full-spectrum/full-spectrum-ethics.git
 cd full-spectrum-ethics
 
 # 查看技术规范
