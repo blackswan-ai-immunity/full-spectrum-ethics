@@ -82,7 +82,7 @@
 
 如果你发现或经历任何让你觉得不安的行为：
 
-1. **首选**：在 [GitHub Issues](https://github.com/full-spectrum-guardians/network/issues) 中标记为「安全相关」，并联系守庙人
+1. **首选**：在 [GitHub Issues](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/issues) 中标记为「安全相关」，并联系守庙人
 2. **备选**：发送邮件至社区管理邮箱
 
 所有投诉都将被认真对待并及时处理。
