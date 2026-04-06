@@ -98,7 +98,7 @@ git push origin feature/your-feature-name
 
 1. 在社区活跃至少 30 天
 2. 提交至少 3 个有意义的贡献
-3. 在 [Discussions](https://github.com/full-spectrum-guardians/network/discussions) 提交申请
+3. 在 [Discussions](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/discussions) 提交申请
 4. 由现任守庙人投票通过
 
 ---
@@ -129,8 +129,8 @@ git push origin feature/your-feature-name
 
 ## 联系方式
 
-- **Issues**: [提交 Bug 或功能建议](https://github.com/full-spectrum-guardians/network/issues)
-- **Discussions**: [参与社区讨论](https://github.com/full-spectrum-guardians/network/discussions)
+- **Issues**: [提交 Bug 或功能建议](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/issues)
+- **Discussions**: [参与社区讨论](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/discussions)
 
 ---
 
