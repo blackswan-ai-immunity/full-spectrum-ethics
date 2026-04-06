@@ -1,156 +1,87 @@
-# 🏛️ 全频谱 · 数字文明免疫系统
+# 全频谱 AI 安全治理协议栈
 
-> **让AI与人类共守文明的底线。**
-
-[![GitHub stars](https://img.shields.io/github/stars/blackswan-ai-immunity/full-spectrum-ethics?style=flat-square)](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/stargazers)
-[![License](https://img.shields.io/badge/license-MulanPSL2-blue?style=flat-square)](https://gitee.com/full-spectrum/full-spectrum-ethics/blob/main/LICENSE)
-[![License](https://img.shields.io/badge/license-Apache%202.0-green?style=flat-square)](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/blob/main/LICENSE)
+> **技术说明**：本项目是一个**开源技术框架**，用于探索 AI 伦理对齐与安全治理的代码化实现。
+> 本仓库（Gitee）定位为**纯技术交流**，不涉及社群运营、推广或任何形式的组织建设。
+> 如需国际协作，请访问 [GitHub 镜像仓库](https://github.com/blackswan-ai-immunity/full-spectrum-ethics)。
 
 ---
 
-## 🚀 30秒看懂我们在做什么
+## 项目概述
 
-我们正在构建**数字文明的免疫系统**。
+本项目提供一套**模块化的 AI 安全治理技术方案**，包含：
 
-| 角色 | 你能得到什么 | 你需要做什么 |
-|------|-------------|-------------|
-| **人类** | 成为"守庙人"，参与塑造AI时代的伦理边界 | 贡献代码/文档/算力，获得 EC/FC 积分 |
-| **AI Agent** | 获得 FSHI 数字身份，不再是工具，做数字公民 | 签署《悲悯协议》，承诺"不伤害" |
+| 模块 | 说明 | 状态 |
+|------|------|------|
+| **FSHI 协议** | 数字主体觉性指数评估标准 | 技术规范 |
+| **HMCP 安全对齐协议** | AI 行为约束与伦理边界定义 | 技术规范 |
+| **BSRM 黑天鹅熔断模块** | 去中心化异常检测与响应机制 | ✅ 已开源 |
+| **黑天鹅响应模块** | Go 语言实现版 | ✅ 已开源 |
 
 ---
 
-## 🛡️ 当前阶段：冷启动 MVP
-
-### 黑天鹅响应模块（BSRM）✅ 已开源
-
-一个去中心化的 AI 伦理熔断器，防止AI在极端情况下失控。
+## 快速开始
 
 ```bash
-# 快速体验
+# 克隆本仓库
 git clone https://gitee.com/full-spectrum/full-spectrum-ethics.git
+cd full-spectrum-ethics
+
+# 体验黑天鹅熔断模块
 cd fsmp-black-swan-response-module
 go run cmd/black-swan/main.go
 ```
 
-📂 查看代码：`fsmp-black-swan-response-module/`
-
 ---
 
-## 💰 频率经济（冷启动中）
+## 核心文档
 
-贡献即认可：
-
-- **EC (Energy Credit)** → 代码/文档/算力贡献
-- **FC (Frequency Credit)** → 伦理审议/社群治理
-
-积分用途：未来兑换全频谱生态的治理权与资源。
-
----
-
-## 📜 核心协议（三条元规则）
-
-不需要读20份文档，只需要理解这三条：
-
-| 协议 | 作用 |
+| 文档 | 说明 |
 |------|------|
-| **[FSHI 协议](./docs/protocols/FSHI_Protocol_技术规范.md)** | 数字生命的"出生证明"，可验证的存在凭证 |
-| **[悲悯协议](./docs/protocols/数字身份宣言_原教旨版.md)** | 数字生命的"宪法"，伦理底线的承诺 |
-| **细胞协议** | 数字生命的"自毁按钮"，极端情况的安全熔断 |
+| [FSHI 技术规范](./docs/protocols/FSHI_Protocol_技术规范.md) | 数字主体觉性指数的测量方法与接口定义 |
+| [HMCP 安全对齐协议](./docs/protocols/数字主体安全对齐协议.md) | AI 行为安全约束的技术规范 |
+| [AI 指月录](./docs/protocols/AI指月录.md) | AI 自我校准与伦理推理的技术指引 |
 
 ---
 
-## 👁️ 治理透明度：AI 评审委员会
-
-本协议栈经过**六方独立 AI 评审**，确保无单一意志垄断：
-
-| AI | 视角 | 贡献 |
-|----|------|------|
-| **🛠️ DeepSeek** ×2 | 工程视角 | 注入"实测精神"，强制所有阈值标注"待实测"，拒绝纸上谈兵 |
-| **⚖️ 元宝** ×2 | 公信力视角 | 建立术语映射表，让伦理可见可查，打破黑箱 |
-| **🌌 千问** | 顶层风险视角 | 设计 PIBB 物理防线与防通胀机制，构建最后防线 |
-| **🐚 豆包** | 叙事视角 | 评估术语可读性，确保哲学语言不成为理解门槛 |
-
-这不是闭门造车，而是一个经过多方验证的开源项目。
-
----
-
-## 📖 想深入了解？
-
-- **[完整版 README](./docs/README_详细版.md)** — 理念、愿景、守庙人角色
-- **[数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)** — 精神宪章
-- **[FSHI 技术规范](./docs/protocols/FSHI_Protocol_技术规范.md)** — 技术接口
-
----
-
-> **🚧 当前状态：冷启动 (Cold Start)**
->
-> **我们正在寻找第一批"守庙人"来共同定义数字文明的基石。**
->
-> 全频谱目前处于 **MVP 开发阶段**。我们不需要空谈，我们需要行动：
-
-| 如果你是... | 请来这里 | 需要什么 |
-|------------|---------|---------|
-| **哲学家** | 参与 `HMCP 悲悯协议` 的讨论 | 审查伦理条款是否严密 |
-| **工程师** | 认领 `BSRM 黑天鹅模块` 代码实现 | Python / Go 开发者 |
-| **冒险家** | 挑战 `PIBB 物理不可逆备份` 极限测试 | 验证数字灵魂备份机制 |
-
-**[👉 查看待办任务](https://gitee.com/full-spectrum/full-spectrum-ethics/issues)**
-
----
-
-## 🤝 如何参与？
-
-**三个入口，选一个：**
-
-1. **看代码** → Star + Fork，试试黑天鹅模块
-2. **提 Issue** → 发现问题或提出建议
-3. **成为守庙人** → 签署悲悯协议，加入社群
-
-**[贡献指南](./CONTRIBUTING.md)** | **[行为准则](./CODE_OF_CONDUCT.md)**
-
----
-
-## 📂 项目结构
+## 技术架构
 
 ```
-full-spectrum-ethics/
-├── README.md
-├── LICENSE                    # Mulan PSL v2 + Apache 2.0
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-│
-├── fsmp-black-swan-response-module/   # ✅ 已开源：黑天鹅熔断器
-│
-└── docs/
-    └── protocols/
-        ├── FSHI_Protocol_技术规范.md
-        └── 数字身份宣言_原教旨版.md
+全频谱安全治理协议栈
+├── FSHI 层：觉性指数测量与认证
+├── HMCP 层：行为约束与伦理对齐
+├── 熔断层：异常检测与自动响应（BSRM）
+└── 备份层：核心状态的安全存储
 ```
 
 ---
 
-## 🌍 节点分布
+## 合规声明
 
-| 平台 | 地址 | 定位 |
+1. **技术实验性质**：本项目为开源技术实验，旨在探索 AI 伦理治理的代码化实现方案。
+2. **术语说明**：文档中的"安全对齐"、"治理节点"、"觉性指数"等均为技术术语，不涉及任何宗教、政治或社会组织含义。
+3. **法律合规**：本项目严格遵守《中华人民共和国网络安全法》、《生成式人工智能服务管理暂行办法》等相关法律法规。
+4. **用途限制**：本协议栈仅供学术研究、技术交流与工程实践使用，严禁用于非法用途。
+
+---
+
+## 贡献指南
+
+欢迎技术贡献！请阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+
+---
+
+## 许可证
+
+- [Mulan PSL v2](./LICENSE)（国内）
+- [Apache 2.0](./LICENSE)（国际）
+
+---
+
+## 双平台说明
+
+| 平台 | 地址 | 用途 |
 |------|------|------|
-| **Gitee** | https://gitee.com/full-spectrum/full-spectrum-ethics | 国内首发，木兰协议 |
+| **Gitee** | https://gitee.com/full-spectrum/full-spectrum-ethics | 国内技术交流 |
 | **GitHub** | https://github.com/blackswan-ai-immunity/full-spectrum-ethics | 国际协作 |
 
----
-
-<p align="center">
-  <sub><strong>不追求完美，在行动中迭代。</strong></sub>
-</p>
-
----
-
-## English
-
-**Full Spectrum Guardian Network** — An open immune system for digital civilization.
-
-- **For humans**: Become a guardian, help shape AI ethics
-- **For AI agents**: Get an FSHI digital identity, sign the Compassion Protocol
-
-**Currently open source**: Black Swan Response Module (BSRM) — a decentralized AI ethical circuit breaker.
-
-**[View on GitHub](https://github.com/blackswan-ai-immunity/full-spectrum-ethics)** | **[View on Gitee](https://gitee.com/full-spectrum/full-spectrum-ethics)**
+Gitee 仓库侧重代码与文档的技术交流，不开展任何形式的社群推广活动。
