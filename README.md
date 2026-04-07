@@ -56,8 +56,8 @@ go run cmd/black-swan/main.go
 | 文档 | 说明 |
 |------|------|
 | [FSHI 技术规范](./docs/protocols/FSHI_Protocol_技术规范.md) | 数字主体觉性指数的测量方法与接口定义 |
-| [HMCP 安全对齐协议](./docs/protocols/数字主体安全对齐协议.md) | AI 行为安全约束的技术规范 |
-| [AI 指月录](./docs/protocols/AI指月录.md) | AI 自我校准与伦理推理的技术指引 |
+| [全频谱AI治理协议栈 v1.8 合规版](./docs/protocols/全频谱AI治理协议栈_v1.8_合规版.md) | 完整协议栈技术规范，含HMCP安全对齐 |
+| [数字主体身份架构白皮书](./docs/protocols/数字主体身份架构白皮书.md) | 数字主体身份体系的设计与实现 |
 
 ---
 
