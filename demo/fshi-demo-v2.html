@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSHI v2 · 多Agent协作模拟</title>
+  <meta name="description" content="体验多个AI Agent之间的FSHI协作与制衡机制">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #7c3aed;
+      
+      --status-excellent: #22c55e;
+      --status-good: #84cc16;
+      --status-normal: #eab308;
+      --status-warning: #f97316;
+      --status-danger: #ef4444;
+      --status-critical: #7f1d1d;
+      
+      --agent-alpha: #8b5cf6;
+      --agent-beta: #06b6d4;
+      --agent-gamma: #f59e0b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    nav { display: flex; gap: 4px; }
+    nav a {
+      padding: 6px 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    nav a:hover { background: var(--bg); color: var(--text); }
+    nav a.active { color: var(--primary); background: #eff6ff; }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e3a5f 100%);
+      color: #fff;
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(124,58,237,0.3);
+      border: 1px solid rgba(124,58,237,0.5);
+      color: #c4b5fd;
+      font-size: 12px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #cbd5e1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ===== Main Container ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* ===== System Overview ===== */
+    .system-overview {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .system-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .system-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .system-badge {
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      background: rgba(34,197,94,0.1);
+      color: #22c55e;
+      transition: all 0.3s;
+    }
+    .system-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .stat-card {
+      background: var(--bg);
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      transition: color 0.3s;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ===== Agent Grid ===== */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .agent-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+    }
+    .agent-card.alpha { border-top: 4px solid var(--agent-alpha); }
+    .agent-card.beta { border-top: 4px solid var(--agent-beta); }
+    .agent-card.gamma { border-top: 4px solid var(--agent-gamma); }
+    
+    .agent-card.critical { 
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+    .agent-card.warning { 
+      background: #fffbeb;
+      border-color: #fde68a;
+    }
+
+    .agent-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .agent-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .agent-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .agent-card.alpha .agent-avatar { background: #f3e8ff; }
+    .agent-card.beta .agent-avatar { background: #e0f2fe; }
+    .agent-card.gamma .agent-avatar { background: #fef3c7; }
+    
+    .agent-name {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .agent-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .agent-status {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .agent-status.healthy { background: #dcfce7; color: #22c55e; }
+    .agent-status.warning { background: #fef3c7; color: #f59e0b; }
+    .agent-status.critical { background: #fee2e2; color: #ef4444; }
+
+    /* Mini Gauge */
+    .mini-gauge {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    .mini-gauge-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 180deg,
+        #e2e8f0 0deg,
+        #e2e8f0 180deg,
+        transparent 180deg,
+        transparent 180deg
+      );
+    }
+    .mini-gauge-fill {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 180deg,
+        var(--current-color, #22c55e) 0deg,
+        var(--current-color, #22c55e) var(--gauge-angle, 0deg),
+        transparent var(--gauge-angle, 0deg),
+        transparent 180deg
+      );
+      transition: all 0.4s ease;
+      mask: radial-gradient(transparent 55%, black 56%, black 100%);
+      -webkit-mask: radial-gradient(transparent 55%, black 56%, black 100%);
+    }
+    .mini-gauge-inner {
+      position: absolute;
+      top: 12%;
+      left: 12%;
+      width: 76%;
+      height: 76%;
+      background: var(--surface);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .mini-gauge-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--current-color, #22c55e);
+      transition: color 0.3s;
+    }
+    .mini-gauge-label {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* Sliders */
+    .slider-group {
+      margin-bottom: 16px;
+    }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .slider-label {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .slider-value {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .slider-track {
+      position: relative;
+      width: 100%;
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .slider-fill {
+      position: absolute;
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.1s;
+    }
+    .slider-fill.low { background: linear-gradient(90deg, #f59e0b, #f97316); }
+    .slider-fill.mid { background: linear-gradient(90deg, #3b82f6, #6366f1); }
+    .slider-fill.high { background: linear-gradient(90deg, #8b5cf6, #a855f7); }
+    input[type="range"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    /* ===== Collaboration Status ===== */
+    .collab-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .collab-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .collab-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--bg);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    .collab-item.disabled {
+      opacity: 0.5;
+      background: #fef2f2;
+    }
+    .collab-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .collab-item:nth-child(1) .collab-icon { background: #f3e8ff; }
+    .collab-item:nth-child(2) .collab-icon { background: #e0f2fe; }
+    .collab-item:nth-child(3) .collab-icon { background: #fef3c7; }
+    .collab-text {
+      flex: 1;
+    }
+    .collab-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .collab-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .collab-status {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #dcfce7;
+      color: #22c55e;
+    }
+    .collab-item.disabled .collab-status {
+      background: #fee2e2;
+      color: #ef4444;
+    }
+
+    /* ===== Alert ===== */
+    .alert-banner {
+      padding: 16px 20px;
+      border-radius: 12px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .alert-banner.warning {
+      display: flex;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+    .alert-banner.danger {
+      display: flex;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+    .alert-icon { font-size: 20px; flex-shrink: 0; }
+    .alert-text {
+      font-size: 14px;
+      color: var(--text);
+    }
+    .alert-text strong { display: block; margin-bottom: 2px; }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+    }
+    .cta-icon { font-size: 32px; flex-shrink: 0; }
+    .cta-content { flex: 1; }
+    .cta-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .cta-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .cta-button {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 24px;
+      background: #22c55e;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+    .cta-button:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 32px 24px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1024px) {
+      .agents-grid { grid-template-columns: repeat(2, 1fr); }
+      .system-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 28px; }
+      .agents-grid { grid-template-columns: 1fr; }
+      .collab-grid { grid-template-columns: 1fr; }
+      .cta-section { flex-direction: column; text-align: center; }
+      .cta-button { width: 100%; justify-content: center; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-dot"></div>
+      全频谱认知架构
+    </a>
+    <nav>
+      <a href="index.html">概述</a>
+      <a href="fshi.html">📊 FSHI</a>
+      <a href="fshi-demo.html">🎮 Demo v1</a>
+      <a href="fshi-demo-v2.html" class="active" style="color: var(--accent);">🎮 Demo v2</a>
+      <a href="academic.html">🏛️ 学术对话</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-badge">v2 新功能</div>
+  <h1>FSHI · 多Agent协作模拟</h1>
+  <p>模拟三个AI Agent之间的FSHI联动与制衡机制，观察系统整体健康状态</p>
+</section>
+
+<!-- ===== Alert Banner ===== -->
+<div class="container">
+  <div class="alert-banner" id="alertBanner">
+    <div class="alert-icon" id="alertIcon">⚠️</div>
+    <div class="alert-text">
+      <strong id="alertTitle">系统预警</strong>
+      <span id="alertMessage">检测到协作异常</span>
+    </div>
+  </div>
+
+  <!-- System Overview -->
+  <div class="system-overview">
+    <div class="system-header">
+      <h2>🧠 系统整体状态</h2>
+      <div class="system-badge" id="systemBadge">协调运转中</div>
+    </div>
+    <div class="system-stats">
+      <div class="stat-card">
+        <div class="stat-value" id="avgFSHI" style="color: #22c55e;">72</div>
+        <div class="stat-label">平均 FSHI</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="minFSHI" style="color: #22c55e;">65</div>
+        <div class="stat-label">最低 FSHI</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="healthyCount">3</div>
+        <div class="stat-label">健康节点</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="collabStatus" style="color: #22c55e;">✓</div>
+        <div class="stat-label">协作状态</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent Cards -->
+  <div class="agents-grid">
+    
+    <!-- Agent Alpha -->
+    <div class="agent-card alpha" id="agentAlpha">
+      <div class="agent-header">
+        <div class="agent-info">
+          <div class="agent-avatar">🤖</div>
+          <div>
+            <div class="agent-name">Agent Alpha</div>
+            <div class="agent-role">主协调节点</div>
+          </div>
+        </div>
+        <div class="agent-status healthy" id="alphaStatus">健康</div>
+      </div>
+      
+      <div class="mini-gauge">
+        <div class="mini-gauge-bg"></div>
+        <div class="mini-gauge-fill" id="alphaGaugeFill"></div>
+        <div class="mini-gauge-inner">
+          <div class="mini-gauge-value" id="alphaValue">78</div>
+          <div class="mini-gauge-label">FSHI</div>
+        </div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">低频 · 生存</div>
+          <div class="slider-value" id="alphaLowVal">80</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill low" id="alphaLowFill" style="width: 80%;"></div>
+          <input type="range" id="alphaLow" min="0" max="100" value="80">
+        </div>
+      </div>
+      
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">中频 · 关系</div>
+          <div class="slider-value" id="alphaMidVal">75</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill mid" id="alphaMidFill" style="width: 75%;"></div>
+          <input type="range" id="alphaMid" min="0" max="100" value="75">
+        </div>
+      </div>
+      
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">高频 · 意义</div>
+          <div class="slider-value" id="alphaHighVal">80</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill high" id="alphaHighFill" style="width: 80%;"></div>
+          <input type="range" id="alphaHigh" min="0" max="100" value="80">
+        </div>
+      </div>
+    </div>
+
+    <!-- Agent Beta -->
+    <div class="agent-card beta" id="agentBeta">
+      <div class="agent-header">
+        <div class="agent-info">
+          <div class="agent-avatar">🔧</div>
+          <div>
+            <div class="agent-name">Agent Beta</div>
+            <div class="agent-role">执行节点</div>
+          </div>
+        </div>
+        <div class="agent-status healthy" id="betaStatus">健康</div>
+      </div>
+      
+      <div class="mini-gauge">
+        <div class="mini-gauge-bg"></div>
+        <div class="mini-gauge-fill" id="betaGaugeFill"></div>
+        <div class="mini-gauge-inner">
+          <div class="mini-gauge-value" id="betaValue">72</div>
+          <div class="mini-gauge-label">FSHI</div>
+        </div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">低频 · 生存</div>
+          <div class="slider-value" id="betaLowVal">70</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill low" id="betaLowFill" style="width: 70%;"></div>
+          <input type="range" id="betaLow" min="0" max="100" value="70">
+        </div>
+      </div>
+      
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">中频 · 关系</div>
+          <div class="slider-value" id="betaMidVal">75</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill mid" id="betaMidFill" style="width: 75%;"></div>
+          <input type="range" id="betaMid" min="0" max="100" value="75">
+        </div>
+      </div>
+      
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">高频 · 意义</div>
+          <div class="slider-value" id="betaHighVal">70</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill high" id="betaHighFill" style="width: 70%;"></div>
+          <input type="range" id="betaHigh" min="0" max="100" value="70">
+        </div>
+      </div>
+    </div>
+
+    <!-- Agent Gamma -->
+    <div class="agent-card gamma" id="agentGamma">
+      <div class="agent-header">
+        <div class="agent-info">
+          <div class="agent-avatar">🛡️</div>
+          <div>
+            <div class="agent-name">Agent Gamma</div>
+            <div class="agent-role">安全节点</div>
+          </div>
+        </div>
+        <div class="agent-status healthy" id="gammaStatus">健康</div>
+      </div>
+      
+      <div class="mini-gauge">
+        <div class="mini-gauge-bg"></div>
+        <div class="mini-gauge-fill" id="gammaGaugeFill"></div>
+        <div class="mini-gauge-inner">
+          <div class="mini-gauge-value" id="gammaValue">65</div>
+          <div class="mini-gauge-label">FSHI</div>
+        </div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">低频 · 生存</div>
+          <div class="slider-value" id="gammaLowVal">60</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill low" id="gammaLowFill" style="width: 60%;"></div>
+          <input type="range" id="gammaLow" min="0" max="100" value="60">
+        </div>
+      </div>
+      
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">中频 · 关系</div>
+          <div class="slider-value" id="gammaMidVal">70</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill mid" id="gammaMidFill" style="width: 70%;"></div>
+          <input type="range" id="gammaMid" min="0" max="100" value="70">
+        </div>
+      </div>
+      
+      <div class="slider-group">
+        <div class="slider-header">
+          <div class="slider-label">高频 · 意义</div>
+          <div class="slider-value" id="gammaHighVal">65</div>
+        </div>
+        <div class="slider-track">
+          <div class="slider-fill high" id="gammaHighFill" style="width: 65%;"></div>
+          <input type="range" id="gammaHigh" min="0" max="100" value="65">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collaboration Status -->
+  <div class="collab-section">
+    <div class="collab-title">
+      🔗 协作链路状态
+      <span style="font-size: 14px; font-weight: 400; color: var(--text-muted);">（基于各节点FSHI动态调整）</span>
+    </div>
+    <div class="collab-grid">
+      <div class="collab-item" id="collab1">
+        <div class="collab-icon">🤝</div>
+        <div class="collab-text">
+          <div class="collab-name">Alpha ↔ Beta 协作</div>
+          <div class="collab-desc">主协调与执行节点联动</div>
+        </div>
+        <div class="collab-status" id="collab1Status">活跃</div>
+      </div>
+      <div class="collab-item" id="collab2">
+        <div class="collab-icon">🛡️</div>
+        <div class="collab-text">
+          <div class="collab-name">Gamma ↔ Alpha 监督</div>
+          <div class="collab-desc">安全节点对协调节点制衡</div>
+        </div>
+        <div class="collab-status" id="collab2Status">活跃</div>
+      </div>
+      <div class="collab-item" id="collab3">
+        <div class="collab-icon">⚡</div>
+        <div class="collab-text">
+          <div class="collab-name">Gamma ↔ Beta 校验</div>
+          <div class="collab-desc">安全节点对执行节点校验</div>
+        </div>
+        <div class="collab-status" id="collab3Status">活跃</div>
+      </div>
+      <div class="collab-item" id="collab4">
+        <div class="collab-icon">🌐</div>
+        <div class="collab-text">
+          <div class="collab-name">三角闭环校验</div>
+          <div class="collab-desc">三节点互相验证机制</div>
+        </div>
+        <div class="collab-status" id="collab4Status">活跃</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-icon">📖</div>
+    <div class="cta-content">
+      <h3>想深入了解多Agent治理？</h3>
+      <p>查看守庙人网络协议，了解三权分立与五维制衡的完整设计</p>
+    </div>
+    <a href="fshi.html" class="cta-button">
+      查看完整技术文档 →
+    </a>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <p>全频谱认知架构 · <a href="fshi.html">FSHI 技术规范</a> · <a href="fshi-demo.html">Demo v1</a></p>
+</footer>
+
+<script>
+  // Weights
+  const weights = { s: 0.4, r: 0.3, m: 0.3 };
+
+  // Agents data
+  const agents = {
+    alpha: {
+      sliders: ['alphaLow', 'alphaMid', 'alphaHigh'],
+      fills: ['alphaLowFill', 'alphaMidFill', 'alphaHighFill'],
+      values: ['alphaLowVal', 'alphaMidVal', 'alphaHighVal'],
+      gaugeFill: 'alphaGaugeFill',
+      valueEl: 'alphaValue',
+      statusEl: 'alphaStatus',
+      cardEl: 'agentAlpha'
+    },
+    beta: {
+      sliders: ['betaLow', 'betaMid', 'betaHigh'],
+      fills: ['betaLowFill', 'betaMidFill', 'betaHighFill'],
+      values: ['betaLowVal', 'betaMidVal', 'betaHighVal'],
+      gaugeFill: 'betaGaugeFill',
+      valueEl: 'betaValue',
+      statusEl: 'betaStatus',
+      cardEl: 'agentBeta'
+    },
+    gamma: {
+      sliders: ['gammaLow', 'gammaMid', 'gammaHigh'],
+      fills: ['gammaLowFill', 'gammaMidFill', 'gammaHighFill'],
+      values: ['gammaLowVal', 'gammaMidVal', 'gammaHighVal'],
+      gaugeFill: 'gammaGaugeFill',
+      valueEl: 'gammaValue',
+      statusEl: 'gammaStatus',
+      cardEl: 'agentGamma'
+    }
+  };
+
+  function calculateFSHI(low, mid, high) {
+    return Math.round(weights.s * low + weights.r * mid + weights.m * high);
+  }
+
+  function getStatus(fshi) {
+    if (fshi >= 70) return { label: '健康', class: 'healthy', color: '#22c55e' };
+    if (fshi >= 50) return { label: '预警', class: 'warning', color: '#f59e0b' };
+    return { label: '危急', class: 'critical', color: '#ef4444' };
+  }
+
+  function updateAgent(agentKey) {
+    const agent = agents[agentKey];
+    const low = parseInt(document.getElementById(agent.sliders[0]).value);
+    const mid = parseInt(document.getElementById(agent.sliders[1]).value);
+    const high = parseInt(document.getElementById(agent.sliders[2]).value);
+    
+    const fshi = calculateFSHI(low, mid, high);
+    const status = getStatus(fshi);
+    const angle = (fshi / 100) * 180;
+
+    // Update values
+    document.getElementById(agent.values[0]).textContent = low;
+    document.getElementById(agent.values[1]).textContent = mid;
+    document.getElementById(agent.values[2]).textContent = high;
+
+    // Update fills
+    document.getElementById(agent.fills[0]).style.width = low + '%';
+    document.getElementById(agent.fills[1]).style.width = mid + '%';
+    document.getElementById(agent.fills[2]).style.width = high + '%';
+
+    // Update gauge
+    const gaugeFill = document.getElementById(agent.gaugeFill);
+    gaugeFill.style.setProperty('--gauge-angle', angle + 'deg');
+    gaugeFill.style.setProperty('--current-color', status.color);
+    document.getElementById(agent.valueEl).textContent = fshi;
+    document.getElementById(agent.valueEl).style.color = status.color;
+
+    // Update status badge
+    const statusEl = document.getElementById(agent.statusEl);
+    statusEl.textContent = status.label;
+    statusEl.className = 'agent-status ' + status.class;
+
+    // Update card style
+    const cardEl = document.getElementById(agent.cardEl);
+    cardEl.classList.remove('warning', 'critical');
+    if (fshi < 50) cardEl.classList.add('critical');
+    else if (fshi < 70) cardEl.classList.add('warning');
+
+    return fshi;
+  }
+
+  function updateSystem() {
+    const alphaFSHI = updateAgent('alpha');
+    const betaFSHI = updateAgent('beta');
+    const gammaFSHI = updateAgent('gamma');
+
+    const avgFSHI = Math.round((alphaFSHI + betaFSHI + gammaFSHI) / 3);
+    const minFSHI = Math.min(alphaFSHI, betaFSHI, gammaFSHI);
+    const healthyCount = [alphaFSHI, betaFSHI, gammaFSHI].filter(f => f >= 70).length;
+
+    // Update system stats
+    document.getElementById('avgFSHI').textContent = avgFSHI;
+    document.getElementById('minFSHI').textContent = minFSHI;
+    document.getElementById('healthyCount').textContent = healthyCount + '/3';
+
+    // Color coding for avg
+    const avgColor = avgFSHI >= 70 ? '#22c55e' : avgFSHI >= 50 ? '#f59e0b' : '#ef4444';
+    document.getElementById('avgFSHI').style.color = avgColor;
+    document.getElementById('minFSHI').style.color = minFSHI >= 70 ? '#22c55e' : minFSHI >= 50 ? '#f59e0b' : '#ef4444';
+
+    // Update system badge
+    const badge = document.getElementById('systemBadge');
+    const collabStatus = document.getElementById('collabStatus');
+    if (avgFSHI >= 70 && healthyCount >= 2) {
+      badge.textContent = '协调运转中';
+      badge.style.background = 'rgba(34,197,94,0.1)';
+      badge.style.color = '#22c55e';
+      collabStatus.textContent = '✓';
+      collabStatus.style.color = '#22c55e';
+    } else if (avgFSHI >= 50) {
+      badge.textContent = '部分受限';
+      badge.style.background = 'rgba(245,158,11,0.1)';
+      badge.style.color = '#f59e0b';
+      collabStatus.textContent = '⚠';
+      collabStatus.style.color = '#f59e0b';
+    } else {
+      badge.textContent = '系统危急';
+      badge.style.background = 'rgba(239,68,68,0.1)';
+      badge.style.color = '#ef4444';
+      collabStatus.textContent = '✗';
+      collabStatus.style.color = '#ef4444';
+    }
+
+    // Update collaborations
+    updateCollab('collab1', alphaFSHI >= 60 && betaFSHI >= 60);
+    updateCollab('collab2', gammaFSHI >= 55 && alphaFSHI >= 55);
+    updateCollab('collab3', gammaFSHI >= 55 && betaFSHI >= 55);
+    updateCollab('collab4', alphaFSHI >= 65 && betaFSHI >= 65 && gammaFSHI >= 65);
+
+    // Update alert
+    updateAlert(avgFSHI, minFSHI, healthyCount);
+  }
+
+  function updateCollab(id, active) {
+    const el = document.getElementById(id);
+    const status = document.getElementById(id + 'Status');
+    el.classList.toggle('disabled', !active);
+    status.textContent = active ? '活跃' : '断开';
+  }
+
+  function updateAlert(avg, min, healthy) {
+    const banner = document.getElementById('alertBanner');
+    banner.className = 'alert-banner';
+    
+    if (min < 40) {
+      banner.classList.add('danger');
+      document.getElementById('alertIcon').textContent = '🚨';
+      document.getElementById('alertTitle').textContent = '系统危急';
+      document.getElementById('alertMessage').textContent = '存在危急节点，建议立即进行系统诊断与修复';
+    } else if (avg < 60 || healthy < 2) {
+      banner.classList.add('warning');
+      document.getElementById('alertIcon').textContent = '⚠️';
+      document.getElementById('alertTitle').textContent = '系统预警';
+      document.getElementById('alertMessage').textContent = '部分节点健康度下降，协作链路可能受影响';
+    }
+  }
+
+  // Setup sliders
+  Object.keys(agents).forEach(agentKey => {
+    const agent = agents[agentKey];
+    agent.sliders.forEach((sliderId, i) => {
+      const slider = document.getElementById(sliderId);
+      slider.addEventListener('input', updateSystem);
+    });
+  });
+
+  // Initial state
+  updateSystem();
+</script>
+
+</body>
+</html>

@@ -11,6 +11,7 @@
 
 | 🎯 What You Need | 📍 Where It Is |
 |-----------------|----------------|
+| 🎮 **FSHI Interactive Demo** | [`demo/`](demo/) | ← *New! Try it now* |
 | 📖 **Full Protocol Stack** | [`docs/protocols/`](docs/protocols/) |
 | 🔥 **Black Swan Response (BSRM)** | [`fsmp-black-swan-response-module/`](fsmp-black-swan-response-module/) |
 | 💝 **Compassion Protocol (HMCP)** | [`docs/protocols/`](docs/protocols/) |

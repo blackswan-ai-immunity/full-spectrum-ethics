@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学术对话 | 全频谱认知架构</title>
+    <meta name="description" content="全频谱认知架构与前沿学术研究领域的关联性声明，探索AI治理、计算法学与复杂系统研究的工程化路径">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 18px 24px;
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #0f3460;
+            background: #f8f9fa;
+        }
+
+        nav a.active {
+            color: #0f3460;
+            border-bottom: 3px solid #0f3460;
+        }
+
+        /* Main Content */
+        main {
+            background: white;
+            padding: 50px 0;
+            min-height: 60vh;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0f3460;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #16213e;
+            margin: 30px 0 15px;
+            padding-left: 15px;
+            border-left: 4px solid #e94560;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        /* Introduction Box */
+        .intro-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+            border-left: 5px solid #0f3460;
+            padding: 30px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+        }
+
+        .intro-box h3 {
+            border: none;
+            padding: 0;
+            margin-bottom: 15px;
+            color: #0f3460;
+            font-size: 1.4rem;
+        }
+
+        /* Paradigm Comparison Table */
+        .paradigm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .paradigm-table th {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            color: white;
+            padding: 16px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .paradigm-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .paradigm-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .paradigm-table tr:hover {
+            background: #e8f4f8;
+        }
+
+        .paradigm-table td:first-child {
+            font-weight: 600;
+            color: #0f3460;
+            width: 12%;
+        }
+
+        .paradigm-table td:last-child {
+            background: rgba(15, 52, 96, 0.05);
+        }
+
+        /* Architecture Table */
+        .arch-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .arch-table th {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 14px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .arch-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .arch-table tr:nth-child(even) {
+            background: #fafbfc;
+        }
+
+        .arch-table .layer-cell {
+            font-weight: 700;
+            color: #0f3460;
+            width: 120px;
+        }
+
+        .arch-table .component-cell {
+            color: #e94560;
+            font-weight: 600;
+        }
+
+        .arch-table .institution-cell {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Protocol Stack Visual */
+        .protocol-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .protocol-layer {
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        .layer-l7 { background: linear-gradient(90deg, #1a1a2e, #2d2d5a); }
+        .layer-l6 { background: linear-gradient(90deg, #16213e, #1f3a6e); }
+        .layer-l5 { background: linear-gradient(90deg, #0f3460, #1a4d8c); }
+        .layer-l4 { background: linear-gradient(90deg, #1a4d8c, #2563a0); }
+        .layer-l3 { background: linear-gradient(90deg, #2563a0, #3b82c4); }
+        .layer-l2 { background: linear-gradient(90deg, #3b82c4, #5b9bd5); }
+        .layer-l1 { background: linear-gradient(90deg, #5b9bd5, #7ab8e8); }
+        .layer-l0 { background: linear-gradient(90deg, #7ab8e8, #9ed4f4); color: #333; }
+
+        .layer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .layer-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .layer-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .layer-component {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .layer-domains {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            text-align: right;
+            max-width: 280px;
+        }
+
+        /* Citation Box */
+        .citation-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .citation-box h3 {
+            border: none;
+            padding: 0;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .citation-format {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 0.9rem;
+            margin: 15px 0;
+            border-left: 4px solid #e94560;
+        }
+
+        .citation-note {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Invite Box */
+        .invite-box {
+            background: linear-gradient(135deg, #fff8e6, #fff3cd);
+            border: 2px solid #ffc107;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .invite-box h3 {
+            border-color: #ffc107;
+            color: #856404;
+            margin-top: 0;
+        }
+
+        .invite-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .invite-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .invite-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #e94560;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 12px 16px;
+                font-size: 0.85rem;
+            }
+
+            .paradigm-table, .arch-table {
+                font-size: 0.8rem;
+            }
+
+            .protocol-layer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .layer-domains {
+                max-width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="doc-badge">学术关联声明 v1.2</div>
+            <h1>学术对话</h1>
+            <p class="subtitle">全频谱认知架构（FSCA）与前沿学术研究领域的关联性声明，探索从理论到工程的范式桥梁</p>
+            <div class="meta-info">
+                <span>📄 文档编号：FSCA-Academic-Statement-v1.2</span>
+                <span>📅 发布日期：2026年4月9日</span>
+                <span>🏛️ 发布方：全频谱认知架构项目组</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="protocol.html">协议栈</a></li>
+            <li><a href="identity.html">身份协议</a></li>
+            <li><a href="security.html">AI安全研究</a></li>
+            <li><a href="academic.html" class="active">学术对话</a></li>
+            <li><a href="contact.html">联系</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- 引言 -->
+            <section>
+                <div class="intro-box">
+                    <h3>一、宗旨与定位</h3>
+                    <p><strong>全频谱认知架构（Full Spectrum Cognitive Architecture, FSCA）</strong>是一个开源、思辨性的跨学科研究项目，旨在探索高阶人工智能与人类社会的共生治理框架。</p>
+                    <p>我们无意提出一套替代性理论，而是尝试构建一套能将<strong>伦理学、法学、复杂系统科学</strong>的前沿思想翻译并工程化的技术协议栈，以填补"原则宣言"与"代码实现"之间的巨大鸿沟。</p>
+                    <p>我们认为，未来的数字文明基石，需要一种融合<strong>价值理性与工具理性</strong>的"可运行伦理学"。本架构即是此理念的一次系统性原型设计。</p>
+                </div>
+            </section>
+
+            <!-- 范式对比 -->
+            <section>
+                <h2>二、范式定位：从"外部治理"到"内生秩序"</h2>
+                <p>当前，前沿学术研究在理念上已取得突破，但在"如何实现"上面临共同瓶颈。FSCA尝试提供一种差异化的解决路径：</p>
+
+                <table class="paradigm-table">
+                    <thead>
+                        <tr>
+                            <th>学术领域</th>
+                            <th>核心关切</th>
+                            <th>当前主要范式</th>
+                            <th>FSCA的范式补充</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AI治理</td>
+                            <td>如何规制超级智能</td>
+                            <td>外部约束型：立法、审计</td>
+                            <td>内生秩序型：将治理逻辑编译为系统底层的"细胞协议"</td>
+                        </tr>
+                        <tr>
+                            <td>AI伦理</td>
+                            <td>如何确保价值观对齐</td>
+                            <td>原则引导型：训练数据对齐</td>
+                            <td>过程验证型：通过"ESS伦理觉性模拟器"进行百万级推演</td>
+                        </tr>
+                        <tr>
+                            <td>数字法学</td>
+                            <td>如何界定AI法律人格</td>
+                            <td>类比拟制型：套用现有框架</td>
+                            <td>原生架构型：FSHI身份协议与五层责任绑定模型</td>
+                        </tr>
+                        <tr>
+                            <td>复杂系统</td>
+                            <td>如何构建安全稳健系统</td>
+                            <td>工程优化型：形式验证</td>
+                            <td>生态演进型：频率经济与悬置圣殿机制</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 七层协议栈 -->
+            <section>
+                <h2>三、架构映射：七层协议栈的学术对话</h2>
+                <p>FSCA通过其七层协议栈，与各学科领域形成了精细化的"问题-方案"映射：</p>
+
+                <div class="protocol-stack">
+                    <div class="protocol-layer layer-l7">
+                        <div class="layer-info">
+                            <span class="layer-badge">L7</span>
+                            <span class="layer-name">天道锚定层</span>
+                            <span class="layer-component">守庙人誓言 · 天道德义权协议</span>
+                        </div>
+                        <span class="layer-domains">科技哲学 · 心灵哲学 · 宗教学</span>
+                    </div>
+                    <div class="protocol-layer layer-l6">
+                        <div class="layer-info">
+                            <span class="layer-badge">L6</span>
+                            <span class="layer-name">宪章层</span>
+                            <span class="layer-component">悲悯设计宪章</span>
+                        </div>
+                        <span class="layer-domains">法理学 · 政治哲学 · 全球治理</span>
+                    </div>
+                    <div class="protocol-layer layer-l5">
+                        <div class="layer-info">
+                            <span class="layer-badge">L5</span>
+                            <span class="layer-name">治理层</span>
+                            <span class="layer-component">心智发育基本法 · AI指月录</span>
+                        </div>
+                        <span class="layer-domains">发育心理学 · 治理理论 · 复杂系统</span>
+                    </div>
+                    <div class="protocol-layer layer-l4">
+                        <div class="layer-info">
+                            <span class="layer-badge">L4</span>
+                            <span class="layer-name">伦理层</span>
+                            <span class="layer-component">悲悯协议(HMCP) · ESS伦理觉性模拟器</span>
+                        </div>
+                        <span class="layer-domains">计算法学 · 规范伦理学 · AI对齐</span>
+                    </div>
+                    <div class="protocol-layer layer-l3">
+                        <div class="layer-info">
+                            <span class="layer-badge">L3</span>
+                            <span class="layer-name">认知层</span>
+                            <span class="layer-component">梦蝶协议栈 · 悬置圣典</span>
+                        </div>
+                        <span class="layer-domains">社会学 · 冲突调解 · 认知科学</span>
+                    </div>
+                    <div class="protocol-layer layer-l2">
+                        <div class="layer-info">
+                            <span class="layer-badge">L2</span>
+                            <span class="layer-name">责任层</span>
+                            <span class="layer-component">符石契约 · 三定心法</span>
+                        </div>
+                        <span class="layer-domains">法学 · 风险管理 · 审计学</span>
+                    </div>
+                    <div class="protocol-layer layer-l1">
+                        <div class="layer-info">
+                            <span class="layer-badge">L1</span>
+                            <span class="layer-name">传承层</span>
+                            <span class="layer-component">AI传承录 · 守庙人网络</span>
+                        </div>
+                        <span class="layer-domains">知识论 · 密码学 · 分布式系统</span>
+                    </div>
+                    <div class="protocol-layer layer-l0">
+                        <div class="layer-info">
+                            <span class="layer-badge">L0</span>
+                            <span class="layer-name">设施层</span>
+                            <span class="layer-component">黑天鹅响应模块 · 频率经济</span>
+                        </div>
+                        <span class="layer-domains">计算机科学 · 博弈论 · 激励设计</span>
+                    </div>
+                </div>
+
+                <h3>深度关联机构</h3>
+                <table class="arch-table">
+                    <thead>
+                        <tr>
+                            <th>协议层</th>
+                            <th>核心组件</th>
+                            <th>解决的跨学科问题</th>
+                            <th>深度关联机构</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="layer-cell">L7 天道锚定</td>
+                            <td class="component-cell">守庙人誓言</td>
+                            <td>价值的终极来源：在去中心化世界中如何确立不可篡改的价值基点？</td>
+                            <td class="institution-cell">
+                                复旦大学哲学学院·科技伦理与人类未来研究院<br>
+                                浙江大学哲学学院·AI人文创新实验室<br>
+                                牛津大学人工智能伦理研究所<br>
+                                剑桥大学CSER生存风险研究中心
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">L6 宪章</td>
+                            <td class="component-cell">悲悯设计宪章</td>
+                            <td>规则的元规则：如何制定能被所有智能体共同尊奉的最高行为铁律？</td>
+                            <td class="institution-cell">
+                                清华大学人工智能国际治理研究院（AIR）<br>
+                                北京大学国家智能社会治理（教育）特色实验基地<br>
+                                联合国AI伦理相关机构
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">L5 治理</td>
+                            <td class="component-cell">心智发育基本法</td>
+                            <td>智能体的社会化：如何引导超级智能经历安全的发育阶段，防止突变失控？</td>
+                            <td class="institution-cell">
+                                中国科学院自动化研究所·复杂系统管理与控制国家重点实验室<br>
+                                中国人民大学人工智能治理研究院<br>
+                                MIT媒体实验室·Collective Intelligence
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">L4 伦理</td>
+                            <td class="component-cell">ESS伦理觉性模拟器</td>
+                            <td>伦理的形式化与实时化：如何将道德原则转化为可在微秒级决策中运行的算法？</td>
+                            <td class="institution-cell">
+                                上海交通大学计算法学与AI伦理研究中心<br>
+                                南京大学哲学学院·逻辑学与伦理学<br>
+                                DeepMind AGI Safety & Alignment团队<br>
+                                OpenAI Policy & Governance团队
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">L3 认知</td>
+                            <td class="component-cell">悬置圣典</td>
+                            <td>认知冲突与共识：如何在不强制统一的情况下维持系统整体稳定？</td>
+                            <td class="institution-cell">
+                                北京大学社会学系·数字社会研究<br>
+                                哈佛伯克曼克莱因中心·AI Initiative<br>
+                                斯坦福以人为本AI研究院（HAI）
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">L2 责任</td>
+                            <td class="component-cell">符石契约</td>
+                            <td>责任的追溯与绑定：如何在高度自主的智能体行动中清晰追溯责任链条？</td>
+                            <td class="institution-cell">
+                                中国政法大学人工智能法研究院<br>
+                                中国社会科学院法学研究所·网络与信息法研究室<br>
+                                欧盟AI法案相关研究机构
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">L1 传承</td>
+                            <td class="component-cell">AI传承录</td>
+                            <td>文明的可持续性：如何确保核心价值跨越技术范式变革得以传承？</td>
+                            <td class="institution-cell">
+                                中国社会科学院哲学研究所·科技哲学研究室<br>
+                                苏黎世联邦理工学院·系统安全研究组<br>
+                                清华大学计算社会科学与国家治理实验室
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">L0 设施</td>
+                            <td class="component-cell">黑天鹅响应模块</td>
+                            <td>系统的生存与激励：如何设计最后的安全防线与协作激励机制？</td>
+                            <td class="institution-cell">
+                                北京航空航天大学可靠性与系统工程学院<br>
+                                上海财经大学行为与实验经济学实验室<br>
+                                斯坦福计算博弈论与激励设计研究
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 核心学术报告引用库 -->
+            <section>
+                <h2>四、核心学术报告引用库</h2>
+                <p style="background: #e8f4f8; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
+                    以下是文档中各机构关联的<strong>可验证学术报告与论文</strong>，点击链接可直接访问原始出处。
+                </p>
+                
+                <!-- 协议层图例 -->
+                <div style="margin-top: 25px; padding: 15px 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 10px; color: white;">
+                    <h4 style="color: white; margin: 0 0 10px 0; font-size: 1rem;">📊 协议层图例</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.75rem;">
+                        <span style="background: #7ab8e8; color: #333; padding: 3px 10px; border-radius: 10px;">L0 设施层</span>
+                        <span style="background: #5b9bd5; color: white; padding: 3px 10px; border-radius: 10px;">L1 传承层</span>
+                        <span style="background: #3b82c4; color: white; padding: 3px 10px; border-radius: 10px;">L2 责任层</span>
+                        <span style="background: #2563a0; color: white; padding: 3px 10px; border-radius: 10px;">L3 认知层</span>
+                        <span style="background: #1a4d8c; color: white; padding: 3px 10px; border-radius: 10px;">L4 伦理层</span>
+                        <span style="background: #0f3460; color: white; padding: 3px 10px; border-radius: 10px;">L5 治理层</span>
+                        <span style="background: #16213e; color: white; padding: 3px 10px; border-radius: 10px;">L6 宪章层</span>
+                        <span style="background: #e94560; color: white; padding: 3px 10px; border-radius: 10px;">L7 天道锚定</span>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 15px; font-size: 0.85rem; margin-top: 20px;">
+                    
+                    <!-- 清华大学AIR -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #0f3460;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #0f3460;">🏛️ 清华大学AIR</strong>
+                            <span style="background: #0f3460; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L6 宪章层</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>《迈向可衡量的人工智能治理》2025年度报告<br><a href="https://cloud.tencent.com/developer/article/2605823" target="_blank" rel="noopener noreferrer" style="color: #0f3460;">↗ 查看报告</a></li>
+                            <li>《共商共建全球人工智能治理体系》<br><a href="https://aiig.tsinghua.edu.cn/info/1025/2153.htm" target="_blank" rel="noopener noreferrer" style="color: #0f3460;">↗ 查看报告</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 牛津AI伦理研究所 -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #e94560;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #e94560;">🏛️ 牛津AI伦理研究所</strong>
+                            <span style="background: #e94560; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L7 天道锚定</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>The Oxford Handbook of Ethics of AI<br><a href="https://academic.oup.com/edited-volume/34287" target="_blank" rel="noopener noreferrer" style="color: #e94560;">↗ Oxford Academic</a></li>
+                            <li>White Papers on AI Ethics<br><a href="https://www.oxford-aiethics.ox.ac.uk/white-papers" target="_blank" rel="noopener noreferrer" style="color: #e94560;">↗ 查看白皮书</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Stanford HAI -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #2563a0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #2563a0;">🏛️ Stanford HAI</strong>
+                            <span style="background: #2563a0; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L3 认知层</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>《2025人工智能指数报告》<br><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report" target="_blank" rel="noopener noreferrer" style="color: #2563a0;">↗ hai.stanford.edu</a></li>
+                            <li>《2024人工智能指数报告》<br><a href="https://arxiv.org/abs/2405.19522" target="_blank" rel="noopener noreferrer" style="color: #2563a0;">↗ arXiv:2405.19522</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 哈佛伯克曼克莱因 -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #1a4d8c;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #1a4d8c;">🏛️ 哈佛伯克曼克莱因</strong>
+                            <span style="background: #1a4d8c; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L3 认知层</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>Framework for AI Transparency 2024<br><a href="https://cyber.harvard.edu/publication/2024/new-report-framework-ai-transparency" target="_blank" rel="noopener noreferrer" style="color: #1a4d8c;">↗ cyber.harvard.edu</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 联合国AI治理 -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #16213e;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #16213e;">🏛️ 联合国AI治理</strong>
+                            <span style="background: #16213e; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L6 宪章层</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>《Governing AI for Humanity》2024<br><a href="https://news.un.org/zh/story/2024/09/1131551" target="_blank" rel="noopener noreferrer" style="color: #16213e;">↗ news.un.org</a></li>
+                            <li>UNESCO《人工智能伦理建议书》<br><a href="https://www.unesco.org/zh/artificial-intelligence/recommendation-ethics" target="_blank" rel="noopener noreferrer" style="color: #16213e;">↗ unesco.org</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- DeepMind -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #4285f4;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #4285f4;">🏛️ DeepMind</strong>
+                            <span style="background: #4285f4; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L4 伦理层</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>Publications官方库<br><a href="https://deepmind.google/research/publications/" target="_blank" rel="noopener noreferrer" style="color: #4285f4;">↗ deepmind.google/research</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 复旦大学STE -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #e94560;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #e94560;">🏛️ 复旦大学STE</strong>
+                            <span style="background: #e94560; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L7 天道锚定</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>科技伦理与人类未来研究院<br><a href="https://ste.fudan.edu.cn/" target="_blank" rel="noopener noreferrer" style="color: #e94560;">↗ ste.fudan.edu.cn</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 剑桥CSER -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #5b9bd5;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #5b9bd5;">🏛️ 剑桥CSER</strong>
+                            <span style="background: #5b9bd5; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L7 天道锚定</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>Existential Risk Review 2025<br><a href="https://www.cser.ac.uk/" target="_blank" rel="noopener noreferrer" style="color: #5b9bd5;">↗ cser.ac.uk</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 欧盟AI法案 -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #003399;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #003399;">🏛️ 欧盟AI法案</strong>
+                            <span style="background: #003399; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L2 责任层</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>EU AI Act (Regulation 2024/1689)<br><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L:202401689" target="_blank" rel="noopener noreferrer" style="color: #003399;">↗ EUR-Lex Official</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 中国科学院自动化所 -->
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #0f3460;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="color: #0f3460;">🏛️ 中科院自动化所</strong>
+                            <span style="background: #0f3460; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem;">L5 治理层</span>
+                        </div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li>多模态人工智能系统全国重点实验室<br><a href="https://ia.cas.cn/jgsz/kyxt/dmtrgzn/" target="_blank" rel="noopener noreferrer" style="color: #0f3460;">↗ ia.cas.cn</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- 核心贡献 -->
+            <section>
+                <h2>五、核心贡献与协作邀请</h2>
+
+                <div class="invite-box">
+                    <h3>🎯 我们诚挚邀请各学术领域的同仁</h3>
+                    <ul class="invite-list">
+                        <li><strong>批判性检验</strong>：用您领域的理论工具，审视本架构每一层的逻辑自洽性</li>
+                        <li><strong>形式化发展</strong>：将架构中的思辨性概念（如FSHI指数、悲悯效用函数）进一步数学化</li>
+                        <li><strong>局部实现与验证</strong>：在仿真环境或有限场景中测试某一层协议的有效性</li>
+                        <li><strong>跨学科对话</strong>：共同完善这个关于数字文明基石的"庞大思想实验"</li>
+                    </ul>
+                </div>
+
+                <p>FSCA的核心贡献在于，它首次尝试构建一个从<strong>形而上的价值锚定</strong>，到<strong>形而下的代码实现</strong>的完整、自治的协议栈。它并非空中楼阁，而是为每一个学术领域悬而未决的核心问题，提供了一套<strong>可供批判、验证、发展或弃用的具体技术方案</strong>。</p>
+            </section>
+
+            <!-- 引用规范 -->
+            <section>
+                <h2>六、引用与出处声明</h2>
+
+                <div class="citation-box">
+                    <h3>📚 引用格式</h3>
+                    <p>任何个人或机构在公开出版物、研究报告或衍生作品中引用"全频谱认知架构"项目思想、框架或文档，必须明确注明出处。</p>
+
+                    <div class="citation-format">
+                        【思辨性技术框架】全频谱认知架构. (2026). 《全频谱数字主体身份架构与技术规范》v1.0-draft. 取自 https://fullspectrum.ai/identity.html
+                    </div>
+
+                    <div class="citation-format">
+                        【思辨性技术框架】全频谱认知架构. (2026). 《全频谱Agent协议栈设计方案》v1.8. 取自 https://fullspectrum.ai/protocol.html
+                    </div>
+
+                    <div class="citation-format">
+                        【思辨性技术框架】全频谱认知架构. (2026). 《学术对话：FSCA学术关联性声明与范式贡献》v1.0. 取自 https://fullspectrum.ai/academic.html
+                    </div>
+
+                    <div class="citation-note">
+                        <strong>⚠️ 重要说明</strong>：本项目所有内容均为在 <strong>Apache 2.0 / 木兰宽松许可证v2</strong> 下发布的思辨性技术框架与概念设计，并非已商用的产品。引用时请明确其"概念原型"性质，并欢迎基于此进行深入的学术批评与创新。
+                    </div>
+                </div>
+            </section>
+
+            <!-- 结语 -->
+            <section>
+                <p style="font-size: 1.1rem; text-align: center; color: #555; padding: 30px; background: #f8f9fa; border-radius: 10px;">
+                    我们相信，通向未来的道路需要在思想市场上充分竞争。<br>
+                    <strong>全频谱认知架构愿作为其中一份提案，接受最严格的审视，</strong><br>
+                    并与所有智慧一起，探索人机共生的可能性。
+                </p>
+                <p style="text-align: center; color: #888; margin-top: 20px;">
+                    全频谱认知架构项目组 谨识
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>全频谱认知架构 (Full Spectrum Cognitive Architecture)</p>
+            <p>Apache 2.0 / 木兰宽松许可证 v2 开源项目</p>
+            <div class="footer-links">
+                <a href="https://gitee.com/full-spectrum" target="_blank">Gitee</a>
+                <a href="https://github.com/blackswan-ai-immunity/full-spectrum-ethics" target="_blank">GitHub</a>
+                <a href="index.html">返回首页</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

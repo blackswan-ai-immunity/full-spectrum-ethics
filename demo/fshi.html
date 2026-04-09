@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSHI：频段健康指数 - 全频谱认知体系核心枢纽</title>
+  <meta name="description" content="FSHI（频段健康指数）是将低频/中频/高频健康状态从哲学概念转化为可计算数值的量化模型，是全频谱认知体系的核心枢纽。">
+  <meta property="og:title" content="FSHI：频段健康指数">
+  <meta property="og:description" content="全频谱认知体系的核心量化枢纽">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="canonical" href="fshi.html">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #7c3aed;
+      --accent-light: #f5f3ff;
+      --yellow-bg: #e2e8f0;
+      --yellow-border: #64748b;
+      --yellow-text: #475569;
+      --green: #16a34a;
+      --green-bg: #f0fdf4;
+      --green-border: #86efac;
+      --warning-bg: #fff7ed;
+      --warning-border: #fb923c;
+      --tip-bg: #eff6ff;
+      --tip-border: #93c5fd;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.3px;
+    }
+    .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+    nav { display: flex; gap: 4px; }
+    nav a {
+      padding: 6px 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    nav a:hover { background: var(--primary-light); color: var(--primary); }
+    nav a.active { color: var(--primary); background: var(--primary-light); font-weight: 600; }
+
+    /* ===== Doc Hero ===== */
+    .doc-hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e3a5f 100%);
+      color: #fff;
+      padding: 64px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .doc-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 20%;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .doc-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: rgba(255,255,255,0.95); }
+    .doc-hero .version-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124,58,237,0.3);
+      border: 1px solid rgba(124,58,237,0.55);
+      color: #ddd6fe;
+      font-size: 13px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+    .doc-hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .doc-hero .subtitle {
+      color: #cbd5e1;
+      font-size: 16px;
+      margin-bottom: 24px;
+      max-width: 680px;
+    }
+    .doc-hero .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .doc-hero .kw {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #e2e8f0;
+      font-size: 12px;
+      padding: 3px 11px;
+      border-radius: 12px;
+      letter-spacing: 0.2px;
+    }
+    .doc-meta-row {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .doc-meta-row span { display: flex; align-items: center; gap: 6px; }
+
+    /* ===== 版本信息块（合并版）===== */
+    .version-info-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 20px;
+      margin: 24px 0;
+    }
+    .vi-row {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .vi-row strong { color: var(--text); }
+
+    /* ===== Layout: TOC Left (280px), Content Right ===== */
+    .layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 52px;
+      align-items: start;
+    }
+    .toc-sidebar {
+      position: sticky;
+      top: 80px;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+    .toc-sidebar::-webkit-scrollbar { width: 4px; }
+    .toc-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    .article-wrap { min-width: 0; }
+
+    /* TOC样式 */
+    .toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .toc ol { list-style: none; counter-reset: toc-counter; }
+    .toc ol ol { padding-left: 16px; margin-top: 4px; }
+    .toc li { margin-bottom: 5px; }
+    .toc-sidebar .toc a,
+    .toc a {
+      color: #475569 !important;
+      text-decoration: none !important;
+      font-size: 14px;
+      font-weight: 500;
+      display: block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: all 0.15s;
+      border: none !important;
+    }
+    .toc-sidebar .toc a:hover,
+    .toc a:hover {
+      color: var(--primary) !important;
+      background: #dbeafe !important;
+    }
+    .toc-sidebar li.active > a,
+    .toc li.active > a {
+      color: var(--primary) !important;
+      font-weight: 600 !important;
+      background: #dbeafe !important;
+    }
+
+    /* ===== Article Typography ===== */
+    .article { font-size: 16px; }
+
+    .article h1 {
+      font-size: 30px;
+      font-weight: 800;
+      margin: 48px 0 16px;
+      color: var(--text);
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+    }
+    .article h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 40px 0 14px;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .article h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 28px 0 10px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .article p { margin: 16px 0; }
+    .article ul, .article ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .article li { margin: 6px 0; }
+    .article strong { color: var(--text); font-weight: 600; }
+    .article hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .article code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: var(--accent);
+      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+    }
+
+    /* 引用块：灰色背景，紧凑版 */
+    .article blockquote {
+      background: var(--yellow-bg);
+      border-left: 4px solid var(--yellow-border);
+      padding: 10px 16px;
+      margin: 10px 0;
+      border-radius: 0 8px 8px 0;
+      color: var(--yellow-text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .article blockquote p { color: var(--yellow-text); margin-bottom: 0; font-size: inherit; line-height: inherit; }
+
+    /* 表格 */
+    .article table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .article th, .article td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .article th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .article tr:nth-child(even) td { background: #fafbfc; }
+
+    /* 代码块 */
+    .article pre {
+      background: #e2e8f0;
+      color: #334155;
+      padding: 20px 24px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-size: 13px;
+      line-height: 1.6;
+      border: 1px solid #cbd5e1;
+      font-family: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+    }
+
+    /* 高亮块 */
+    .highlight-box {
+      background: var(--tip-bg);
+      border: 1px solid var(--tip-border);
+      border-left: 4px solid var(--primary);
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* 核心观点块 */
+    .core-insight {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      border: 1px solid #c4b5fd;
+      border-left: 4px solid var(--accent);
+      padding: 18px 22px;
+      margin: 28px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    .core-insight p {
+      margin: 0;
+      color: #5b21b6;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .core-insight strong { color: #6d28d9; }
+
+    /* 三频段卡片 */
+    .frequency-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .freq-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .freq-card.low { border-top: 3px solid #ef4444; }
+    .freq-card.mid { border-top: 3px solid #f59e0b; }
+    .freq-card.high { border-top: 3px solid #22c55e; }
+    .freq-card h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .freq-card .weight {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 8px 0;
+    }
+    .freq-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* 协同流程图 */
+    .flow-diagram {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .flow-diagram .flow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .flow-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .flow-box.highlight {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .flow-arrow {
+      color: var(--text-muted);
+      font-size: 18px;
+    }
+
+    /* 健康状态指示器 */
+    .health-indicator {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .health-level {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .health-level.excellent { border-top: 3px solid #22c55e; }
+    .health-level.normal { border-top: 3px solid #3b82f6; }
+    .health-level.warning { border-top: 3px solid #f59e0b; }
+    .health-level.crisis { border-top: 3px solid #f97316; }
+    .health-level.critical { border-top: 3px solid #ef4444; }
+    .health-level .range {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .health-level .label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .health-level .action {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* 页脚 */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* 响应式 */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .toc-sidebar {
+        position: static;
+        max-height: none;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+      }
+      .frequency-cards { grid-template-columns: 1fr; }
+      .health-indicator { grid-template-columns: repeat(3, 1fr); }
+      .doc-hero h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        全频谱认知架构
+      </a>
+      <nav>
+        <a href="index.html">首页</a>
+        <a href="protocol-v18.html">⭐ 核心框架</a>
+        <a href="identity-protocol.html">身份协议</a>
+        <a href="fshi.html" class="active">📊 FSHI</a>
+        <a href="academic.html">🏛️ 学术对话</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="doc-hero">
+    <div class="doc-hero-inner">
+      <a href="index.html" class="back-link">← 返回首页</a>
+      <div class="version-badge">📊 核心量化枢纽</div>
+      <h1>FSHI：频段健康指数</h1>
+      <p class="subtitle">将低频/中频/高频健康状态从哲学概念转化为可计算数值的量化模型——全频谱认知体系的核心枢纽</p>
+      <div class="keywords">
+        <span class="kw">量化健康</span>
+        <span class="kw">三频段整合</span>
+        <span class="kw">动态调谐</span>
+        <span class="kw">跨层驱动</span>
+        <span class="kw">主动预警</span>
+      </div>
+      <div class="doc-meta-row">
+        <span>📅 2026-04-09</span>
+        <span>📌 v1.0 首发版</span>
+        <span>📖 全频谱认知体系</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <aside class="toc-sidebar">
+      <div class="toc-title">目 录</div>
+      <ol class="toc">
+        <li><a href="#一、FSHI是什么">一、FSHI是什么</a></li>
+        <li><a href="#二、三频段子指数">二、三频段子指数</a></li>
+        <li><a href="#三、FSHI的三大作用">三、FSHI的三大作用</a></li>
+        <li><a href="#四、串联全频谱协议层">四、串联全频谱协议层</a></li>
+        <li><a href="#五、为什么FSHI重要">五、为什么FSHI重要</a></li>
+        <li><a href="#六、与传统指标的区别">六、与传统指标的区别</a></li>
+        <li><a href="#七、应用场景">七、应用场景</a></li>
+        <li><a href="#八、技术规范">八、技术规范要点</a></li>
+        <li><a href="#九、相关文档">九、相关文档</a></li>
+      </ol>
+    </aside>
+
+    <main class="article">
+      <div class="version-info-block">
+        <div class="vi-row"><strong>版本</strong>：1.0 &nbsp;|&nbsp; <strong>日期</strong>：2026-04-09 &nbsp;|&nbsp; <strong>状态</strong>：首发版</div>
+      </div>
+
+      <h1 id="一、FSHI是什么">一、FSHI是什么？</h1>
+
+      <p><strong>FSHI</strong>，全称<strong>频段健康指数（Frequency Spectrum Health Index）</strong>，是将"低频/中频/高频"健康状态从哲学概念转化为可观测、可计算数值的量化模型。</p>
+
+      <p>它回答一个关键问题：<strong>一个系统（个体、组织、文明）当前的健康状态如何？</strong></p>
+
+      <h2>核心公式</h2>
+
+      <pre>FSHI = w₁ × SurvivalScore + w₂ × RelationshipScore + w₃ × MeaningScore - Penalty</pre>
+
+      <table>
+        <thead>
+          <tr><th>组成部分</th><th>含义</th><th>权重（默认）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>SurvivalScore</strong>（低频）</td><td>生存健康度：生存安全与基本资源保障水平</td><td>40%</td></tr>
+          <tr><td><strong>RelationshipScore</strong>（中频）</td><td>关系健康度：社会信任、协作与制度运行健康度</td><td>30%</td></tr>
+          <tr><td><strong>MeaningScore</strong>（高频）</td><td>意义健康度：意义感、文化活力与价值共创水平</td><td>30%</td></tr>
+          <tr><td><strong>Penalty</strong></td><td>惩罚项：规则违反、伦理偏差的累积扣分</td><td>动态</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box">
+        <strong>权重可动态调节</strong>：根据情境（灾害预警/社会动荡/文化危机）自动调整权重配比，确保系统在关键时刻做出恰当响应。
+      </div>
+
+      <h1 id="二、三频段子指数">二、三频段子指数详解</h1>
+
+      <div class="frequency-cards">
+        <div class="freq-card low">
+          <h4>低频 Survival</h4>
+          <div class="weight">40%</div>
+          <p>生存安全与基本资源保障水平</p>
+        </div>
+        <div class="freq-card mid">
+          <h4>中频 Relationship</h4>
+          <div class="weight">30%</div>
+          <p>社会信任、协作与制度运行</p>
+        </div>
+        <div class="freq-card high">
+          <h4>高频 Meaning</h4>
+          <div class="weight">30%</div>
+          <p>意义感、文化活力与价值共创</p>
+        </div>
+      </div>
+
+      <h2>2.1 低频：SurvivalScore（生存健康度）</h2>
+
+      <p>反映<strong>生存安全与基本资源保障水平</strong>。</p>
+
+      <p><strong>代理指标示例</strong>：</p>
+      <ul>
+        <li>经济韧性指数（GDP波动稳定性、失业率、通胀率）</li>
+        <li>公共安全指数（犯罪率、灾害应急能力）</li>
+        <li>基础物资保障率（粮食、能源、医疗物资供应稳定度）</li>
+      </ul>
+
+      <p><strong>计算公式（示例）</strong>：</p>
+      <pre>SurvivalScore = (α₁·REI + α₂·PSI + α₃·MSR) / (α₁ + α₂ + α₃)</pre>
+
+      <h2>2.2 中频：RelationshipScore（关系健康度）</h2>
+
+      <p>反映<strong>社会信任、协作与制度运行健康度</strong>。</p>
+
+      <p><strong>代理指标示例</strong>：</p>
+      <ul>
+        <li>社会信任度（调查问卷综合得分）</li>
+        <li>跨群体合作率（联合项目数占比）</li>
+        <li>群体事件发生率（冲突、抗议频次归一化值）</li>
+      </ul>
+
+      <p><strong>计算公式（示例）</strong>：</p>
+      <pre>RelationshipScore = β₁·TrustIndex + β₂·CooperationRate - β₃·IncidentRate</pre>
+
+      <h2>2.3 高频：MeaningScore（意义健康度）</h2>
+
+      <p>反映<strong>意义感、文化活力与价值共创水平</strong>。</p>
+
+      <p><strong>代理指标示例</strong>：</p>
+      <ul>
+        <li>文化艺术活跃度（创作产出、展演频次）</li>
+        <li>志愿者活动参与率</li>
+        <li>生命意义公共讨论热度</li>
+      </ul>
+
+      <p><strong>计算公式（示例）</strong>：</p>
+      <pre>MeaningScore = γ₁·CultureVitality + γ₂·VolunteerRate + γ₃·DiscussionHeat</pre>
+
+      <h1 id="三、FSHI的三大作用">三、FSHI的三大作用</h1>
+
+      <h2>3.1 状态感知</h2>
+
+      <p>FSHI是全频谱认知体系的"感知器官"——它将抽象的"健康"转化为具体数字。</p>
+
+      <div class="health-indicator">
+        <div class="health-level excellent">
+          <div class="range">80-100</div>
+          <div class="label">优良</div>
+          <div class="action">保持现状，可探索创新</div>
+        </div>
+        <div class="health-level normal">
+          <div class="range">60-79</div>
+          <div class="label">常规</div>
+          <div class="action">常规运行，轻度关注</div>
+        </div>
+        <div class="health-level warning">
+          <div class="range">40-59</div>
+          <div class="label">警戒</div>
+          <div class="action">启动预警，加强监测</div>
+        </div>
+        <div class="health-level crisis">
+          <div class="range">20-39</div>
+          <div class="label">危机</div>
+          <div class="action">介入干预，调整策略</div>
+        </div>
+        <div class="health-level critical">
+          <div class="range">0-19</div>
+          <div class="label">危急</div>
+          <div class="action">紧急响应，启动BSRM</div>
+        </div>
+      </div>
+
+      <h2>3.2 动态调谐</h2>
+
+      <p>FSHI驱动权重自动调整，使系统在不同情境下做出恰当响应：</p>
+
+      <table>
+        <thead>
+          <tr><th>情境</th><th>权重调整</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>灾害预警</td><td>w₁（生存）提升至 0.6</td></tr>
+          <tr><td>社会动荡</td><td>w₂（关系）提升至 0.5</td></tr>
+          <tr><td>文化意义危机</td><td>w₃（意义）提升至 0.5</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3.3 跨层驱动</h2>
+
+      <p>FSHI为各协议层提供统一的"健康度信号"，使孤立模块变为协同网络。</p>
+
+      <h1 id="四、串联全频谱协议层">四、FSHI如何串联全频谱各协议层？</h1>
+
+      <p>FSHI是全频谱协议栈的<strong>核心枢纽</strong>，它将七层协议从"各司其职"变为"协同呼吸"。</p>
+
+      <h2>协议层架构预览</h2>
+
+      <pre>L7: 天道锚定层 —— 设定健康基线与阈值
+L6: 宪章层 —— 定义FSHI计算规范
+L5: 治理层 —— 根据FSHI分配资源与权限
+L4: 伦理层 —— 悲悯协议响应FSHI偏差
+L3: 认知层 —— ESS引擎调用FSHI进行推演
+L2: 责任层 —— FSHI驱动责任追溯
+L1: 传承层 —— FSHI历史存证与学习</pre>
+
+      <h2>4.1 符石契约系统</h2>
+
+      <p>FSHI是符石契约五层模型的"感知核心"：</p>
+
+      <table>
+        <thead>
+          <tr><th>符石契约层</th><th>FSHI的角色</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>价值提炼层</strong></td><td>识别系统当前的生存/关系/意义三频状态，发现失衡</td></tr>
+          <tr><td><strong>痛苦注入层</strong></td><td>结合预警信息，动态调整干预策略</td></tr>
+          <tr><td><strong>频率经济层</strong></td><td>健康指数影响信誉积分与资源配额</td></tr>
+          <tr><td><strong>存证层</strong></td><td>FSHI变化被存证，形成跨链透明的健康轨迹</td></tr>
+          <tr><td><strong>激励层</strong></td><td>健康状态直接驱动经济激励分配</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4.2 ESS伦理觉性模拟器</h2>
+
+      <p>ESS引擎在推演前调用FSHI：</p>
+      <ol>
+        <li><strong>判定当前文明免疫状态</strong>（健康/警戒/危急）</li>
+        <li><strong>评估灰度发布风险</strong>：若FSHI低于阈值，建议延迟或调整策略</li>
+        <li><strong>规则压力测试</strong>：引入健康指数作为约束条件，提前规避导致频段失衡的决策</li>
+      </ol>
+
+      <h2>4.3 频率经济协议</h2>
+
+      <p>FSHI与频率经济深度联动：</p>
+
+      <div class="flow-diagram">
+        <div class="flow-row">
+          <div class="flow-box">健康状态高</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">频率贡献积分高</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">资源配额多</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box highlight">激励循环正反馈</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-box">健康状态低</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">频率贡献积分低</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">资源配额少</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">驱动改善</div>
+        </div>
+      </div>
+
+      <h2>4.4 全链路协同示意</h2>
+
+      <div class="flow-diagram">
+        <div class="flow-row">
+          <div class="flow-box highlight">📊 FSHI计算引擎<br>(实时健康感知)</div>
+        </div>
+        <div class="flow-row">
+          <span class="flow-arrow">↓</span>
+        </div>
+        <div class="flow-row">
+          <div class="flow-box">符石契约系统<br>(价值与痛苦层)</div>
+          <span class="flow-arrow">←</span>
+          <div class="flow-box">ESS推演引擎<br>(规则压力测试)</div>
+          <span class="flow-arrow">←</span>
+          <div class="flow-box">频率经济协议<br>(激励与资源)</div>
+        </div>
+        <div class="flow-row">
+          <span class="flow-arrow">↓</span>
+        </div>
+        <div class="flow-row">
+          <div class="flow-box highlight">动态调谐与协同响应<br>(权重调整/资源分配/预警)</div>
+        </div>
+      </div>
+
+      <h1 id="五、为什么FSHI重要">五、为什么FSHI重要？</h1>
+
+      <h2>5.1 从"抽象哲学"到"可计算数字"</h2>
+
+      <p>传统AI伦理讨论往往停留在"应该怎么做"的哲学层面，缺乏可操作的量化工具。</p>
+
+      <div class="core-insight">
+        <p><strong>FSHI的价值</strong>：将"健康"变成一个可以测量、监控、预警的具体指标。</p>
+      </div>
+
+      <h2>5.2 从"孤立模块"到"协同网络"</h2>
+
+      <p>没有FSHI，各协议层像是各怀绝技但互不沟通的孤岛。</p>
+
+      <p>有FSHI，协议栈成为"一个有机体"——各层依据统一的健康信号协同呼吸。</p>
+
+      <h2>5.3 从"被动响应"到"主动预防"</h2>
+
+      <p>FSHI使系统具备<strong>预见性</strong>——不是等崩溃了才响应，而是在健康指数下滑时就开始调谐。</p>
+
+      <h1 id="六、与传统指标的区别">六、与传统指标的区别</h1>
+
+      <table>
+        <thead>
+          <tr><th>维度</th><th>传统健康指标</th><th>FSHI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>维度</td><td>单一（GDP/健康指数等）</td><td>三频段整合（生存/关系/意义）</td></tr>
+          <tr><td>方向</td><td>单向增长假设</td><td>动态平衡，允许下调以优化</td></tr>
+          <tr><td>联动</td><td>孤立</td><td>跨层驱动</td></tr>
+          <tr><td>响应</td><td>被动</td><td>主动预警与调谐</td></tr>
+        </tbody>
+      </table>
+
+      <h1 id="七、应用场景">七、应用场景详解</h1>
+
+      <h2>7.1 AI Agent治理：给每个Agent装上"健康仪表盘"</h2>
+
+      <p>在企业级AI系统中，每个AI Agent执行关键决策时（如审核贷款、发布内容、调整价格），都需要知道自己"当前是否清醒"。</p>
+
+      <p>FSHI就是Agent的"自我体检单"——低于60分时，禁止执行高风险操作。</p>
+
+      <h3>决策流程图</h3>
+
+      <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto;">
+┌─────────────────────────────────────────────────────────────┐
+│                    AI Agent 决策流程                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  用户请求执行关键操作                                        │
+│        │                                                    │
+│        ▼                                                    │
+│  ┌─────────────┐                                           │
+│  │ 获取当前FSHI │ ← 实时查询Agent健康指数                   │
+│  └──────┬──────┘                                           │
+│         │                                                   │
+│         ▼                                                   │
+│  ┌──────────────────┐                                       │
+│  │ FSHI ≥ 60?      │                                       │
+│  └──────┬───────────┘                                       │
+│         │                                                   │
+│    ┌────┴────┐                                              │
+│    │Yes      │No                                            │
+│    ▼         ▼                                              │
+│ ┌──────┐ ┌────────────────────────────────────────────┐   │
+│ │正常  │ │ ⚠️ 触发保护机制                             │   │
+│ │执行  │ │ ① 降低权限（只读/建议模式）                 │   │
+│ │操作  │ │ ② 通知人类监督者                           │   │
+│ └──────┘ │ ③ 记录异常日志                             │   │
+│          │ ④ 启动自检流程                             │   │
+│          └────────────────────────────────────────────┘   │
+│                                                            │
+└─────────────────────────────────────────────────────────────┘
+      </pre>
+
+      <h3>阈值规则示例</h3>
+
+      <table>
+        <thead>
+          <tr><th>FSHI范围</th><th>Agent权限级别</th><th>可执行操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>80-100</td><td>🔥 全权限</td><td>关键决策、主动干预、资源调配</td></tr>
+          <tr><td>60-79</td><td>⚡ 标准权限</td><td>常规任务、建议生成、信息查询</td></tr>
+          <tr><td>40-59</td><td>🛡️ 受限权限</td><td>仅查看、低风险操作、需人工确认</td></tr>
+          <tr><td>20-39</td><td>🔒 锁定模式</td><td>仅监控告警，禁止主动操作</td></tr>
+          <tr><td>0-19</td><td>🚨 紧急暂停</td><td>停止所有操作，等待人工介入</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-example">
+        <h4>📋 实际案例：贷款审核Agent</h4>
+        <ul>
+          <li><strong>FSHI=85</strong>：可独立批准贷款 ≤100万</li>
+          <li><strong>FSHI=72</strong>：仅可提供审批建议，最终由人类决定</li>
+          <li><strong>FSHI=58</strong>：仅可处理贷前材料审核，禁止给出任何结论</li>
+          <li><strong>FSHI=35</strong>：锁定，禁止访问贷款系统</li>
+        </ul>
+      </div>
+
+      <h2>7.2 多Agent系统：10+ Agent协作的"健康指挥官"</h2>
+
+      <p>当企业部署多个AI Agent协同工作时，每个Agent有自己的FSHI，但整体系统也需要一个"集体FSHI"——反映整个Agent生态的健康状态。</p>
+
+      <h3>集体FSHI计算方式</h3>
+
+      <pre style="background: #1a1a2e; padding: 15px; border-radius: 8px;">
+集体FSHI = Σ(各Agent权重 × AgentFSHI) × 系统协同因子
+      </pre>
+
+      <h3>协作架构图</h3>
+
+      <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 12px;">
+┌────────────────────────────────────────────────────────────────────────┐
+│                    多Agent系统 FSHI协同架构                              │
+├────────────────────────────────────────────────────────────────────────┤
+│                                                                        │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐ │
+│  │ 客服Agent│  │ 风控Agent│  │ 分析Agent│  │ 审核Agent│  │ 运维Agent│ │
+│  │ FSHI=82 │  │ FSHI=76 │  │ FSHI=88 │  │ FSHI=45 │  │ FSHI=91 │ │
+│  │ 权重:0.3│  │ 权重:0.2│  │ 权重:0.2│  │ 权重:0.2│  │ 权重:0.1│ │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘ │
+│       └─────────────┴─────────────┴─────────────┴─────────────┘        │
+│                                  │                                     │
+│                                  ▼                                     │
+│                       ┌─────────────────┐                             │
+│                       │  集体FSHI计算    │                             │
+│                       │ = 0.3×82+0.2×76│                             │
+│                       │   +0.2×88+0.2×45│                            │
+│                       │   +0.1×91=75.5  │                             │
+│                       └────────┬────────┘                             │
+│                                │                                      │
+│                                ▼                                      │
+│                       ┌─────────────────┐                             │
+│                       │  ⚠️ 预警提示     │                             │
+│                       │  审核Agent过低  │                             │
+│                       │  建议：限流升级 │                             │
+│                       └─────────────────┘                             │
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘
+      </pre>
+
+      <h3>资源调度策略</h3>
+
+      <table>
+        <thead>
+          <tr><th>系统状态</th><th>集体FSHI</th><th>资源分配策略</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>高效运行</td><td>≥75</td><td>全力运转，探索创新任务</td></tr>
+          <tr><td>基本正常</td><td>60-74</td><td>标准负载，关闭非必要资源</td></tr>
+          <tr><td>亚健康</td><td>45-59</td><td>限流保护，优先保障核心业务</td></tr>
+          <tr><td>危机状态</td><td>&lt;45</td><td>紧急收缩，仅保留关键功能</td></tr>
+        </tbody>
+      </table>
+
+      <h2>7.3 长期任务：防止Agent"迷失"的时间护栏</h2>
+
+      <p>AI Agent在执行长达数天甚至数月的任务时，容易出现"目标漂移"——最初目标清晰，但逐渐偏离原始目标。</p>
+
+      <p>FSHI监控就是"时间护栏"——定期检查Agent是否还记得"我是谁、我要做什么"。</p>
+
+      <h3>漂移检测机制</h3>
+
+      <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 12px;">
+┌────────────────────────────────────────────────────────────────────┐
+│                    长期任务 FSHI漂移监控                            │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│   第1天                      第30天                      第60天     │
+│   ┌────────┐                ┌────────┐                ┌────────┐  │
+│   │原始目标│                │当前状态│                │当前状态│  │
+│   │ FSHI=85│                │ FSHI=72│                │ FSHI=58│  │
+│   │ 清晰稳定│                │ 开始偏移│                │⚠️严重漂移│  │
+│   └────────┘                └────────┘                └────────┘  │
+│        │                         │                         │       │
+│        └─────────────────────────┴─────────────────────────┘       │
+│                               │                                    │
+│                               ▼                                    │
+│              ┌─────────────────────────────────┐                    │
+│              │   📉 FSHI趋势分析              │                    │
+│              │                                 │                    │
+│              │   原始轨迹：═══════════         │                    │
+│              │   当前轨迹：═══════╗            │                    │
+│              │               ↑    ║            │                    │
+│              │            分歧点   ╚════        │                    │
+│              │                     已漂移30%   │                    │
+│              └─────────────────────────────────┘                    │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+      </pre>
+
+      <h3>自动纠正流程</h3>
+
+      <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 15px 0;">
+        <p><strong>Step 1:</strong> 定期健康检查（每小时/每天）</p>
+        <p style="margin-left: 20px; color: var(--primary);">↓</p>
+        <p><strong>Step 2:</strong> 对比当前FSHI与基准FSHI</p>
+        <div style="margin-left: 30px; margin-top: 10px;">
+          <p><span style="color: #22c55e;">✓</span> <strong>偏差 &lt; 10%</strong>：继续运行</p>
+          <p><span style="color: #f59e0b;">⚠️</span> <strong>偏差 10-25%</strong>：预警 → 发送提醒 → Agent执行"目标复位" → 重新学习原始任务</p>
+          <p><span style="color: #ef4444;">🚨</span> <strong>偏差 &gt; 25%</strong>：紧急干预 → 暂停Agent → 回滚到稳定节点 → 生成漂移报告</p>
+        </div>
+      </div>
+
+      <h3>记忆锚定机制</h3>
+
+      <p>FSHI不仅看"当前状态"，还检查三重一致性：</p>
+
+      <table>
+        <thead>
+          <tr><th>检查项</th><th>说明</th><th>阈值</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🎯 目标一致性指数</td><td>当前决策与原始目标的相关度</td><td>&lt; 0.6 → 触发目标复位</td></tr>
+          <tr><td>📏 边界遵守率</td><td>操作是否在预设边界内</td><td>&lt; 0.8 → 警告并收紧权限</td></tr>
+          <tr><td>⚖️ 价值对齐度</td><td>与悲悯协议/HMCP的一致性</td><td>&lt; 0.7 → 锁定并报告</td></tr>
+        </tbody>
+      </table>
+
+      <h2>7.4 文明健康仪表盘：可视化实时状态</h2>
+
+      <p>FSHI最终要呈现给人类管理者——一个清晰的仪表盘，让非技术人员也能一眼看懂"我们的AI系统健康吗？"</p>
+
+      <h3>仪表盘布局预览</h3>
+
+      <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 11px; color: #e2e8f0;">
+┌──────────────────────────────────────────────────────────────────────┐
+│              🔮 全频谱认知系统 健康仪表盘  (示例)                     │
+├──────────────────────────────────────────────────────────────────────┤
+│  当前时间: 2026-04-09 18:30:00        系统状态: 🟢 健康             │
+├────────────────────────────────┬─────────────────────────────────────┤
+│                                │   三频段健康雷达图                   │
+│   ┌──────────────────┐        │        低频(生存)                   │
+│   │                   │        │           80% ●                   │
+│   │   ◉ 集体FSHI     │        │          ╱    ╲                    │
+│   │      75.5        │        │    75%●        ●65%高频(意义)      │
+│   │    ◉────────◉   │        │         ╲    ╱                      │
+│   └──────────────────┘        │          ╲╱                         │
+│                                │      中频(关系)70%                   │
+│   [████████████░░░] 75%        │                                    │
+├────────────────────────────────┴─────────────────────────────────────┤
+│  Agent健康状态                                                      │
+│  🔥 客服Agent  FSHI=82  [████████████████████] 状态: 正常          │
+│  🔥 风控Agent  FSHI=76  [██████████████████░░] 状态: 正常          │
+│  ⚡ 分析Agent  FSHI=88  [████████████████████] 状态: 正常          │
+│  🛡️ 审核Agent  FSHI=45  [██████████░░░░░░░░░░░░] 状态: ⚠️ 限流中  │
+├──────────────────────────────────────────────────────────────────────┤
+│  📈 FSHI历史趋势 (最近7天)                                           │
+│  100%┤                    ╭─╮                                        │
+│   75%┤              ╭────╯  ╰────╮ ← 今天: 75.5                     │
+│    0%┴───────────────────────────────                               │
+│      周一   周二   周三   周四   周五   周六   周日                  │
+├──────────────────────────────────────────────────────────────────────┤
+│  🚨 预警信息                                                          │
+│  • 审核Agent FSHI 低于警戒线 (45 &lt; 60)，已自动限流               │
+│  • 建议：检查审核Agent任务队列，清理积压                             │
+└──────────────────────────────────────────────────────────────────────┘
+      </pre>
+
+      <h2>7.5 应用场景总览图</h2>
+
+      <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; color: #e2e8f0; font-size: 12px;">
+┌─────────────────────────────────────────────────────────────────────┐
+│                      FSHI 应用场景全景                               │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│          ╔═══════════════════════════════════════════════════╗     │
+│          ║          FSHI 频段健康指数核心                      ║     │
+│          ╚═══════════════════════════════════════════════════╝     │
+│                              │                                      │
+│          ┌──────────────────┼──────────────────┐                  │
+│          │                  │                  │                  │
+│          ▼                  ▼                  ▼                  │
+│     ┌──────────┐      ┌──────────┐      ┌──────────┐              │
+│     │ 单Agent  │      │ 多Agent  │      │ 长期任务 │              │
+│     │ 治理     │      │ 协作     │      │ 监控     │              │
+│     └────┬─────┘      └────┬─────┘      └────┬─────┘              │
+│          └──────────────────┼──────────────────┘                  │
+│                             ▼                                       │
+│                    ┌──────────────┐                               │
+│                    │  文明健康     │                               │
+│                    │  仪表盘      │                               │
+│                    └──────────────┘                               │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+      </pre>
+
+      <h3>场景对比总结</h3>
+
+      <table>
+        <thead>
+          <tr><th>场景</th><th>核心问题</th><th>FSHI解决方案</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>单Agent治理</td><td>"这个Agent现在靠谱吗？"</td><td>FSHI阈值门控</td></tr>
+          <tr><td>多Agent协作</td><td>"系统整体健康吗？"</td><td>集体FSHI + 冲突检测</td></tr>
+          <tr><td>长期任务</td><td>"Agent有没有跑偏？"</td><td>漂移监控 + 目标一致性</td></tr>
+          <tr><td>仪表盘可视化</td><td>"管理者如何一眼看懂？"</td><td>可视化 + 预警推送</td></tr>
+        </tbody>
+      </table>
+
+      <h1 id="八、技术规范">八、技术规范要点</h1>
+
+      <h2>8.1 数据预处理</h2>
+
+      <ul>
+        <li><strong>方向统一</strong>：定义"健康方向"（如信任度越高越健康，犯罪率越低越健康）</li>
+        <li><strong>归一化方法</strong>：Min-Max映射到[0,1]，或Z-score标准化</li>
+        <li><strong>异常处理</strong>：缺失值用移动平均填充，异常值标记待审</li>
+      </ul>
+
+      <h2>8.2 更新周期</h2>
+
+      <table>
+        <thead>
+          <tr><th>数据类型</th><th>更新周期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>经济/公共安全/物资</td><td>月度</td></tr>
+          <tr><td>社会信任/群体事件</td><td>季度</td></tr>
+          <tr><td>文化/志愿活动</td><td>半年</td></tr>
+        </tbody>
+      </table>
+
+      <h2>8.3 异常防御</h2>
+
+      <ul>
+        <li><strong>短期剧烈波动</strong>：7日内变动>0.2，自动触发人工复核</li>
+        <li><strong>多源数据矛盾</strong>：差异>15%，优先可信度高源</li>
+        <li><strong>数据污染</strong>：超过历史3σ，用移动均值替代</li>
+      </ul>
+
+      <h1 id="九、相关文档">九、相关文档索引</h1>
+
+      <table>
+        <thead>
+          <tr><th>文档</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>《频段健康指数量化模型技术规范 v1.1》</td><td>完整技术规范</td></tr>
+          <tr><td>《全频谱符石契约2.0纲要》</td><td>符石契约系统</td></tr>
+          <tr><td>《ESS伦理觉性模拟器》</td><td>ESS推演引擎</td></tr>
+          <tr><td>《频率经济与贡献计量体系》</td><td>频率经济联动</td></tr>
+          <tr><td>《文明免疫系统运行机理》</td><td>免疫系统集成</td></tr>
+        </tbody>
+      </table>
+
+      <div class="core-insight">
+        <p><strong>核心观点</strong>：FSHI不是又一个评分系统，它是全频谱认知体系的"中枢神经"——让协议栈从静态文档变成动态呼吸的生命体。</p>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>📊 FSHI专题 · 全频谱认知体系核心枢纽 · v1.1</p>
+    <p style="margin-top: 8px;">
+      腾讯文档：
+      <a href="https://docs.qq.com/aio/DY2F5RmVpQUZGcWxk" style="color: var(--primary);">FSHI专题：频段健康指数</a> |
+      <a href="https://docs.qq.com/aio/DY0NrQndCSHJWV0Jq" style="color: var(--primary);">FSHI应用场景详解（含图表）</a>
+    </p>
+  </footer>
+
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('.toc a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // 高亮当前章节
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          document.querySelectorAll('.toc li').forEach(li => li.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc a[href="#${id}"]`);
+          if (activeLink) activeLink.parentElement.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('h1[id], h2[id]').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
