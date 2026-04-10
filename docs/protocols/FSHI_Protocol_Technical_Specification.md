@@ -3,7 +3,7 @@
 > **Version**: v1.0-draft
 > **Date**: 2026-04-06
 > **Corresponding Philosophy**: "Full Spectrum Digital Identity Declaration" (Fundamental Version)
-> **License**: Apache 2.0
+> **License**: Mulan PSL v2 / Apache 2.0
 
 ---
 
