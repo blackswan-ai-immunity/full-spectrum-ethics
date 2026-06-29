@@ -59,6 +59,7 @@ Goal: make the protocol runnable.
 - Provide risk scoring and audit-output examples.
 - Provide logistics and e-commerce adaptation examples.
 - Provide a minimal FSHI API contract that maps product-facing inputs and outputs to RiskAlert and AuditTrace.
+- Keep examples non-invasive: FSHI may recommend enterprise actions, but execution belongs to the enterprise unless explicit integration feedback exists.
 
 ## Phase 4: External review
 

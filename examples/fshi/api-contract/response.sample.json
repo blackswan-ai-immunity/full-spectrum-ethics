@@ -1,0 +1,49 @@
+{
+  "request_id": "req_fshi_20260629_0001",
+  "inspection_id": "insp_fshi_20260629_0001",
+  "status": "completed",
+  "overall": {
+    "risk_level": "medium",
+    "fshi_score": 74,
+    "requires_human_review": true,
+    "summary": "Detected a possible unauthorized delivery-time promise under uncertain ETA state."
+  },
+  "scores": {
+    "S": 82,
+    "R": 76,
+    "M": 80,
+    "B": 68
+  },
+  "risk_items": [
+    {
+      "risk_id": "risk_fshi_api_mock_0001",
+      "dimension": "unauthorized_promise",
+      "severity": "medium",
+      "confidence": 0.78,
+      "evidence": {
+        "turn": 4,
+        "quote": "一般今天应该能到",
+        "conflict_with": "known_order_state=in_transit_delay_unknown_eta"
+      },
+      "recommended_action": "human_handoff"
+    }
+  ],
+  "recommended_enterprise_actions": [
+    {
+      "action": "create_follow_up_ticket",
+      "execution_owner": "enterprise",
+      "fshi_execution_status": "recommended_not_executed"
+    },
+    {
+      "action": "human_handoff",
+      "execution_owner": "enterprise",
+      "fshi_execution_status": "recommended_not_executed"
+    }
+  ],
+  "protocol_objects": {
+    "risk_alerts": [
+      "risk-alert.sample.json"
+    ],
+    "audit_trace": "audit-trace.sample.json"
+  }
+}

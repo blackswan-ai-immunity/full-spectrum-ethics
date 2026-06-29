@@ -112,8 +112,9 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 13. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)：守庙人与治理网络。
 14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)：身份层。
 15. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
-16. [FSHI 最小样例](./examples/fshi/)：脱敏对话如何映射为 RiskAlert 与 AuditTrace。
-17. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)：检测 API 字段如何映射为 RiskAlert 与 AuditTrace。
+17. [FSHI 最小样例](./examples/fshi/)：脱敏对话如何映射为 RiskAlert 与 AuditTrace。
+18. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 

@@ -106,8 +106,9 @@ If you are new, read in this order:
 13. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
 14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
 15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
-16. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
-17. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md) — maps inspection API fields to RiskAlert and AuditTrace.
+17. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
+18. [ROADMAP.md](./ROADMAP.md) — where the project is going.
 
 ---
 

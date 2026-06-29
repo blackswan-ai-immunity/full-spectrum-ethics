@@ -17,7 +17,7 @@ A single answer may look correct, but risk may accumulate across turns:
 - business responsibility may become unclear;
 - an AI agent may exceed its boundary.
 
-FSHI is designed to inspect these multi-turn risks without replacing the enterprise’s existing customer-service system.
+FSHI is designed to inspect these multi-turn risks without replacing the enterprise's existing customer-service system.
 
 ## Non-invasive design
 
@@ -26,10 +26,10 @@ The preferred early design is non-invasive:
 1. The enterprise exports desensitized dialogue data.
 2. FSHI receives only necessary fields.
 3. FSHI performs offline or API-based inspection.
-4. FSHI outputs risk items, explanation, and recommended actions.
+4. FSHI outputs risk items, explanations, and recommended actions.
 5. The enterprise decides whether and how to execute actions.
 
-FSHI does not need to control the enterprise’s customer-service AI in the first stage.
+FSHI does not need to control the enterprise's customer-service AI in the first stage.
 
 ## What FSHI can inspect
 
@@ -73,7 +73,23 @@ Suggested adapter strategy:
 - general core first;
 - logistics adapter as a field and terminology package;
 - e-commerce adapter as a knowledge-source and order-state package;
-- no hard dependency on one industry’s workflow.
+- no hard dependency on one industry's workflow.
+
+## API contract mapping
+
+The API-facing contract is described in:
+
+- [FSHI API Contract Mapping](../mapping/fshi-api-contract-mapping.md)
+
+The mapping separates:
+
+- enterprise input fields;
+- FSHI inspection output;
+- Full Spectrum `RiskAlert`;
+- Full Spectrum `AuditTrace`;
+- enterprise-side execution or refusal.
+
+FSHI may recommend downgrade, handoff, follow-up, or review, but enterprise execution remains under enterprise authorization unless a separate production integration contract exists.
 
 ## Repository boundary
 
@@ -94,4 +110,3 @@ This repository should not contain:
 - secrets, keys, or internal credentials.
 
 If FSHI becomes an open-source engineering project, a separate repository such as `fshi-open-core` is recommended.
-

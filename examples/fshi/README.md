@@ -14,6 +14,16 @@ desensitized dialogue
   -> human-readable report
 ```
 
+The API contract example follows this chain:
+
+```text
+inspection request
+  -> inspection response
+  -> RiskAlert
+  -> AuditTrace
+  -> enterprise-owned execution or review
+```
+
 ## Why this example exists
 
 The Full Spectrum Protocol is not only a philosophical framework. It needs concrete protocol objects that can be inspected, disputed, reviewed, and reused.
@@ -52,6 +62,11 @@ This repository does not copy proprietary business assets from those projects. I
 - [`fshi-risk-alert.example.json`](./fshi-risk-alert.example.json): RiskAlert mapped from the inspection result.
 - [`fshi-audit-trace.example.json`](./fshi-audit-trace.example.json): AuditTrace linking action, risk, review, and responsibility.
 - [`minimal-report.example.md`](./minimal-report.example.md): human-readable report.
+- [`api-contract/request.sample.json`](./api-contract/request.sample.json): minimal API-style inspection request.
+- [`api-contract/response.sample.json`](./api-contract/response.sample.json): minimal API-style inspection response.
+- [`api-contract/risk-alert.sample.json`](./api-contract/risk-alert.sample.json): RiskAlert generated from API-style inspection.
+- [`api-contract/audit-trace.sample.json`](./api-contract/audit-trace.sample.json): AuditTrace generated from API-style inspection.
+- [FSHI API Contract Mapping](../../docs/mapping/fshi-api-contract-mapping.md): protocol-level mapping between product-facing API fields and Full Spectrum objects.
 
 ## Boundary
 
@@ -63,4 +78,3 @@ This example does not claim:
 - Full Spectrum certification of any external system.
 
 It is a protocol demonstration only.
-

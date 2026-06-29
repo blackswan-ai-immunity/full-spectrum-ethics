@@ -18,6 +18,7 @@ function New-StringFromCodePoints {
 # - "ni shuo" style mojibake: U+6D63 U+72BA
 # - "full spectrum" style mojibake fragments: U+934F U+3129, U+68F0 U+6223, U+748B
 # - smart quote mojibake: U+9225
+# - common UTF-8-as-GBK fragments in Chinese examples: U+93B4, U+93C8, U+93C7, U+9365, U+6A83, U+3135
 # - replacement character: U+FFFD
 $patterns = @(
   (New-StringFromCodePoints @(0x6D63, 0x72BA)),
@@ -25,6 +26,12 @@ $patterns = @(
   (New-StringFromCodePoints @(0x68F0, 0x6223)),
   (New-StringFromCodePoints @(0x748B)),
   (New-StringFromCodePoints @(0x9225)),
+  (New-StringFromCodePoints @(0x93B4)),
+  (New-StringFromCodePoints @(0x93C8)),
+  (New-StringFromCodePoints @(0x93C7)),
+  (New-StringFromCodePoints @(0x9365)),
+  (New-StringFromCodePoints @(0x6A83)),
+  (New-StringFromCodePoints @(0x3135)),
   ([string][char]0x00C3),
   ([string][char]0x00C2),
   ([string][char]0xFFFD)
