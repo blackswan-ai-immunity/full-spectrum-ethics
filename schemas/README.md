@@ -12,7 +12,7 @@ Planned schemas:
 - `ess-request.schema.json`
 - `ess-result.schema.json`
 - `guardian-review.schema.json`
-- `audit-trace.schema.json`
+- [`audit-trace.schema.json`](./audit-trace.schema.json)
 - `fshi-dialogue-inspection.schema.json`
 
 The purpose of schemas is to make the Full Spectrum Protocol inspectable and implementable by software systems.

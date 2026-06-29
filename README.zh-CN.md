@@ -75,11 +75,12 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 3. [术语表](./docs/glossary.md)：给外部读者的核心概念解释。
 4. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)：进入开源提案、争议和迭代流程的协议草案。
 5. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)：第一组机器可读协议对象。
-6. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
-7. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
-8. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
-9. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
-10. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+6. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)：责任与复核审计链。
+7. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
+8. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
+9. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
+10. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
+11. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 
