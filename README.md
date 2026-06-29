@@ -78,11 +78,12 @@ If you are new, read in this order:
 4. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md) — open proposal format for review and iteration.
 5. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md) — first machine-readable protocol objects.
 6. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md) — responsibility and review trace.
-7. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
-8. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
-9. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
-10. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
-11. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+7. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md) — shared risk language.
+8. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
+9. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
+10. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
+11. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
+12. [ROADMAP.md](./ROADMAP.md) — where the project is going.
 
 中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。
 

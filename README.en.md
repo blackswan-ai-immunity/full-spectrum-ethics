@@ -29,11 +29,12 @@ This repository is the public protocol entry for that exploration.
 4. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)
 5. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)
 6. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)
-7. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)
-8. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
-9. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
-10. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
-11. [ROADMAP.md](./ROADMAP.md)
+7. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)
+8. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)
+9. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
+10. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
+11. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
+12. [ROADMAP.md](./ROADMAP.md)
 
 ## Status
 

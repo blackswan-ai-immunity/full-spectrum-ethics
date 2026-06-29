@@ -37,6 +37,7 @@ Goal: make the protocol inspectable by developers.
 - Add JSON schemas.
 - Add identity and capability declaration schemas.
 - Add audit trace schema.
+- Add risk alert schema.
 - Add example audit traces.
 - Add FSHI customer-service quality inspection sample.
 - Add minimal ESS simulation examples.
