@@ -22,6 +22,21 @@ Its basic task is to make identity, boundary, permission, consent, refusal, resp
 
 ---
 
+## Protocol Layer vs Functional Module / 协议层级与功能模块
+
+Full Spectrum documents may use two different structural views.
+
+**Protocol layers** usually refer to the L0-L7 protocol stack. This is the vertical architecture of the protocol.
+
+**Functional modules** refer to runtime capabilities such as identity, communication, permission, responsibility, risk, simulation, guardian review, frequency economy, and boundary self-knowledge.
+
+The two views are compatible but should not be confused:
+
+- L0-L7 answers where a capability belongs in the architecture.
+- Functional modules answer what the system needs to do.
+
+---
+
 ## Compassion Protocol / 悲悯协议
 
 The core principle of Full Spectrum:

@@ -174,6 +174,18 @@ The protocol does not force all subjects into one governance structure. But high
 
 ## 5. Core modules
 
+Full Spectrum documents use two related but different structural views:
+
+1. **L0-L7 protocol stack layers**: the vertical architecture of the protocol, similar to a layered network stack.
+2. **Core functional modules**: the runtime capabilities needed for the protocol to work.
+
+The sections below describe functional modules. They do not replace the L0-L7 protocol stack.
+
+In other words:
+
+- L0-L7 answers where a capability belongs in the protocol architecture.
+- Functional modules answer what the system needs to do at runtime.
+
 ### 5.1 Identity layer
 
 Question: who or what is interacting?

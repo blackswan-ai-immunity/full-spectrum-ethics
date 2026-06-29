@@ -4,8 +4,8 @@ This directory is reserved for machine-readable protocol schemas.
 
 Planned schemas:
 
-- `identity-claim.schema.json`
-- `capability-declaration.schema.json`
+- [`identity-claim.schema.json`](./identity-claim.schema.json)
+- [`capability-declaration.schema.json`](./capability-declaration.schema.json)
 - `permission-request.schema.json`
 - `consent-record.schema.json`
 - `risk-alert.schema.json`
@@ -16,4 +16,3 @@ Planned schemas:
 - `fshi-dialogue-inspection.schema.json`
 
 The purpose of schemas is to make the Full Spectrum Protocol inspectable and implementable by software systems.
-
