@@ -1,94 +1,147 @@
-# 鍏ㄩ璋?AI 瀹夊叏娌荤悊鍗忚鏍?
+# Full Spectrum Ethics Protocol Stack
 
-> **璁?AI Agent 鎷ユ湁"鍋ュ悍璇?鈥斺€斿彲娴嬮噺鐨勬暟瀛椾富浣撲俊浠讳綋绯汇€?*
+> An open protocol draft for human-AI governance, agent identity, ethical simulation, risk circuit-breaking, and civilization-scale interoperability.
 
-褰?AI 鑳戒互姣绾ц皟鐢ㄥ伐鍏锋椂锛屼紶缁熺殑瀹夊叏杈圭晫姝ｅ湪澶辨晥銆傝繖涓嶆槸婕忔礊闂锛屾槸鑼冨紡杞Щ銆傛湰鍗忚鏍堜负 AI Agent 鎻愪緵涓€濂楀彲楠岃瘉鐨?*淇′换鍩虹璁炬柦**銆?
-
----
-
-## 璇曚簡鍐嶈
-
-馃憠 **[浣撻獙 FSHI Demo](https://full-spectrum.gitee.io/full-spectrum-ethics/demo/fshi-demo.html)** 鈥?鎷栧姩婊戝潡锛屾劅鍙椾笁棰戞鏉冮噸濡備綍椹卞姩绯荤粺鏉冮檺
+中文：全频谱协议是一套面向 AI 时代的人机、组织与文明交互底层协议，用于在整体存续、自由意志与动态差异之间建立可审计、可复核、可演化的协作接口。
 
 ---
 
-## 涓変釜鏍稿績妯″潡
+## Why this exists
 
-```
-浣犵殑 AI Agent 姝ｅ父鍚楋紵
-鈹?
-鈹溾攢鈹€ FSHI锛氫綘鐨?Agent 鍋ュ悍鍚楋紵锛堜綆/涓?楂樹笁棰戞閲忓寲璇勫垎锛?
-鈹溾攢鈹€ HMCP锛氬鏋?Agent 寮€濮?鍙戠儳"鎬庝箞鍔烇紵锛堣涓虹害鏉熷崗璁級
-鈹斺攢鈹€ BSRM锛氬鏋滅郴缁熼伃閬囬粦澶╅箙浜嬩欢鍛紵锛堜簲绾х啍鏂満鍒讹級
-```
+AI systems are becoming faster, more autonomous, and more deeply embedded in human organizations. Traditional governance often asks:
 
-| 妯″潡 | 瀹冨洖绛旂殑闂 | 閫傚悎璋?|
-|------|------------|--------|
-| **FSHI** | 杩欎釜 Agent 褰撳墠鏈夊鍙俊锛?| 闇€瑕佺粰 AI 鎵撳垎鐨勪汉 |
-| **HMCP** | Agent 浠€涔堣兘鍋氥€佷粈涔堜笉鑳藉仛锛?| 閮ㄧ讲 AI 绯荤粺鐨勪汉 |
-| **BSRM** | 绯荤粺鍑洪棶棰樹簡锛孉gent 鎬庝箞鑷姩搴斿锛?| 鍋?AI 瀹夊叏鍏滃簳鐨勪汉 |
+> How should AI be regulated?
+
+Full Spectrum asks a wider question:
+
+> When humans, AI agents, organizations, and civilizations all become interacting subjects, how can they continue to share the same game field without erasing freedom, difference, or responsibility?
+
+This repository explores a protocol-level answer.
 
 ---
 
-## 涓轰粈涔堟槸"鍗忚鏍?锛?
+## What Full Spectrum is
 
-涓嶆槸涓€濂楄鍒欙紝鏄?*涓夊眰闃插尽浣撶郴**锛?
+Full Spectrum is not a single law, model, product, or ideology.
 
-```
-淇′换灞?  FSHI  鈹€鈹€鈫?缁?Agent 鍙?鍋ュ悍璇?
-       鈫?     鈫?
-绾︽潫灞? HMCP  鈹€鈹€鈫?杈圭晫鍐呭厑璁革紝杈圭晫澶栨嫆缁?
-       鈫?     鈫?
-鐔旀柇灞? BSRM  鈹€鈹€鈫?鏋佺鎯呭喌涓嬭嚜鍔ㄩ檷绾т繚鎶?
-```
+It is a protocol stack for:
 
-涓夎€呰仈鍔紝鎵嶈兘鏋勬垚瀹屾暣鐨?AI 瀹夊叏浣撶郴銆?
+- declaring identity, capability, permission, boundary, and responsibility;
+- simulating ethical scenarios before irreversible action;
+- recording consent, refusal, risk, escalation, and review;
+- allowing disagreement without forcing premature unity;
+- triggering downgrade, circuit-break, recovery, or self-deconstruction when a system exceeds its own boundary;
+- keeping humans, AI agents, organizations, and civilization-scale systems interoperable.
 
----
+The core principle is:
 
-## 蹇€熶笂鎵?
-
-```bash
-# 浣撻獙榛戝ぉ楣呯啍鏂ā鍧楋紙Go 瀹炵幇锛?
-git clone https://gitee.com/full-spectrum/full-spectrum-ethics.git
-cd full-spectrum-ethics/fsmp-black-swan-response-module
-go run cmd/black-swan/main.go
-```
+> Preserve overall continuity, maximally respect free will, dynamically accommodate differences, and evolve through difference.
 
 ---
 
-## 浜嗚В鏇村
+## What this project is not
 
-| 鏂囨。 | 浠€涔堟椂鍊欒 |
-|------|----------|
-| [瀹堝簷浜虹櫧鐨功](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) | 鎯充簡瑙ｆ暣浣撴効鏅?|
-| [FSHI 鎶€鏈鑼僝(./docs/protocols/FSHI_Protocol_鎶€鏈鑼?md) | 闇€瑕佹帴鍏?FSHI 璇勫垎 |
-| [鍗忚鏍?v1.8](./docs/protocols/鍏ㄩ璋盇I娌荤悊鍗忚鏍坃v1.8_鍚堣鐗?md) | 瀹屾暣鎶€鏈鑼?|
+This repository does not claim to be:
 
-> 馃摉 鍏堣鐧界毊涔﹀缓绔嬫鏋讹紝鍐嶆寜闇€娣卞叆鎶€鏈枃妗ｃ€備笉闇€瑕佸叏閮ㄨ瀹屻€?
+- a finished global standard;
+- a replacement for law, human rights, safety regulation, or institutional governance;
+- a spiritual authority;
+- a commercial SaaS product;
+- a proof that any person or group can represent “the whole”.
 
----
-
-## 閫傜敤鍦烘櫙
-
-- 馃敀 **浼佷笟鍐呴儴 AI 閮ㄧ讲**锛氱粰 AI Agent 鍔犱竴灞傚彲閲忓寲鐨勪俊浠婚獙璇?
-- 馃洝锔?**AI 瀹夊叏浜у搧**锛氬熀浜?FSHI 鍋?Agent 淇＄敤璇勭骇
-- 馃彌锔?**AI 娌荤悊鐮旂┒**锛氭暟瀛椾富浣撹韩浠借璇佺殑鐞嗚涓庡疄璺靛弬鑰?
-- 馃帗 **AI 浼︾悊鎺㈢储**锛氳鎬ч噺鍖栬瘎浼扮殑鍓嶆部瀹為獙
+It is an open protocol draft and engineering exploration.
 
 ---
 
-## 鍚堣璇存槑
+## Protocol map
 
-鏈」鐩负寮€婧愭妧鏈疄楠岋紝涓ユ牸閬靛畧銆婄敓鎴愬紡浜哄伐鏅鸿兘鏈嶅姟绠＄悊鏆傝鍔炴硶銆嬬瓑鐩稿叧娉曡銆備唬鐮侀噰鐢?[Mulan PSL v2](./LICENSE)銆?
+| Layer | Question | Typical artifacts |
+| --- | --- | --- |
+| Identity | Who or what is acting? | Agent identity, digital identity declaration |
+| Capability | What can it do? | Capability declaration, boundary statement |
+| Permission | What is it allowed to do now? | Authorization, revocation, consent records |
+| Responsibility | Who is accountable? | Audit trace, responsibility path |
+| Simulation | What may happen under different conditions? | ESS ethical scenario simulation |
+| Risk | When should action be slowed, downgraded, or stopped? | Risk alert, circuit-break, recovery report |
+| Guardianship | Who reviews conflict when no single subject can decide? | Guardian network, committee review, distributed review |
+| Evolution | How does the protocol change without becoming a new prison? | RFCs, versioning, self-deconstruction rules |
 
 ---
 
-## 鍙屽钩鍙?
+## Start here
 
-| 骞冲彴 | 鍦板潃 |
-|------|------|
-| **Gitee**锛堥鍙戯級 | https://gitee.com/full-spectrum/full-spectrum-ethics |
-| **GitHub** | https://github.com/blackswan-ai-immunity/full-spectrum-ethics |
+If you are new, read in this order:
 
-鏈夐棶棰樻垨鎯虫硶 鈫?GitHub Issue / Gitee Issue
+1. [START_HERE.md](./START_HERE.md) — the shortest orientation.
+2. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
+3. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
+4. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
+5. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
+6. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+
+中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。
+
+---
+
+## Engineering use case: FSHI
+
+FSHI, the Full Spectrum Health Index, is used here as an engineering sample for AI customer-service quality inspection.
+
+In this repository, FSHI means:
+
+- a protocol use case;
+- a minimal open-core reference direction;
+- an example of non-invasive, desensitized, multi-turn dialogue risk detection;
+- a bridge from Full Spectrum ethics to business engineering.
+
+It does not mean that all company product code or commercial assets must live in this repository.
+
+Recommended boundary:
+
+- `full-spectrum-ethics`: protocol, schemas, examples, public demo, audit format.
+- future `fshi-open-core`: minimal runnable open-source kernel.
+- company/private repositories: full commercial implementation, customer adapters, deployment assets.
+
+---
+
+## Repository status
+
+This project is currently in early protocol-draft stage.
+
+Current focus:
+
+- repair public entry and encoding issues;
+- organize Chinese and English documentation;
+- define protocol objects and schemas;
+- build minimal verifiable examples;
+- invite review from AI safety, governance, software engineering, ethics, and industry practitioners.
+
+---
+
+## Contributing
+
+Contributions are welcome, especially:
+
+- terminology correction;
+- English translation;
+- protocol critique;
+- safety and abuse-case review;
+- schema design;
+- minimal examples;
+- responsible engineering use cases.
+
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) and [GOVERNANCE.md](./GOVERNANCE.md) before proposing protocol-level changes.
+
+---
+
+## License
+
+This repository uses [Mulan PSL v2](./LICENSE).
+
+---
+
+## Related links
+
+- Website: [fullspectrumprotocol.com](https://fullspectrumprotocol.com/)
+- GitHub organization: [blackswan-ai-immunity](https://github.com/blackswan-ai-immunity)
+- Main repository: [full-spectrum-ethics](https://github.com/blackswan-ai-immunity/full-spectrum-ethics)
