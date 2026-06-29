@@ -24,11 +24,13 @@ This repository is the public protocol entry for that exploration.
 ## Start here
 
 1. [START_HERE.md](./START_HERE.md)
-2. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)
-3. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
-4. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
-5. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
-6. [ROADMAP.md](./ROADMAP.md)
+2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md)
+3. [Glossary](./docs/glossary.md)
+4. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)
+5. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
+6. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
+7. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
+8. [ROADMAP.md](./ROADMAP.md)
 
 ## Status
 

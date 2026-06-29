@@ -45,7 +45,7 @@ Full Spectrum proposes a protocol stack:
 ## What to read next
 
 - If you care about philosophy: read the protocol stack and guardian whitepaper.
+- If you care about the protocol itself: read the Full Spectrum Protocol Outline and the glossary.
 - If you care about engineering: read the FSHI use case and schemas.
 - If you care about governance: read GOVERNANCE and ROADMAP.
 - If you care about contribution: read CONTRIBUTING.
-

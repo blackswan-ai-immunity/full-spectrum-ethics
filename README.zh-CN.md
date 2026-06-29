@@ -71,11 +71,13 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 ## 推荐阅读顺序
 
 1. [START_HERE.md](./START_HERE.md)：快速入口。
-2. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
-3. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
-4. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
-5. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
-6. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md)：协议总纲。
+3. [术语表](./docs/glossary.md)：给外部读者的核心概念解释。
+4. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
+5. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
+6. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
+7. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
+8. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 
@@ -111,4 +113,3 @@ FSHI（Full Spectrum Health Index，全频谱健康指数）在本仓库中作�
 - 明确协议对象与 schema；
 - 构建最小可验证样例；
 - 邀请 AI 安全、治理、软件工程、伦理与行业实践者共同审查。
-
