@@ -101,18 +101,19 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md)：协议总纲。
 3. [Glossary](./docs/glossary.md)：给外部读者的核心概念解释。
 4. [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md)：与 AIP、A2A、MCP、数据治理趋势和 AI 风险框架的关系。
-5. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)：进入开源提案、争议和迭代流程的协议草案。
-6. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)：第一组机器可读协议对象。
-7. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)：责任与复核审计链。
-8. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)：统一风险描述语言。
-9. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)：节点分级与外部伦理画像。
-10. [外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)：工具节点、兼容节点、候选节点与认证节点边界。
-11. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)：协议栈总览。
-12. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)：守庙人与治理网络。
-13. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)：身份层。
-14. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
-15. [FSHI 最小样例](./examples/fshi/)：脱敏对话如何映射为 RiskAlert 与 AuditTrace。
-16. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+5. [FOR_AGENTS.md](./FOR_AGENTS.md)：给 Agent 和 Agent 框架的机器友好入口。
+6. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)：进入开源提案、争议和迭代流程的协议草案。
+7. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)：第一组机器可读协议对象。
+8. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)：责任与复核审计链。
+9. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)：统一风险描述语言。
+10. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)：节点分级与外部伦理画像。
+11. [外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)：工具节点、兼容节点、候选节点与认证节点边界。
+12. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)：协议栈总览。
+13. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)：守庙人与治理网络。
+14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)：身份层。
+15. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
+16. [FSHI 最小样例](./examples/fshi/)：脱敏对话如何映射为 RiskAlert 与 AuditTrace。
+17. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 
@@ -149,5 +150,6 @@ FSHI（Full Spectrum Health Index，全频谱健康指数）在本仓库中作�
 - 构建最小可验证样例；
 - 区分外部兼容接入与全频谱认证数字身份；
 - 建立与 AIP、A2A、MCP、数据治理趋势和 AI 风险框架的映射；
+- 提供给 Agent 和 Agent 框架读取的机器友好入口；
 - 提供 FSHI 最小样例，在不暴露企业私有业务资产的前提下，把产品概念映射为协议对象；
 - 邀请 AI 安全、治理、软件工程、伦理与行业实践者共同审查。

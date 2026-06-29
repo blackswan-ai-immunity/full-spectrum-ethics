@@ -95,18 +95,19 @@ If you are new, read in this order:
 2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md) — the concise protocol outline.
 3. [Glossary](./docs/glossary.md) — key terms for outside readers.
 4. [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md) — how Full Spectrum relates to AIP, A2A, MCP, data-governance trends, and AI risk frameworks.
-5. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md) — open proposal format for review and iteration.
-6. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md) — first machine-readable protocol objects.
-7. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md) — responsibility and review trace.
-8. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md) — shared risk language.
-9. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md) — compatibility without forced adoption.
-10. [External Node Guide](./EXTERNAL_NODE_GUIDE.md) — tool, compatible, candidate, and certified node boundaries.
-11. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
-12. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
-13. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
-14. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
-15. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
-16. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+5. [FOR_AGENTS.md](./FOR_AGENTS.md) — machine-readable entry for agents and agent frameworks.
+6. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md) — open proposal format for review and iteration.
+7. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md) — first machine-readable protocol objects.
+8. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md) — responsibility and review trace.
+9. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md) — shared risk language.
+10. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md) — compatibility without forced adoption.
+11. [External Node Guide](./EXTERNAL_NODE_GUIDE.md) — tool, compatible, candidate, and certified node boundaries.
+12. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
+13. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
+14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
+15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
+16. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
+17. [ROADMAP.md](./ROADMAP.md) — where the project is going.
 
 ---
 
@@ -143,6 +144,7 @@ Current focus:
 - build minimal verifiable examples;
 - distinguish external compatibility from Full Spectrum certification;
 - map the protocol to AIP, A2A, MCP, data-governance trends, and AI risk frameworks;
+- provide a machine-readable entry for agents and agent frameworks;
 - provide minimal FSHI examples that map real product concepts into protocol objects without exposing private business data;
 - invite review from AI safety, governance, software engineering, ethics, and industry practitioners.
 
