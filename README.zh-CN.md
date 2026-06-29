@@ -4,6 +4,8 @@
 
 全频谱协议用于在整体存续、自由意志与动态差异之间建立可审计、可复核、可演化的协作接口。
 
+全频谱是桥，不是强制中心。外部系统可以不接入，也可以只作为工具使用；如果希望互操作，可以通过“外部伦理画像”声明兼容关系；只有满足协议约束、审计、责任与授权要求的节点，才可进入全频谱认证数字身份路径。
+
 ---
 
 ## 为什么需要全频谱协议
@@ -77,11 +79,13 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 5. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)：第一组机器可读协议对象。
 6. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)：责任与复核审计链。
 7. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)：统一风险描述语言。
-8. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
-9. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
-10. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
-11. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
-12. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+8. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)：节点分级与外部伦理画像。
+9. [外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)：工具节点、兼容节点、候选节点与认证节点边界。
+10. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
+11. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
+12. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
+13. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
+14. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 
@@ -116,4 +120,5 @@ FSHI（Full Spectrum Health Index，全频谱健康指数）在本仓库中作�
 - 整理中英文入口；
 - 明确协议对象与 schema；
 - 构建最小可验证样例；
+- 区分外部兼容接入与全频谱认证数字身份；
 - 邀请 AI 安全、治理、软件工程、伦理与行业实践者共同审查。

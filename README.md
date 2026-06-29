@@ -79,11 +79,13 @@ If you are new, read in this order:
 5. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md) — first machine-readable protocol objects.
 6. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md) — responsibility and review trace.
 7. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md) — shared risk language.
-8. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
-9. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
-10. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
-11. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
-12. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+8. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md) — compatibility without forced adoption.
+9. [External Node Guide](./EXTERNAL_NODE_GUIDE.md) — tool, compatible, candidate, and certified node boundaries.
+10. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
+11. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
+12. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
+13. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
+14. [ROADMAP.md](./ROADMAP.md) — where the project is going.
 
 中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。
 
@@ -120,6 +122,7 @@ Current focus:
 - organize Chinese and English documentation;
 - define protocol objects and schemas;
 - build minimal verifiable examples;
+- distinguish external compatibility from Full Spectrum certification;
 - invite review from AI safety, governance, software engineering, ethics, and industry practitioners.
 
 ---

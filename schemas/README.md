@@ -9,6 +9,7 @@ Planned schemas:
 - `permission-request.schema.json`
 - `consent-record.schema.json`
 - [`risk-alert.schema.json`](./risk-alert.schema.json)
+- [`external-ethics-profile.schema.json`](./external-ethics-profile.schema.json)
 - `ess-request.schema.json`
 - `ess-result.schema.json`
 - `guardian-review.schema.json`

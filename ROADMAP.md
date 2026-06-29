@@ -38,7 +38,9 @@ Goal: make the protocol inspectable by developers.
 - Add identity and capability declaration schemas.
 - Add audit trace schema.
 - Add risk alert schema.
+- Add external ethics profile schema.
 - Add example audit traces.
+- Add external node classification examples.
 - Add FSHI customer-service quality inspection sample.
 - Add minimal ESS simulation examples.
 - Add cell protocol examples for organizations and AI agents.
@@ -70,5 +72,6 @@ Goal: make the project able to evolve without being owned by a single interpreta
 - Establish maintainer roles.
 - Establish guardian review flow.
 - Establish protocol versioning.
+- Establish compatibility vs certification policy.
 - Establish compatibility and deprecation policy.
 - Keep self-deconstruction and rollback mechanisms visible.
