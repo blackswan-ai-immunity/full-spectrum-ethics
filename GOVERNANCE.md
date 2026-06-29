@@ -42,6 +42,8 @@ For protocol-level changes:
 6. State rollback or compatibility plan.
 7. Request review.
 
+The first RFC is [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md).
+
 ## Disagreement
 
 Disagreement is not failure. It is one of the main information sources for protocol evolution.
@@ -77,4 +79,3 @@ It may serve as:
 - an interoperability layer.
 
 Final legal and institutional responsibility remains with the relevant human and organizational authorities.
-

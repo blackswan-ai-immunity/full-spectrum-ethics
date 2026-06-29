@@ -19,6 +19,7 @@ Goal: make the protocol readable and reviewable.
 - Create a glossary.
 - Separate protocol documents from essays and archives.
 - Add RFC format for protocol changes.
+- Publish RFC 0001 for the Full Spectrum Protocol.
 - Define minimum protocol objects:
   - identity declaration;
   - capability declaration;
@@ -68,4 +69,3 @@ Goal: make the project able to evolve without being owned by a single interpreta
 - Establish protocol versioning.
 - Establish compatibility and deprecation policy.
 - Keep self-deconstruction and rollback mechanisms visible.
-

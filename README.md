@@ -75,11 +75,12 @@ If you are new, read in this order:
 1. [START_HERE.md](./START_HERE.md) — the shortest orientation.
 2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md) — the concise protocol outline.
 3. [Glossary](./docs/glossary.md) — key terms for outside readers.
-4. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
-5. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
-6. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
-7. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
-8. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+4. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md) — open proposal format for review and iteration.
+5. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
+6. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
+7. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
+8. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
+9. [ROADMAP.md](./ROADMAP.md) — where the project is going.
 
 中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。
 

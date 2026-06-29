@@ -73,11 +73,12 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 1. [START_HERE.md](./START_HERE.md)：快速入口。
 2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md)：协议总纲。
 3. [术语表](./docs/glossary.md)：给外部读者的核心概念解释。
-4. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
-5. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
-6. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
-7. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
-8. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+4. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)：进入开源提案、争议和迭代流程的协议草案。
+5. [全频谱 Agent 协议栈 v1.8](./docs/protocols/全频谱Agent协议栈_v1.8_完整版.md)：协议总览。
+6. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
+7. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
+8. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
+9. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 
