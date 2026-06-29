@@ -10,6 +10,7 @@ Status: in progress.
 - Add Chinese and English entry documents.
 - Add START_HERE, ROADMAP, GOVERNANCE.
 - Clarify the relationship between protocol, use case, and product.
+- Clarify the relationship between Full Spectrum, AIP-style agent interconnection standards, A2A/MCP-style ecosystems, and data-governance trends.
 
 ## Phase 1: Protocol consolidation
 
@@ -43,6 +44,7 @@ Goal: make the protocol inspectable by developers.
 - Add external node classification examples.
 - Add FSHI customer-service quality inspection sample.
 - Add minimal FSHI examples that convert desensitized dialogue into RiskAlert and AuditTrace.
+- Add standards and ecosystem mapping for AIP, A2A, MCP, data-governance trends, and AI risk frameworks.
 - Add minimal ESS simulation examples.
 - Add cell protocol examples for organizations and AI agents.
 
@@ -54,6 +56,7 @@ Goal: make the protocol runnable.
 - Provide desensitized multi-turn dialogue samples.
 - Provide risk scoring and audit-output examples.
 - Provide logistics and e-commerce adaptation examples.
+- Provide a minimal FSHI API contract that maps product-facing inputs and outputs to RiskAlert and AuditTrace.
 
 ## Phase 4: External review
 
