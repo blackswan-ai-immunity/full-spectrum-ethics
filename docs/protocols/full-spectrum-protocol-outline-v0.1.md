@@ -25,6 +25,12 @@ The core principle is the Compassion Protocol:
 
 > Preserve overall continuity, maximally respect free will, dynamically accommodate all differences, and evolve through difference.
 
+For engineering and international discussion, the Compassion Protocol may also be described as:
+
+> a coexistence-first constraint set for high-risk multi-subject interaction.
+
+In this sense, “compassion” does not mean asking every participant to be morally kind. It means that the system must be designed so that overall continuity, free will, and dynamic difference are all visible constraints, rather than invisible assumptions.
+
 These three parts must stand together. Overall continuity without free will can become coercion. Free will without continuity can destroy the shared field. Difference without responsibility and review can become disorder or abuse.
 
 Therefore, Full Spectrum is not a final-answer system. It is an interaction system. Its task is to make identity, permission, responsibility, consent, refusal, review, arbitration, circuit-break, logs, and version evolution visible.
@@ -114,6 +120,15 @@ Overall continuity includes:
 However, no single subject may monopolize the meaning of “the whole”.
 
 Any act that demands sacrifice in the name of the whole must be subject to ESS simulation, guardian review, responsibility tracing, and audit.
+
+In engineering terms, overall continuity should not be treated as a vague moral claim. It should be converted into observable constraints, such as:
+
+- whether irreversible harm may occur;
+- whether refusal and exit remain possible;
+- whether responsibility can still be traced;
+- whether affected parties can be represented in simulation;
+- whether recovery remains possible after failure;
+- whether the shared field remains open for future choice.
 
 ### 3.2 Maximal respect for free will
 
@@ -377,6 +392,30 @@ It is positioned:
 
 If protocol judgment conflicts with applicable law, real-world execution must comply with the law while recording the conflict, cost, and unresolved issue in the protocol log.
 
+### 9.1 Relationship to states and public institutions
+
+States and public institutions may appear in the protocol as subjects, but this does not mean that the protocol stands above them.
+
+Their possible relationships to the protocol include:
+
+1. **Observer**: a state or public institution may observe protocol experiments without adopting them.
+2. **Reference user**: it may use the protocol as a reference for AI governance, risk review, audit, or public-service design.
+3. **Interface participant**: it may expose limited interfaces for identity, permission, audit, or incident reporting.
+4. **Policy translator**: it may translate parts of the protocol into local legal, regulatory, or administrative language.
+5. **Parallel governance subject**: it may interact with the protocol while retaining its own legal authority.
+
+The protocol should not require states to surrender sovereignty, nor should it allow any non-state actor to bypass law by claiming protocol authority.
+
+For this reason, the protocol treats states as high-impact subjects with special constraints:
+
+- their actions may affect large populations;
+- their authority must remain legally grounded;
+- their participation should be explicit and scoped;
+- conflicts between protocol recommendation and law must be logged, not hidden;
+- affected individuals should retain lawful appeal and review paths.
+
+This section is intentionally conservative. A protocol that cannot coexist with existing legal orders cannot safely enter real-world governance.
+
 ---
 
 ## 10. Version evolution
@@ -447,4 +486,3 @@ It protects:
 The real protocol does not say that the future has only one road.
 
 It keeps the road open.
-

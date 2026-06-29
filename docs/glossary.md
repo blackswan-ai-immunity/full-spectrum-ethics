@@ -30,6 +30,12 @@ The core principle of Full Spectrum:
 
 This principle is not a soft slogan. It is a boundary condition. Overall continuity cannot be used to erase individuals; free will cannot be used to destroy the shared field; difference cannot be used to avoid responsibility.
 
+Engineering alias:
+
+> coexistence-first constraint set.
+
+This alias is useful for technical and international readers. It clarifies that “compassion” is not merely a request for kindness, but a design constraint requiring continuity, free will, and difference to be simultaneously considered and recorded.
+
 ---
 
 ## One-body Compassion / 同体大悲
@@ -216,6 +222,18 @@ It includes human life, ecological systems, digital infrastructure, organization
 
 It must not be used as a blank check for coercion.
 
+In protocol design, overall continuity should be translated into observable constraints, such as irreversibility, exit rights, responsibility tracing, affected-party modeling, recovery possibility, and future choice.
+
+---
+
+## State / Public Institution / 国家与公共机构
+
+A high-impact subject in the protocol.
+
+The protocol does not replace state law or sovereignty. States and public institutions may relate to the protocol as observers, reference users, interface participants, policy translators, or parallel governance subjects.
+
+If protocol recommendations conflict with applicable law, execution must comply with law while recording the conflict and unresolved issue in the audit trace.
+
 ---
 
 ## Free Will / 自由意志
@@ -236,4 +254,3 @@ In protocol terms, free will must appear as operational rights:
 Difference is not merely conflict or noise. It is information for evolution.
 
 The protocol does not aim to erase difference. It aims to make difference translatable, negotiable, reviewable, and survivable.
-
