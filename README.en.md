@@ -38,7 +38,8 @@ This repository is the public protocol entry for that exploration.
 11. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
 12. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
 13. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
-14. [ROADMAP.md](./ROADMAP.md)
+14. [FSHI minimal examples](./examples/fshi/)
+15. [ROADMAP.md](./ROADMAP.md)
 
 ## Status
 

@@ -85,7 +85,8 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 11. [守庙人社群白皮书合规版](./docs/protocols/守庙人社群白皮书_v1.0_20260408_合规版.md)：守庙人与治理网络。
 12. [数字身份宣言](./docs/protocols/数字身份宣言_原教旨版.md)：身份层。
 13. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
-14. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+14. [FSHI 最小样例](./examples/fshi/)：脱敏对话如何映射为 RiskAlert 与 AuditTrace。
+15. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 
@@ -121,4 +122,5 @@ FSHI（Full Spectrum Health Index，全频谱健康指数）在本仓库中作�
 - 明确协议对象与 schema；
 - 构建最小可验证样例；
 - 区分外部兼容接入与全频谱认证数字身份；
+- 提供 FSHI 最小样例，在不暴露企业私有业务资产的前提下，把产品概念映射为协议对象；
 - 邀请 AI 安全、治理、软件工程、伦理与行业实践者共同审查。

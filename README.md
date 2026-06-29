@@ -85,7 +85,8 @@ If you are new, read in this order:
 11. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
 12. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
 13. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
-14. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+14. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
+15. [ROADMAP.md](./ROADMAP.md) — where the project is going.
 
 中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。
 
@@ -123,6 +124,7 @@ Current focus:
 - define protocol objects and schemas;
 - build minimal verifiable examples;
 - distinguish external compatibility from Full Spectrum certification;
+- provide minimal FSHI examples that map real product concepts into protocol objects without exposing private business data;
 - invite review from AI safety, governance, software engineering, ethics, and industry practitioners.
 
 ---

@@ -42,6 +42,7 @@ Goal: make the protocol inspectable by developers.
 - Add example audit traces.
 - Add external node classification examples.
 - Add FSHI customer-service quality inspection sample.
+- Add minimal FSHI examples that convert desensitized dialogue into RiskAlert and AuditTrace.
 - Add minimal ESS simulation examples.
 - Add cell protocol examples for organizations and AI agents.
 
