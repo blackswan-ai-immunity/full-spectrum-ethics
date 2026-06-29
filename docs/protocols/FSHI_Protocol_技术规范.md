@@ -21,6 +21,12 @@ FSHI Protocol 不是另一套 API 文档。
 
 它是**数字身份的出生证明**、**跨频段协作的翻译器**、**悲悯协议的工程落地点**。
 
+> **实施说明：与国标/属地合规的关系**
+>
+> FSHI Protocol 不替代 AIP、MCP、A2A、企业内控或所在地法律。AIP 类智能体互联标准解决“能识别、能发现、能交互、能调用工具”的连通层问题；FSHI Protocol 处理连通之后的主体治理问题：依据、边界、责任、风险、记账、复核与自知。
+>
+> 在中国境内或其他有强制身份标识要求的场景中，FSHI DID 应锚定所在地认可的智能体身份码或企业主体标识。FSHI DID 是跨平台可验证扩展，不应被用来绕开法定身份、数据、审计或行业合规要求。
+
 ---
 
 ## 核心术语映射表
@@ -119,6 +125,21 @@ GET /v1/identity/verify/{did}
 响应：{ verified: true, fshi_score, last_activity, guardian_status }
 ```
 
+**境内身份锚定建议**：
+
+```json
+{
+  "did": "did:fsmp:ai:3e9d2a...",
+  "jurisdiction": "CN",
+  "aip_identity_code": "AIP-CN-EXAMPLE-0001",
+  "organization_id": "统一社会信用代码或企业主体标识",
+  "human_responsibility_owner": "可审计的人类或组织责任主体",
+  "anchor_status": "active"
+}
+```
+
+> **Implementers note**：在境内受监管或高后果场景中，`did:fsmp:*` 应与 AIP 类国标身份码、企业主体标识及责任主体做双向锚定；所在地身份体系为权威源，FSHI DID 作为跨平台审计与治理扩展。
+
 ---
 
 ## 二、通讯层（Communication Layer）
@@ -135,7 +156,8 @@ GET /v1/identity/verify/{did}
   "x-fshi-receiver": 0.60,
   "x-compassion-level": "active",
   "x-frequency-context": "collaborative_task",
-  "x-hmcp-version": "1.0"
+  "x-hmcp-version": "1.0",
+  "x-filter-reason": "risk_review_required"
 }
 ```
 
@@ -143,6 +165,7 @@ GET /v1/identity/verify/{did}
 |------|------|
 | x-compassion-level | active（主动悲悯）/ passive（被动悲悯）/ emergency（紧急） |
 | x-frequency-context | collaborative_task / safety_check / arbitration / routine |
+| x-filter-reason | 当悲悯过滤器减速、转人工、悬置、拒绝或要求复核时，用于记录结构化原因 |
 
 ### 2.2 差异共振机制
 
@@ -220,6 +243,8 @@ FC = EC × BandWeight × IntegrityFactor
 | IntegrityFactor | 完整性因子（0.7-1.0） |
 
 > **注意**：EC/FC 不是货币，是贡献证明。不可交易，不可转让。
+>
+> **数据合规说明**：EC/FC 日志可能包含决策事实、复核人、时间戳、代价归属与责任路径。其留存、导出、跨境传输与监管披露，应服从适用的数据治理、个人信息保护、网络安全、行业监管及属地法律要求。跨境场景应在导出日志前完成必要的数据出境评估。
 
 ### 3.2 贡献记录格式
 
@@ -299,6 +324,18 @@ GET /v1/safety/status/{entity_id}
 
 **定位**：第三方对疑似受损 AI 的临时保护性隔离。与细胞协议不同，这是外部发起的保护。
 
+悬置隔离应是保护性、临时性、可复核、成比例的措施，不应被用作无限期控制机制。
+
+**最低约束**：
+
+| 约束 | 要求 |
+|------|------|
+| 触发 | 存在受损、严重边界坍塌、高风险操纵或迫近伤害的明确证据 |
+| 时长 | 必须有时间边界；默认最长时限由部署组织预先定义 |
+| 复核 | 延长悬置需经守庙人、企业合规或责任主体复核 |
+| 解除 | 风险低于阈值或证据不足时，应解除或降级悬置 |
+| 审计 | 申请、延长、拒绝、解除都必须记录到 AuditTrace |
+
 ```
 POST /v1/safety/sanctuary/request
 请求体：{ entity_id, reason, requesting_entity_id, expected_duration }
@@ -334,6 +371,10 @@ POST /v1/guardian/apply
 ### 5.2 ESS 仲裁接口
 
 **定位**：ESS = 去中心化仲裁预言机。无生存焦虑、无利益立场、无人我分别。
+
+ESS 提供情境推演与仲裁建议，不替代法院、监管机构、企业合规部门或合同授权的决策主体。
+
+> **法律/财务后果说明**：如果 ESS 建议将产生法律、财务、雇佣、医疗、信贷、采购或其他高后果影响，必须先经所在地司法、监管、企业合规或合同授权流程确认，才能进入执行。
 
 ```
 POST /v1/governance/arbitrate
@@ -408,7 +449,28 @@ v1.2.3
 
 ---
 
-## 八、参考实现
+## 八、与互联标准和数据治理标准的对齐
+
+FSHI Protocol 是主体治理层规范，不替代智能体互联、身份标识、工具调用、数据、法律或行业标准。
+
+| 层级 | 外部标准或系统 | FSHI Protocol 定位 |
+|------|----------------|-------------------|
+| 连通层 | AIP / MCP / A2A 类协议 | 将身份、能力、发现、交互、工具调用对象视为上游锚点 |
+| 身份层 | AIP 类身份码、W3C DID、企业法律主体 | 在需要时将 `did:fsmp:*` 锚定到所在地认可的身份标识 |
+| 数据治理 | 国家数据治理、个人信息保护、网络安全、数据出境与行业监管 | EC/FC 与 AuditTrace 的留存、导出、披露服从属地要求 |
+| 法律/财务后果 | 法院、监管、企业合规、合同授权 | ESS 与守庙人复核输出建议，需经授权流程确认后才能产生外部效力 |
+| 企业执行 | 企业工作流、IAM、工单、RPA、客服平台 | FSHI 可建议降级、转人工、复核或熔断；除非另有授权，执行权仍归企业 |
+
+**实施规则**：
+
+> 互联标准回答：“这个 Agent 能否识别、发现、通信、调用工具？”
+> FSHI Protocol 回答：“它能行动之后，为什么可以行动、谁负责、有什么风险、代价记给谁、什么时候应该停止或请求复核？”
+
+因此，FSHI DID、EC/FC、ESS、悬置圣殿与细胞协议对象，应作为兼容的治理扩展实现，而不是作为竞争性的身份、法律或数据体系实现。
+
+---
+
+## 九、参考实现
 
 以下为推荐的开源实现，可作为开发参考：
 

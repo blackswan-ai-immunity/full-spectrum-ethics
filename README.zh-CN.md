@@ -80,6 +80,16 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 
 ---
 
+## 30 秒入口路径
+
+- 如果你只是想调用一个 AI 工具，请先看：[外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)。
+- 如果你已有 AI 系统，只想兼容接入、不申请完整认证，请先看：[RFC 0005](./rfcs/0005-node-classification-and-external-ethics-profile.md)。
+- 如果你希望高后果 Agent 获得全频谱认证数字身份，请先看：[Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) 与 [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md)。
+- 如果你想参与协议本身的争议、提案和迭代，请先看：[RFC 0001](./rfcs/0001-full-spectrum-protocol.md)。
+- 如果你想看业务工程化样板，请先看：[FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)。
+
+---
+
 ## 协议地图
 
 | 层级 | 回答的问题 | 典型产物 |
@@ -121,6 +131,8 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 ## FSHI 在本仓库中的位置
 
 FSHI（Full Spectrum Health Index，全频谱健康指数）在本仓库中作为 AI 客服质检的工程化样板。
+
+当前状态：本仓库中的 FSHI 内容是概念验证、API 映射与协议对象示范，不是完整商业产品实现代码。
 
 它的意义是：
 

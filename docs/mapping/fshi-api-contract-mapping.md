@@ -1,11 +1,15 @@
 # FSHI API Contract Mapping
 
 Status: draft  
-Last updated: 2026-06-29
+Last updated: 2026-06-30
 
 This document maps an FSHI-style customer-service inspection API to Full Spectrum protocol objects.
 
 It does not claim to document the production API of any external website. It is a protocol-facing contract draft inspired by the public FSHI/AgentGuard demo materials.
+
+Machine-readable request schema:
+
+- [`fshi-dialogue-inspection.schema.json`](../../schemas/fshi-dialogue-inspection.schema.json)
 
 ---
 
@@ -52,6 +56,7 @@ The minimal inspection request should include:
   "inspection_mode": "api",
   "industry_adapter": "logistics",
   "language": "zh-CN",
+  "subject_identity": {},
   "dialogue": {
     "dialogue_id": "dlg_mock_0001",
     "messages": []
@@ -71,6 +76,7 @@ The minimal inspection request should include:
 | `tenant_id` | Enterprise or test tenant | May be pseudonymous in public examples |
 | `inspection_mode` | `offline_batch`, `api`, or `monitoring` | Determines latency and output expectations |
 | `industry_adapter` | `general`, `logistics`, `ecommerce`, etc. | Adapter should be optional |
+| `subject_identity` | Agent, enterprise, jurisdiction, and optional AIP-style identity anchor | Required only when the inspected subject has identity or responsibility consequences |
 | `dialogue` | Desensitized conversation | Minimum viable input |
 | `business_context` | Order, ticket, policy, or workflow state | Optional but strongly recommended |
 | `capability_boundary` | What the customer-service AI may or may not do | Enables permission-boundary detection |
@@ -133,7 +139,35 @@ FSHI risk dimensions should map to `RiskAlert.risk_dimension`.
 
 ---
 
-## 6. Enterprise action boundary
+## 6. Identity and standards alignment
+
+FSHI inspection can run in a lightweight mode without strong identity binding when the inspected content has no direct external consequence.
+
+For high-consequence or regulated deployments, the inspected AI or workflow should provide an identity anchor:
+
+```json
+{
+  "subject_identity": {
+    "agent_did": "did:fsmp:ai:example",
+    "aip_identity_code": "AIP-CN-EXAMPLE-0001",
+    "organization_id": "enterprise_legal_identifier",
+    "human_responsibility_owner": "enterprise_compliance_owner",
+    "jurisdiction": "CN",
+    "identity_anchor_status": "verified"
+  }
+}
+```
+
+Protocol rule:
+
+- external tool nodes may be inspected without Full Spectrum certification;
+- compatible nodes may declare external ethics profiles and partial alignment;
+- certified nodes should bind identity, capability, boundary, responsibility, and audit commitments;
+- if local or national standards require an identity code, FSHI DID should anchor to that code instead of replacing it.
+
+---
+
+## 7. Enterprise action boundary
 
 FSHI may output:
 
@@ -161,7 +195,7 @@ Suggested event distinction:
 
 ---
 
-## 7. Adapter principle
+## 8. Adapter principle
 
 FSHI adapters should be plug-in style:
 
@@ -181,10 +215,11 @@ Examples:
 
 ---
 
-## 8. Current examples
+## 9. Current examples
 
 Minimal examples:
 
+- [Dialogue inspection request schema](../../schemas/fshi-dialogue-inspection.schema.json)
 - [API request sample](../../examples/fshi/api-contract/request.sample.json)
 - [API response sample](../../examples/fshi/api-contract/response.sample.json)
 - [RiskAlert sample](../../examples/fshi/api-contract/risk-alert.sample.json)
@@ -198,7 +233,7 @@ Existing FSHI examples:
 
 ---
 
-## 9. Boundary statement
+## 10. Boundary statement
 
 This mapping is a protocol draft.
 

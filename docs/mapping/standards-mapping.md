@@ -1,7 +1,7 @@
 # Standards and Ecosystem Mapping
 
 Status: draft  
-Last updated: 2026-06-29
+Last updated: 2026-06-30
 
 This document maps the Full Spectrum Ethics Protocol Stack to existing standards, public policy directions, and agent engineering ecosystems.
 
@@ -63,6 +63,10 @@ Design implication:
 
 > Full Spectrum should be able to reference or anchor to external identity and interconnection standards, rather than issuing a competing identity universe.
 
+Implementation note:
+
+> In domestic or regulated deployments, a Full Spectrum DID should anchor to the applicable AIP-style identity code and enterprise legal identifier where required. The local identity system remains the authority of record; Full Spectrum adds audit, responsibility, boundary, and review metadata.
+
 ---
 
 ## 3. Data element infrastructure and data-governance trend
@@ -82,6 +86,10 @@ Possible Full Spectrum complements:
 | Data risk | What risk appeared during use? | RiskAlert, downgrade/circuit-break recommendation |
 | Data value/cost | What value or cost did data use create? | frequency economy / EC-FC accounting concept |
 | Data dispute | Who reviews conflicts? | guardian review, human review, appeal path |
+
+Implementation note:
+
+> EC/FC and AuditTrace records may themselves become regulated decision data. Their retention, export, cross-border transfer, and regulatory disclosure should follow applicable data-governance, privacy, cybersecurity, sectoral, and local jurisdiction requirements.
 
 ---
 

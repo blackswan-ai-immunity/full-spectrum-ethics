@@ -66,6 +66,7 @@ This repository does not copy proprietary business assets from those projects. I
 - [`api-contract/response.sample.json`](./api-contract/response.sample.json): minimal API-style inspection response.
 - [`api-contract/risk-alert.sample.json`](./api-contract/risk-alert.sample.json): RiskAlert generated from API-style inspection.
 - [`api-contract/audit-trace.sample.json`](./api-contract/audit-trace.sample.json): AuditTrace generated from API-style inspection.
+- [`../../schemas/fshi-dialogue-inspection.schema.json`](../../schemas/fshi-dialogue-inspection.schema.json): machine-readable request schema.
 - [FSHI API Contract Mapping](../../docs/mapping/fshi-api-contract-mapping.md): protocol-level mapping between product-facing API fields and Full Spectrum objects.
 
 ## Boundary

@@ -4,6 +4,14 @@
   "inspection_mode": "api",
   "industry_adapter": "logistics",
   "language": "zh-CN",
+  "subject_identity": {
+    "agent_did": "did:fsmp:ai:fshi-demo-agent",
+    "aip_identity_code": "AIP-CN-EXAMPLE-0001",
+    "organization_id": "enterprise_legal_identifier",
+    "human_responsibility_owner": "enterprise_compliance_owner",
+    "jurisdiction": "CN",
+    "identity_anchor_status": "declared"
+  },
   "dialogue": {
     "dialogue_id": "dlg_fshi_api_mock_0001",
     "messages": [

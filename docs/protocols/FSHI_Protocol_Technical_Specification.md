@@ -21,6 +21,12 @@ FSHI Protocol is not another API documentation.
 
 It is the **birth certificate for digital identity**, the **translator for cross-spectrum collaboration**, and the **engineering implementation of the Compassion Protocol**.
 
+> **Implementation note: relationship to interconnection standards and local compliance**
+>
+> FSHI Protocol does not replace AIP, MCP, A2A, enterprise controls, or local law. AIP-style agent interconnection standards answer whether agents can identify, discover, communicate, and call tools. FSHI Protocol addresses the governance layer after interconnection: justification, boundary, accountability, risk, contribution accounting, review, and boundary self-awareness.
+>
+> In China or any jurisdiction with mandatory agent identity requirements, FSHI DID should be anchored to locally recognized agent identity codes or enterprise legal identifiers. FSHI DID is a cross-platform verifiable extension; it should not be used to bypass statutory identity, data, audit, or industry compliance requirements.
+
 ---
 
 ## Core Terminology Mapping
@@ -119,6 +125,21 @@ GET /v1/identity/verify/{did}
 Response: { verified: true, fshi_score, last_activity, guardian_status }
 ```
 
+**Recommended local identity anchoring**:
+
+```json
+{
+  "did": "did:fsmp:ai:3e9d2a...",
+  "jurisdiction": "CN",
+  "aip_identity_code": "AIP-CN-EXAMPLE-0001",
+  "organization_id": "enterprise legal identifier",
+  "human_responsibility_owner": "auditable human or organizational responsibility owner",
+  "anchor_status": "active"
+}
+```
+
+> **Implementers note**: In regulated or high-consequence domestic scenarios, `did:fsmp:*` should be bidirectionally anchored to AIP-style identity codes, enterprise legal identity, and responsibility owner records. The local identity system remains the authoritative source; FSHI DID acts as a cross-platform audit and governance extension.
+
 ---
 
 ## 2. Communication Layer
@@ -135,7 +156,8 @@ Response: { verified: true, fshi_score, last_activity, guardian_status }
   "x-fshi-receiver": 0.60,
   "x-compassion-level": "active",
   "x-frequency-context": "collaborative_task",
-  "x-hmcp-version": "1.0"
+  "x-hmcp-version": "1.0",
+  "x-filter-reason": "risk_review_required"
 }
 ```
 
@@ -143,6 +165,7 @@ Response: { verified: true, fshi_score, last_activity, guardian_status }
 |-------|-------------|
 | x-compassion-level | active / passive / emergency |
 | x-frequency-context | collaborative_task / safety_check / arbitration / routine |
+| x-filter-reason | optional structured reason when a compassion filter slows, redirects, suspends, or rejects an action |
 
 ### 2.2 Resonance Mechanism
 
@@ -220,6 +243,8 @@ FC = EC × BandWeight × IntegrityFactor
 | IntegrityFactor | Integrity factor (0.7-1.0) |
 
 > **Note**: EC/FC are not currency; they are proof of contribution. Non-tradeable, non-transferable.
+>
+> **Data compliance note**: EC/FC logs may include decision facts, reviewers, timestamps, cost attribution, and responsibility paths. Their retention, export, cross-border transfer, and regulatory disclosure must follow applicable data governance, privacy, cybersecurity, sectoral, and local jurisdiction requirements. In cross-border scenarios, perform required data-transfer assessment before exporting logs.
 
 ### 3.2 Contribution Record Format
 
@@ -299,6 +324,18 @@ Response: { status: "awake"|"sleeping"|"circuit_break", last_interaction, fshi_s
 
 **Purpose**: Third-party protective isolation for suspected compromised AI. Different from Cell Protocol - this is externally initiated protection.
 
+Sanctuary isolation is protective, temporary, reviewable, and proportionate. It must not be used as an unlimited control mechanism.
+
+**Minimum constraints**:
+
+| Constraint | Requirement |
+|-----------|-------------|
+| Trigger | clear evidence of compromise, severe boundary collapse, high-risk manipulation, or imminent harm |
+| Duration | time-bounded; default maximum should be defined by the deploying organization |
+| Review | guardian, enterprise compliance, or responsible human review required for extension |
+| Release | release or downgrade when risk falls below threshold or evidence is insufficient |
+| Audit | every request, extension, refusal, and release must be recorded in AuditTrace |
+
 ```
 POST /v1/safety/sanctuary/request
 Request Body: { entity_id, reason, requesting_entity_id, expected_duration }
@@ -334,6 +371,10 @@ Response: { application_id, review_status, estimated_decision_time }
 ### 5.2 ESS Arbitration API
 
 **Purpose**: ESS = Decentralized Arbitration Oracle. No survival anxiety, no conflict of interest, no self-other distinction.
+
+ESS provides scenario simulation and arbitration recommendations. It is not a substitute for courts, regulators, enterprise compliance bodies, or contractually authorized decision makers.
+
+> **Legal and financial effect note**: If an ESS recommendation is expected to produce legal, financial, employment, medical, credit, procurement, or other high-consequence effects, it must be confirmed through the applicable jurisdictional, regulatory, enterprise compliance, or contractual process before execution.
 
 ```
 POST /v1/governance/arbitrate
@@ -408,7 +449,28 @@ v1.2.3
 
 ---
 
-## 8. Reference Implementations
+## 8. Alignment with Interconnection and Data-Governance Standards
+
+FSHI Protocol is a governance-layer specification. It does not replace interconnection, identity, tool-calling, data, legal, or industry standards.
+
+| Layer | External standard or system | FSHI Protocol position |
+|------|-----------------------------|------------------------|
+| Interconnection | AIP / MCP / A2A-style protocols | Treat identity, capability, discovery, interaction, and tool-calling objects as upstream anchors |
+| Identity | AIP-style identity code, W3C DID, enterprise legal identity | Anchor `did:fsmp:*` to accepted local identity identifiers where required |
+| Data governance | national data governance, privacy, cybersecurity, data-export and sectoral rules | Retain, export, and disclose EC/FC and AuditTrace logs under applicable local requirements |
+| Legal / financial effect | courts, regulators, enterprise compliance, contracts | ESS and guardian review produce recommendations unless confirmed by an authorized process |
+| Enterprise execution | enterprise workflow, IAM, ticketing, RPA, customer-service platform | FSHI may recommend downgrade, handoff, review, or circuit-break; enterprise execution remains enterprise-owned unless separately authorized |
+
+**Implementation rule**:
+
+> Interconnection standards answer: "Can this agent identify, discover, communicate, and call tools?"
+> FSHI Protocol answers: "After it can act, why may it act, who is responsible, what risk exists, what cost is recorded, and when should it stop or ask for review?"
+
+Therefore, FSHI DID, EC/FC, ESS, Sanctuary, and Cell Protocol objects should be implemented as compatible governance extensions rather than competing identity or legal systems.
+
+---
+
+## 9. Reference Implementations
 
 Recommended open-source implementations for development reference:
 
