@@ -1,5 +1,7 @@
 # Full Spectrum Ethics Protocol Stack
 
+[![Validate protocol contracts](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/actions/workflows/validate.yml/badge.svg)](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/actions/workflows/validate.yml)
+
 > An open protocol draft for human-AI governance, agent identity, ethical simulation, risk circuit-breaking, and civilization-scale interoperability.
 
 中文：全频谱协议是一套面向 AI 时代的人、AI、组织与文明交互底层协议，用于在整体存续、自由意志与动态差异之间建立可审计、可复核、可演化的协作接口。中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。
@@ -50,6 +52,18 @@ This repository does not claim to be:
 - a proof that any person or group can represent “the whole”.
 
 It is an open protocol draft and engineering exploration.
+
+---
+
+## Current machine validation
+
+This repository currently validates:
+
+- common mojibake patterns in Markdown, JSON, YAML, HTML, CSS, and script files;
+- the FSHI dialogue inspection contract chain:
+  `request.sample.json → response.sample.json → risk-alert.sample.json → audit-trace.sample.json`.
+
+The checks run through GitHub Actions on push and pull request to `main`.
 
 ---
 
