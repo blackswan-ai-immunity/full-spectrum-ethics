@@ -2,10 +2,6 @@
 
 This directory is reserved for practical guides.
 
-Available guides:
-
-- [Project continuity and AI handoff plan](./PROJECT_CONTINUITY_AND_AI_HANDOFF.md)
-
 Planned guides:
 
 - how to read the Full Spectrum Protocol;
