@@ -15,5 +15,6 @@ Planned schemas:
 - `guardian-review.schema.json`
 - [`audit-trace.schema.json`](./audit-trace.schema.json)
 - [`fshi-dialogue-inspection.schema.json`](./fshi-dialogue-inspection.schema.json)
+- [`fshi-dialogue-inspection-response.schema.json`](./fshi-dialogue-inspection-response.schema.json)
 
 The purpose of schemas is to make the Full Spectrum Protocol inspectable and implementable by software systems.

@@ -124,7 +124,8 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。
 15. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
 16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)：检测 API 字段如何映射为 RiskAlert 与 AuditTrace。
 17. [FSHI 最小样例](./examples/fshi/)：脱敏对话如何映射为 RiskAlert 与 AuditTrace。
-18. [ROADMAP.md](./ROADMAP.md)：项目路线图。
+18. [Validations](./validations/)：面向产品验证 demo 与商业价值叙事的规划空间。
+19. [ROADMAP.md](./ROADMAP.md)：项目路线图。
 
 ---
 

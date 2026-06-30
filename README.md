@@ -118,7 +118,8 @@ If you are new, read in this order:
 15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
 16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md) — maps inspection API fields to RiskAlert and AuditTrace.
 17. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
-18. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+18. [Validations](./validations/) — planning space for product-facing validation demos and business-value narratives.
+19. [ROADMAP.md](./ROADMAP.md) — where the project is going.
 
 ---
 

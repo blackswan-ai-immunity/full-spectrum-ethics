@@ -60,7 +60,8 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
 16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)
 17. [FSHI minimal examples](./examples/fshi/)
-18. [ROADMAP.md](./ROADMAP.md)
+18. [Validations](./validations/)
+19. [ROADMAP.md](./ROADMAP.md)
 
 ## Status
 

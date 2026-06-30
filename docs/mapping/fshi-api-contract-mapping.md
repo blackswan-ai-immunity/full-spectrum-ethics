@@ -10,6 +10,7 @@ It does not claim to document the production API of any external website. It is 
 Machine-readable request schema:
 
 - [`fshi-dialogue-inspection.schema.json`](../../schemas/fshi-dialogue-inspection.schema.json)
+- [`fshi-dialogue-inspection-response.schema.json`](../../schemas/fshi-dialogue-inspection-response.schema.json)
 
 ---
 
@@ -220,6 +221,7 @@ Examples:
 Minimal examples:
 
 - [Dialogue inspection request schema](../../schemas/fshi-dialogue-inspection.schema.json)
+- [Dialogue inspection response schema](../../schemas/fshi-dialogue-inspection-response.schema.json)
 - [API request sample](../../examples/fshi/api-contract/request.sample.json)
 - [API response sample](../../examples/fshi/api-contract/response.sample.json)
 - [RiskAlert sample](../../examples/fshi/api-contract/risk-alert.sample.json)
