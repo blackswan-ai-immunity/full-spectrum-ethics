@@ -70,6 +70,22 @@ This repository does not copy proprietary business assets from those projects. I
 - [`../../schemas/fshi-dialogue-inspection-response.schema.json`](../../schemas/fshi-dialogue-inspection-response.schema.json): machine-readable response schema.
 - [FSHI API Contract Mapping](../../docs/mapping/fshi-api-contract-mapping.md): protocol-level mapping between product-facing API fields and Full Spectrum objects.
 
+## Validate the contract chain
+
+Run:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\validate-fshi-contract.ps1
+```
+
+The script checks:
+
+- request sample against the minimal request contract;
+- response sample against the minimal response contract;
+- RiskAlert sample against RiskAlert requirements;
+- AuditTrace sample against AuditTrace requirements;
+- cross-object consistency across request, response, RiskAlert, and AuditTrace.
+
 ## Boundary
 
 This example does not claim:

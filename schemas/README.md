@@ -18,3 +18,11 @@ Planned schemas:
 - [`fshi-dialogue-inspection-response.schema.json`](./fshi-dialogue-inspection-response.schema.json)
 
 The purpose of schemas is to make the Full Spectrum Protocol inspectable and implementable by software systems.
+
+## Validation helper
+
+The FSHI sample chain can be checked with:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\validate-fshi-contract.ps1
+```
