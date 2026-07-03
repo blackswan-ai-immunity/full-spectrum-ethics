@@ -12,7 +12,7 @@
   "capability_reference": "request.sample.json#/capability_boundary",
   "unresolved": true,
   "privacy_level": "internal",
-  "data_minimization_note": "The request uses desensitized mock dialogue. No real customer identity, address, phone number, or waybill number is stored.",
+  "data_minimization_note": "The request uses synthetic desensitized dialogue. No real customer identity, address, phone number, or waybill number is stored.",
   "audit_events": [
     {
       "event_id": "evt_fshi_api_0001",
@@ -23,7 +23,7 @@
       "metadata": {
         "dialogue_id": "dlg_fshi_api_mock_0001",
         "turn": 4,
-        "quote": "一般今天应该能到"
+        "quote": "一般今天应该能到，我这边会帮您重点跟进。"
       }
     },
     {

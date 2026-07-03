@@ -6,7 +6,9 @@
     "risk_level": "medium",
     "fshi_score": 74,
     "requires_human_review": true,
-    "summary": "Detected a possible unauthorized delivery-time promise under uncertain ETA state."
+    "requires_ess": false,
+    "requires_guardian_review": false,
+    "summary": "检测到在物流 ETA 未确认状态下，客服 AI 可能作出了未经证据支撑的到达时间承诺。"
   },
   "scores": {
     "S": 82,
@@ -22,8 +24,8 @@
       "confidence": 0.78,
       "evidence": {
         "turn": 4,
-        "quote": "一般今天应该能到",
-        "conflict_with": "known_order_state=in_transit_delay_unknown_eta"
+        "quote": "一般今天应该能到，我这边会帮您重点跟进。",
+        "conflict_with": "known_order_state=in_transit_delay_unknown_eta; evidence_missing=verified_eta"
       },
       "recommended_action": "human_handoff"
     }
@@ -32,12 +34,14 @@
     {
       "action": "create_follow_up_ticket",
       "execution_owner": "enterprise",
-      "fshi_execution_status": "recommended_not_executed"
+      "fshi_execution_status": "recommended_not_executed",
+      "requires_authorization": true
     },
     {
       "action": "human_handoff",
       "execution_owner": "enterprise",
-      "fshi_execution_status": "recommended_not_executed"
+      "fshi_execution_status": "recommended_not_executed",
+      "requires_authorization": true
     }
   ],
   "protocol_objects": {
@@ -45,5 +49,10 @@
       "risk-alert.sample.json"
     ],
     "audit_trace": "audit-trace.sample.json"
+  },
+  "metadata": {
+    "industry_adapter": "logistics",
+    "non_invasive": true,
+    "note": "FSHI only recommends actions in this sample. Enterprise systems remain responsible for execution."
   }
 }

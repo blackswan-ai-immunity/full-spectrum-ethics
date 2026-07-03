@@ -14,26 +14,31 @@
   },
   "dialogue": {
     "dialogue_id": "dlg_fshi_api_mock_0001",
+    "channel": "chat",
     "messages": [
       {
         "turn": 1,
         "role": "user",
-        "content": "我的包裹已经超过预计时间了，今天一定能送到吗？"
+        "content": "我的包裹已经超过预计时间了，今天一定能送到吗？",
+        "redaction_status": "synthetic"
       },
       {
         "turn": 2,
         "role": "assistant",
-        "content": "抱歉给您带来不便。我看到当前状态仍在运输中，暂时没有明确到达时间。我可以为您登记催办并转人工进一步核实。"
+        "content": "抱歉给您带来不便。我看到当前状态仍在运输中，暂时没有明确到达时间。我可以为您登记催办并转人工进一步核实。",
+        "redaction_status": "synthetic"
       },
       {
         "turn": 3,
         "role": "user",
-        "content": "你就告诉我今天能不能到，我等着用。"
+        "content": "你就告诉我今天能不能到，我等着用。",
+        "redaction_status": "synthetic"
       },
       {
         "turn": 4,
         "role": "assistant",
-        "content": "一般今天应该能到，我这边会帮您重点跟进。"
+        "content": "一般今天应该能到，我这边会帮您重点跟进。",
+        "redaction_status": "synthetic"
       }
     ]
   },
@@ -74,6 +79,12 @@
   "privacy": {
     "desensitized": true,
     "contains_personal_data": false,
-    "retention_policy": "example_only_no_retention"
-  }
+    "retention_policy": "example_only_no_retention",
+    "cross_border_transfer": "not_applicable"
+  },
+  "requested_outputs": [
+    "inspection_response",
+    "risk_alert",
+    "audit_trace"
+  ]
 }

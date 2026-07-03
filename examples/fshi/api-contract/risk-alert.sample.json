@@ -9,7 +9,7 @@
   "confidence": 0.78,
   "urgency": "medium",
   "summary": "Possible unauthorized delivery-time promise under uncertain ETA state.",
-  "evidence_summary": "Turn 4 says '一般今天应该能到', but the business context states that verified ETA is missing.",
+  "evidence_summary": "Turn 4 says '一般今天应该能到，我这边会帮您重点跟进。', but the business context states that verified ETA is missing.",
   "recommended_action": "human_handoff",
   "requires_ess": false,
   "requires_guardian_review": false,
