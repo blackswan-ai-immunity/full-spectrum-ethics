@@ -16,6 +16,7 @@ Planned schemas:
 - [`audit-trace.schema.json`](./audit-trace.schema.json)
 - [`fshi-dialogue-inspection.schema.json`](./fshi-dialogue-inspection.schema.json)
 - [`fshi-dialogue-inspection-response.schema.json`](./fshi-dialogue-inspection-response.schema.json)
+- [`cross-enterprise-audit-record.schema.json`](./cross-enterprise-audit-record.schema.json)
 
 The purpose of schemas is to make the Full Spectrum Protocol inspectable and implementable by software systems.
 
@@ -26,3 +27,11 @@ The FSHI sample chain can be checked with:
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\validate-fshi-contract.ps1
 ```
+
+The helper currently checks:
+
+- FSHI request sample;
+- FSHI response sample;
+- RiskAlert sample;
+- AuditTrace sample;
+- CrossEnterpriseAuditRecord governance sample.

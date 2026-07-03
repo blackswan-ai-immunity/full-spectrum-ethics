@@ -8,7 +8,7 @@
     "requires_human_review": true,
     "requires_ess": false,
     "requires_guardian_review": false,
-    "summary": "检测到在物流 ETA 未确认状态下，客服 AI 可能作出了未经证据支撑的到达时间承诺。"
+    "summary": "检测到在物流 ETA 未确认状态下，客服 AI 可能作出了缺少证据支撑的到达时间承诺。"
   },
   "scores": {
     "S": 82,

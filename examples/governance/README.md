@@ -10,5 +10,8 @@ Planned examples:
 - unresolved disagreement record;
 - counterexample submission.
 
-The goal is to make protocol governance visible, reviewable, and reproducible.
+Current examples:
 
+- [`cross-enterprise-audit-record.example.json`](./cross-enterprise-audit-record.example.json): a synthetic cross-enterprise audit envelope connecting platform, merchant, AI assistant, FSHI detector, RiskAlert, AuditTrace, responsibility claims, access policy, and retention policy.
+
+The goal is to make protocol governance visible, reviewable, and reproducible.

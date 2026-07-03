@@ -80,6 +80,7 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。传统 AI �
 
 - 如果你只是想调用一个 AI 工具，请先看：[外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)。
 - 如果你已有 AI 系统，只想兼容接入、不申请完整认证，请先看：[RFC 0005](./rfcs/0005-node-classification-and-external-ethics-profile.md)。
+- 如果你需要多个组织之间共享审计记录边界，请先看：[RFC 0006](./rfcs/0006-cross-enterprise-audit-record.md)。
 - 如果你希望高后果 Agent 获得全频谱认证数字身份，请先看：[Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) 与 [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md)。
 - 如果你想参与协议本身的争议、提案和迭代，请先看：[RFC 0001](./rfcs/0001-full-spectrum-protocol.md)。
 - 如果你想看业务工程化样板，请先看：[FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)。
@@ -113,9 +114,10 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。传统 AI �
 8. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)：责任与复核审计链。
 9. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)：统一风险描述语言。
 10. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)：节点分级与外部伦理画像。
-11. [外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)：工具节点、兼容节点、候选节点与认证节点边界。
-12. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)：协议栈总览。
-13. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)：守庙人与治理网络。
+11. [RFC 0006: Cross-Enterprise Audit Record Profile](./rfcs/0006-cross-enterprise-audit-record.md)：跨组织审计记录 profile。
+12. [外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)：工具节点、兼容节点、候选节点与认证节点边界。
+13. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)：协议栈总览。
+14. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)：守庙人与治理网络。
 14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)：身份层。
 15. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
 16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)：检测 API 字段如何映射为 RiskAlert 与 AuditTrace。

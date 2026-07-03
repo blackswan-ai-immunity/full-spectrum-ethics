@@ -2,7 +2,8 @@ param(
   [string]$RequestPath = "examples/fshi/api-contract/request.sample.json",
   [string]$ResponsePath = "examples/fshi/api-contract/response.sample.json",
   [string]$RiskAlertPath = "examples/fshi/api-contract/risk-alert.sample.json",
-  [string]$AuditTracePath = "examples/fshi/api-contract/audit-trace.sample.json"
+  [string]$AuditTracePath = "examples/fshi/api-contract/audit-trace.sample.json",
+  [string]$CrossEnterpriseAuditRecordPath = "examples/governance/cross-enterprise-audit-record.example.json"
 )
 
 $ErrorActionPreference = "Stop"
@@ -109,12 +110,14 @@ $schemas = @{
   response = Read-JsonFile "schemas/fshi-dialogue-inspection-response.schema.json"
   riskAlert = Read-JsonFile "schemas/risk-alert.schema.json"
   auditTrace = Read-JsonFile "schemas/audit-trace.schema.json"
+  crossEnterpriseAuditRecord = Read-JsonFile "schemas/cross-enterprise-audit-record.schema.json"
 }
 
 $request = Read-JsonFile $RequestPath
 $response = Read-JsonFile $ResponsePath
 $riskAlert = Read-JsonFile $RiskAlertPath
 $auditTrace = Read-JsonFile $AuditTracePath
+$crossEnterpriseAuditRecord = Read-JsonFile $CrossEnterpriseAuditRecordPath
 
 # Request checks
 Test-Required $errors $request @("request_id", "tenant_id", "inspection_mode", "industry_adapter", "language", "dialogue", "privacy") "request"
@@ -179,6 +182,39 @@ foreach ($event in @($auditTrace.audit_events)) {
   Test-Enum $errors $event.event_type $allowedAuditEvents "auditTrace.audit_events[].event_type"
 }
 
+# CrossEnterpriseAuditRecord checks
+Test-Required $errors $crossEnterpriseAuditRecord @("record_id", "created_at", "status", "purpose", "participants", "data_sources", "processing_nodes", "review_status", "access_policy", "retention_policy") "crossEnterpriseAuditRecord"
+Test-Enum $errors $crossEnterpriseAuditRecord.status @("draft", "open", "under_review", "disputed", "resolved", "closed", "archived") "crossEnterpriseAuditRecord.status"
+Test-Enum $errors $crossEnterpriseAuditRecord.review_status @("unreviewed", "under_review", "reviewed", "disputed", "closed") "crossEnterpriseAuditRecord.review_status"
+Test-NonEmptyArray $errors $crossEnterpriseAuditRecord.participants "crossEnterpriseAuditRecord.participants"
+Test-NonEmptyArray $errors $crossEnterpriseAuditRecord.data_sources "crossEnterpriseAuditRecord.data_sources"
+Test-NonEmptyArray $errors $crossEnterpriseAuditRecord.processing_nodes "crossEnterpriseAuditRecord.processing_nodes"
+Test-Required $errors $crossEnterpriseAuditRecord.access_policy @("visibility") "crossEnterpriseAuditRecord.access_policy"
+Test-Enum $errors $crossEnterpriseAuditRecord.access_policy.visibility @("public", "shared_internal", "restricted", "confidential") "crossEnterpriseAuditRecord.access_policy.visibility"
+Test-Required $errors $crossEnterpriseAuditRecord.retention_policy @("storage_owner", "retention_period") "crossEnterpriseAuditRecord.retention_policy"
+
+foreach ($participant in @($crossEnterpriseAuditRecord.participants)) {
+  Test-Required $errors $participant @("participant_id", "participant_type", "role") "crossEnterpriseAuditRecord.participants[]"
+  Test-Enum $errors $participant.participant_type @("organization", "platform", "ai_agent", "service_provider", "auditor", "guardian_node", "regulator", "human", "composite_subject", "other") "crossEnterpriseAuditRecord.participants[].participant_type"
+}
+
+foreach ($source in @($crossEnterpriseAuditRecord.data_sources)) {
+  Test-Required $errors $source @("source_id", "provider_id", "data_type", "desensitization_status", "purpose") "crossEnterpriseAuditRecord.data_sources[]"
+  Test-Enum $errors $source.desensitization_status @("synthetic", "desensitized", "pseudonymized", "aggregated", "raw_internal_only", "unknown") "crossEnterpriseAuditRecord.data_sources[].desensitization_status"
+  Test-Enum $errors $source.cross_border_transfer @("not_applicable", "not_allowed", "requires_assessment", "approved", "unknown") "crossEnterpriseAuditRecord.data_sources[].cross_border_transfer"
+}
+
+foreach ($node in @($crossEnterpriseAuditRecord.processing_nodes)) {
+  Test-Required $errors $node @("node_id", "node_type", "operator_id", "role") "crossEnterpriseAuditRecord.processing_nodes[]"
+  Test-Enum $errors $node.node_type @("human_review", "ai_agent", "model", "tool", "orchestrator", "fshi_detector", "guardian_node", "enterprise_system", "external_compatible_node", "certified_node", "other") "crossEnterpriseAuditRecord.processing_nodes[].node_type"
+}
+
+foreach ($claim in @($crossEnterpriseAuditRecord.responsibility_claims)) {
+  Test-Required $errors $claim @("claim_id", "claimant_id", "claim_type", "scope", "summary") "crossEnterpriseAuditRecord.responsibility_claims[]"
+  Test-Enum $errors $claim.claim_type @("accepts", "denies", "shares", "disputes", "unknown") "crossEnterpriseAuditRecord.responsibility_claims[].claim_type"
+  Test-Enum $errors $claim.review_status @("unreviewed", "under_review", "accepted", "rejected", "disputed", "closed") "crossEnterpriseAuditRecord.responsibility_claims[].review_status"
+}
+
 # Cross-object chain checks
 if ($response.request_id -ne $request.request_id) {
   Add-Error $errors "response.request_id must match request.request_id"
@@ -214,6 +250,20 @@ if (-not ($auditRelatedRiskIds -contains $riskAlert.risk_id)) {
   Add-Error $errors "riskAlert.risk_id must appear in auditTrace.audit_events[].related_risk_id"
 }
 
+$crossRiskIds = @($crossEnterpriseAuditRecord.risk_alerts | ForEach-Object { $_.risk_id })
+if (-not ($crossRiskIds -contains $riskAlert.risk_id)) {
+  Add-Error $errors "riskAlert.risk_id must appear in crossEnterpriseAuditRecord.risk_alerts[]"
+}
+
+$crossTraceIds = @($crossEnterpriseAuditRecord.audit_traces | ForEach-Object { $_.trace_id })
+if (-not ($crossTraceIds -contains $auditTrace.trace_id)) {
+  Add-Error $errors "auditTrace.trace_id must appear in crossEnterpriseAuditRecord.audit_traces[]"
+}
+
+if ($crossEnterpriseAuditRecord.related_fshi_inspection_id -ne $response.inspection_id) {
+  Add-Error $errors "crossEnterpriseAuditRecord.related_fshi_inspection_id must match response.inspection_id"
+}
+
 foreach ($action in @($response.recommended_enterprise_actions)) {
   if ($action.execution_owner -ne "enterprise") {
     Add-Error $errors "non-invasive sample expected response.recommended_enterprise_actions[].execution_owner to be enterprise"
@@ -224,9 +274,9 @@ foreach ($action in @($response.recommended_enterprise_actions)) {
 }
 
 if ($errors.Count -gt 0) {
-  Write-Error "FSHI contract validation failed:"
+  Write-Host "FSHI contract validation failed:" -ForegroundColor Red
   foreach ($error in $errors) {
-    Write-Error " - $error"
+    Write-Host " - $error" -ForegroundColor Red
   }
   exit 1
 }
@@ -237,3 +287,4 @@ Write-Output "  $RequestPath"
 Write-Output "  -> $ResponsePath"
 Write-Output "  -> $RiskAlertPath"
 Write-Output "  -> $AuditTracePath"
+Write-Output "  -> $CrossEnterpriseAuditRecordPath"
