@@ -18,7 +18,7 @@ China has released the national standard series **Artificial Intelligence — Ag
 
 Full Spectrum focuses on the governance layer above and around interconnection: why an action was allowed, who is accountable, what risk was detected, what cost or responsibility should be recorded, when review is required, and when an agent should know that it should not act.
 
-See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
+See the [Protocol Mapping Center](./docs/mapping/README.md), especially [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 
 ## 30-second entry path
 
@@ -27,6 +27,7 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 - If you need a shared audit envelope across multiple organizations, start with [RFC 0006](./rfcs/0006-cross-enterprise-audit-record.md).
 - If you want Full Spectrum certified digital identity for a high-consequence agent, start with [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) and [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md).
 - If you want to debate or improve the protocol itself, start with [RFC 0001](./rfcs/0001-full-spectrum-protocol.md).
+- If you want to understand protocol-to-standard relationships, start with the [Protocol Mapping Center](./docs/mapping/README.md).
 - If you want to see a business-facing engineering sample, start with [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md).
 - If you want to understand cross-enterprise audit interoperability, start with [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md).
 
@@ -48,24 +49,25 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 1. [START_HERE.md](./START_HERE.md)
 2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md)
 3. [Glossary](./docs/glossary.md)
-4. [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md)
-5. [FOR_AGENTS.md](./FOR_AGENTS.md)
-6. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)
-7. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)
-8. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)
-9. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)
-10. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)
-11. [RFC 0006: Cross-Enterprise Audit Record Profile](./rfcs/0006-cross-enterprise-audit-record.md)
-12. [External Node Guide](./EXTERNAL_NODE_GUIDE.md)
-13. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)
-14. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
-15. [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md)
-14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
-15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
-16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)
-17. [FSHI minimal examples](./examples/fshi/)
-18. [Validations](./validations/)
-19. [ROADMAP.md](./ROADMAP.md)
+4. [Protocol Mapping Center](./docs/mapping/README.md)
+5. [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md)
+6. [FOR_AGENTS.md](./FOR_AGENTS.md)
+7. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)
+8. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)
+9. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)
+10. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)
+11. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)
+12. [RFC 0006: Cross-Enterprise Audit Record Profile](./rfcs/0006-cross-enterprise-audit-record.md)
+13. [External Node Guide](./EXTERNAL_NODE_GUIDE.md)
+14. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)
+15. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
+16. [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md)
+17. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
+18. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
+19. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)
+20. [FSHI minimal examples](./examples/fshi/)
+21. [Validations](./validations/)
+22. [ROADMAP.md](./ROADMAP.md)
 
 ## Machine validation
 
