@@ -74,6 +74,51 @@ The profile does not replace `RiskAlert` or `AuditTrace`.
 
 It references them and adds cross-enterprise context.
 
+### Visual flow
+
+```mermaid
+flowchart LR
+  subgraph "Enterprise / Platform"
+    A["Desensitized dialogue"]
+    B["Business context<br/>order, SLA, policy, state"]
+    H["Enterprise human review<br/>execution remains enterprise-owned"]
+  end
+
+  subgraph "FSHI inspection"
+    C["FSHI request"]
+    D["FSHI response<br/>scores + recommended actions"]
+    E["RiskAlert<br/>shared risk language"]
+    F["AuditTrace<br/>event + responsibility trace"]
+  end
+
+  subgraph "Cross-enterprise envelope"
+    G["CrossEnterpriseAuditRecord<br/>participants + data sources + nodes + claims + access + retention"]
+  end
+
+  A --> C
+  B --> C
+  C --> D
+  D --> E
+  D --> F
+  E --> G
+  F --> G
+  G --> H
+
+  P1["Platform"] --> G
+  P2["Merchant / supplier"] --> G
+  P3["Logistics / service provider"] --> G
+  P4["AI service / detector"] --> G
+  P5["Compliance / auditor"] --> G
+```
+
+The diagram shows the intended boundary:
+
+- FSHI inspects and recommends;
+- `RiskAlert` records the risk;
+- `AuditTrace` records the event and responsibility path;
+- `CrossEnterpriseAuditRecord` packages multi-party audit context;
+- the enterprise still owns execution and final business action unless a separate authorized integration says otherwise.
+
 ---
 
 ## 3. Mapping from FSHI
@@ -295,4 +340,3 @@ This mapping does not:
 - prove that a system is safe.
 
 It exists to make cross-enterprise AI audit records more visible, comparable, and reviewable.
-
