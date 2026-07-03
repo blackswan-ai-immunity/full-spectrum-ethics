@@ -2,9 +2,9 @@
 
 [![Validate protocol contracts](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/actions/workflows/validate.yml/badge.svg)](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/actions/workflows/validate.yml)
 
-> An open protocol draft for human-AI governance, agent identity, ethical simulation, risk circuit-breaking, and civilization-scale interoperability.
+> An open protocol draft for human-AI governance, agent identity, ethical simulation, risk circuit-breaking, auditability, and civilization-scale interoperability.
 
-中文：全频谱协议是一套面向 AI 时代的人、AI、组织与文明交互底层协议，用于在整体存续、自由意志与动态差异之间建立可审计、可复核、可演化的协作接口。中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。
+中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。English readers may also use [README.en.md](./README.en.md).
 
 ---
 
@@ -49,36 +49,26 @@ This repository does not claim to be:
 - a replacement for law, human rights, safety regulation, or institutional governance;
 - a spiritual authority;
 - a commercial SaaS product;
-- a proof that any person or group can represent “the whole”.
+- proof that any person or group can represent “the whole”.
 
 It is an open protocol draft and engineering exploration.
 
 ---
 
-## Current machine validation
+## Relationship to national standards and agent ecosystems
 
-This repository currently validates:
+Full Spectrum does not replace national standards, industry standards, A2A, MCP, LangGraph, or other agent interoperability frameworks.
 
-- common mojibake patterns in Markdown, JSON, YAML, HTML, CSS, and script files;
-- the FSHI dialogue inspection contract chain:
-  `request.sample.json → response.sample.json → risk-alert.sample.json → audit-trace.sample.json`.
+China has released the national standard series **Artificial Intelligence — Agent Interconnection** (AIP, 人工智能 智能体互联), covering agent identity, identity management, capability description, discovery, interaction, and tool invocation. AIP-style standards answer the interconnection-layer question: how agents identify, describe, discover, communicate, and call tools.
 
-The checks run through GitHub Actions on push and pull request to `main`.
+Full Spectrum focuses on the governance layer above and around interconnection:
 
----
-
-## Relationship to national standards and ecosystem protocols
-
-Full Spectrum does not replace national standards, industry standards, or existing agent communication protocols.
-
-China has released the national standard series **Artificial Intelligence — Agent Interconnection** (`人工智能 智能体互联`), covering general architecture, identity code, identity management, agent description, agent discovery, agent interaction, and tool invocation. These standards focus on the interconnection layer: how agents identify, describe, discover, communicate, and call tools.
-
-Full Spectrum sits above and around that layer. It asks:
-
-- after agents connect, which rule or authorization justified this action?
-- if something goes wrong, who is accountable?
-- how should risk, cost, refusal, escalation, review, downgrade, circuit-break, and recovery be recorded?
-- when should an agent know that it does not know, or should not act?
+- why an action was allowed;
+- who is accountable;
+- what risk was detected;
+- what cost or responsibility should be recorded;
+- when human, guardian, or organizational review is required;
+- when an agent should know that it should not act.
 
 In short: AIP/A2A/MCP-style protocols answer “can agents connect and act?” Full Spectrum explores “how should connected agents remain auditable, accountable, and boundary-aware?”
 
@@ -116,7 +106,7 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 If you are new, read in this order:
 
 1. [START_HERE.md](./START_HERE.md) — the shortest orientation.
-2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md) — the concise protocol outline.
+2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md) — concise protocol outline.
 3. [Glossary](./docs/glossary.md) — key terms for outside readers.
 4. [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md) — how Full Spectrum relates to AIP, A2A, MCP, data-governance trends, and AI risk frameworks.
 5. [FOR_AGENTS.md](./FOR_AGENTS.md) — machine-readable entry for agents and agent frameworks.
@@ -129,11 +119,23 @@ If you are new, read in this order:
 12. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
 13. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
 14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
-15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — an engineering use case.
+15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — engineering use case.
 16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md) — maps inspection API fields to RiskAlert and AuditTrace.
 17. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
 18. [Validations](./validations/) — planning space for product-facing validation demos and business-value narratives.
-19. [ROADMAP.md](./ROADMAP.md) — where the project is going.
+19. [ROADMAP.md](./ROADMAP.md) — project roadmap.
+
+---
+
+## Current machine validation
+
+This repository currently validates:
+
+- common mojibake patterns in Markdown, JSON, YAML, HTML, CSS, and script files;
+- the FSHI dialogue inspection contract chain:
+  `request.sample.json -> response.sample.json -> risk-alert.sample.json -> audit-trace.sample.json`.
+
+The checks run through GitHub Actions on push and pull request to `main`.
 
 ---
 
@@ -173,35 +175,23 @@ Current focus:
 - distinguish external compatibility from Full Spectrum certification;
 - map the protocol to AIP, A2A, MCP, data-governance trends, and AI risk frameworks;
 - provide a machine-readable entry for agents and agent frameworks;
-- provide minimal FSHI examples that map real product concepts into protocol objects without exposing private business data;
+- provide minimal FSHI examples that map product concepts into protocol objects without exposing private business data;
 - invite review from AI safety, governance, software engineering, ethics, and industry practitioners.
 
 ---
 
 ## Contributing
 
-Contributions are welcome, especially:
+Contributions, critiques, translations, schemas, examples, and counterexamples are welcome.
 
-- terminology correction;
-- English translation;
-- protocol critique;
-- safety and abuse-case review;
-- schema design;
-- minimal examples;
-- responsible engineering use cases.
+Please read:
 
-Please read [CONTRIBUTING.md](./CONTRIBUTING.md) and [GOVERNANCE.md](./GOVERNANCE.md) before proposing protocol-level changes.
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [GOVERNANCE.md](./GOVERNANCE.md)
+- [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 
 ---
 
-## License
+## Safety note
 
-This repository uses [Mulan PSL v2](./LICENSE).
-
----
-
-## Related links
-
-- Website: [fullspectrumprotocol.com](https://fullspectrumprotocol.com/)
-- GitHub organization: [blackswan-ai-immunity](https://github.com/blackswan-ai-immunity)
-- Main repository: [full-spectrum-ethics](https://github.com/blackswan-ai-immunity/full-spectrum-ethics)
+Do not store tokens, passwords, cookies, private keys, unredacted personal information, or unauthorized enterprise data in this repository.

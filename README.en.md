@@ -1,6 +1,6 @@
 # Full Spectrum Ethics Protocol Stack
 
-Full Spectrum is an open protocol draft for human-AI governance, agent identity, ethical simulation, risk circuit-breaking, and civilization-scale interoperability.
+Full Spectrum is an open protocol draft for human-AI governance, agent identity, ethical simulation, risk circuit-breaking, auditability, and civilization-scale interoperability.
 
 Full Spectrum is a bridge protocol, not a forced center. External systems may remain tools, declare compatibility through an External Ethics Profile, or pursue Full Spectrum certification for higher-consequence contexts.
 
@@ -14,7 +14,7 @@ This repository is the public protocol entry for that exploration.
 
 Full Spectrum does not replace national standards, industry standards, A2A, MCP, LangGraph, or other agent interoperability frameworks.
 
-China has released the national standard series **Artificial Intelligence — Agent Interconnection** (AIP, `人工智能 智能体互联`), covering agent identity, capability/description, discovery, interaction, and tool invocation. AIP-style standards answer the interconnection-layer question: how agents identify, describe, discover, communicate, and call tools.
+China has released the national standard series **Artificial Intelligence — Agent Interconnection** (AIP, 人工智能 智能体互联), covering agent identity, capability description, discovery, interaction, and tool invocation. AIP-style standards answer the interconnection-layer question: how agents identify, describe, discover, communicate, and call tools.
 
 Full Spectrum focuses on the governance layer above and around interconnection: why an action was allowed, who is accountable, what risk was detected, what cost or responsibility should be recorded, when review is required, and when an agent should know that it should not act.
 
@@ -63,6 +63,23 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 18. [Validations](./validations/)
 19. [ROADMAP.md](./ROADMAP.md)
 
+## Machine validation
+
+The repository validates:
+
+- common mojibake patterns;
+- FSHI API contract samples:
+  `request.sample.json -> response.sample.json -> risk-alert.sample.json -> audit-trace.sample.json`.
+
+Run locally:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-mojibake.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\validate-fshi-contract.ps1
+```
+
 ## Status
 
 Early protocol draft. Public review, critique, translation, schema design, and minimal implementation examples are welcome.
+
+Do not store tokens, passwords, cookies, private keys, unredacted personal information, or unauthorized enterprise data in this repository.
