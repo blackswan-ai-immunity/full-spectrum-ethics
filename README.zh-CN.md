@@ -84,6 +84,7 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。传统 AI �
 - 如果你希望高后果 Agent 获得全频谱认证数字身份，请先看：[Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) 与 [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md)。
 - 如果你想参与协议本身的争议、提案和迭代，请先看：[RFC 0001](./rfcs/0001-full-spectrum-protocol.md)。
 - 如果你想看业务工程化样板，请先看：[FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)。
+- 如果你想理解跨企业审计互认，请先看：[Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md)。
 
 ---
 
@@ -118,6 +119,7 @@ AI 正在变得更快、更自主，也更深地嵌入人类组织。传统 AI �
 12. [外部节点接入指南](./EXTERNAL_NODE_GUIDE.md)：工具节点、兼容节点、候选节点与认证节点边界。
 13. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)：协议栈总览。
 14. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)：守庙人与治理网络。
+15. [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md)：跨组织审计记录映射。
 14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)：身份层。
 15. [FSHI 客服质检用例](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)：工程化落地样板。
 16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)：检测 API 字段如何映射为 RiskAlert 与 AuditTrace。

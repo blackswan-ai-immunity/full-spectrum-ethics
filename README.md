@@ -84,6 +84,7 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 - If you want Full Spectrum certified digital identity for a high-consequence agent, start with [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) and [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md).
 - If you want to debate or improve the protocol itself, start with [RFC 0001](./rfcs/0001-full-spectrum-protocol.md).
 - If you want to see a business-facing engineering sample, start with [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md).
+- If you want to understand cross-enterprise audit interoperability, start with [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md).
 
 ---
 
@@ -120,12 +121,13 @@ If you are new, read in this order:
 12. [External Node Guide](./EXTERNAL_NODE_GUIDE.md) — tool, compatible, candidate, and certified node boundaries.
 13. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
 14. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
-14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
-15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — engineering use case.
-16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md) — maps inspection API fields to RiskAlert and AuditTrace.
-17. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
-18. [Validations](./validations/) — planning space for product-facing validation demos and business-value narratives.
-19. [ROADMAP.md](./ROADMAP.md) — project roadmap.
+15. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
+16. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — engineering use case.
+17. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md) — maps inspection API fields to RiskAlert and AuditTrace.
+18. [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md) — maps RiskAlert and AuditTrace into a multi-party audit envelope.
+19. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
+20. [Validations](./validations/) — planning space for product-facing validation demos and business-value narratives.
+21. [ROADMAP.md](./ROADMAP.md) — project roadmap.
 
 ---
 
@@ -135,7 +137,7 @@ This repository currently validates:
 
 - common mojibake patterns in Markdown, JSON, YAML, HTML, CSS, and script files;
 - the FSHI dialogue inspection contract chain:
-  `request.sample.json -> response.sample.json -> risk-alert.sample.json -> audit-trace.sample.json`.
+  `request.sample.json -> response.sample.json -> risk-alert.sample.json -> audit-trace.sample.json -> cross-enterprise-audit-record.example.json`.
 
 The checks run through GitHub Actions on push and pull request to `main`.
 

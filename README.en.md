@@ -28,6 +28,7 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 - If you want Full Spectrum certified digital identity for a high-consequence agent, start with [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) and [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md).
 - If you want to debate or improve the protocol itself, start with [RFC 0001](./rfcs/0001-full-spectrum-protocol.md).
 - If you want to see a business-facing engineering sample, start with [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md).
+- If you want to understand cross-enterprise audit interoperability, start with [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md).
 
 ## Core principle
 
@@ -58,6 +59,7 @@ See [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
 12. [External Node Guide](./EXTERNAL_NODE_GUIDE.md)
 13. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md)
 14. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md)
+15. [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md)
 14. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md)
 15. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
 16. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)
