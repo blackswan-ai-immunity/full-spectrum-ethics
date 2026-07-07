@@ -12,9 +12,10 @@ Recommended entry points:
 
 - [README.md](./README.md)
 - [External Node Guide](./EXTERNAL_NODE_GUIDE.md)
+- [Specifications](./specs/README.md)
+- [Conformance and Testing Guide](./docs/testing/conformance-and-testing-guide.md)
 - [RFC 0001](./rfcs/0001-full-spectrum-protocol.md)
 - [RFC 0005](./rfcs/0005-node-classification-and-external-ethics-profile.md)
 - [RFC 0006](./rfcs/0006-cross-enterprise-audit-record.md)
 - [Protocol Mapping Center](./docs/mapping/README.md)
 - [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)
-

@@ -46,7 +46,7 @@ Full Spectrum proposes a protocol stack:
 
 - If you care about positioning and boundaries: read `README.md`, `docs/boundary/protocol-boundary-statement.md`, and `docs/boundary/faq.md`.
 - If you care about the protocol itself: read the Full Spectrum Protocol Outline, `specs/README.md`, and the glossary.
-- If you care about engineering: read `docs/getting-started/minimal-integration-guide.md`, the FSHI use case, and `schemas/README.md`.
+- If you care about engineering: read `docs/getting-started/minimal-integration-guide.md`, `docs/testing/conformance-and-testing-guide.md`, the FSHI use case, and `schemas/README.md`.
 - If you care about external systems: read `EXTERNAL_NODE_GUIDE.md`.
 - If you care about governance: read `GOVERNANCE.md`, `ROADMAP.md`, and `docs/roadmap/v1.0-beta-release-criteria.md`.
 - If you care about contribution: read CONTRIBUTING.

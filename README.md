@@ -211,17 +211,19 @@ Recommended reading order:
 1. [START_HERE.md](./START_HERE.md)
 2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md)
 3. [Glossary](./docs/glossary.md)
-4. [External Node Guide](./EXTERNAL_NODE_GUIDE.md)
-5. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)
-6. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)
-7. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)
-8. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)
-9. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)
-10. [RFC 0006: Cross-Enterprise Audit Record Profile](./rfcs/0006-cross-enterprise-audit-record.md)
-11. [Protocol Mapping Center](./docs/mapping/README.md)
-12. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
-13. [Validations](./validations/)
-14. [ROADMAP.md](./ROADMAP.md)
+4. [Specifications](./specs/README.md)
+5. [External Node Guide](./EXTERNAL_NODE_GUIDE.md)
+6. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)
+7. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)
+8. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)
+9. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)
+10. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)
+11. [RFC 0006: Cross-Enterprise Audit Record Profile](./rfcs/0006-cross-enterprise-audit-record.md)
+12. [Protocol Mapping Center](./docs/mapping/README.md)
+13. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
+14. [Conformance and Testing Guide](./docs/testing/conformance-and-testing-guide.md)
+15. [Validations](./validations/)
+16. [ROADMAP.md](./ROADMAP.md)
 
 ---
 
@@ -240,4 +242,3 @@ Please read:
 ## Safety note
 
 Do not store tokens, passwords, cookies, private keys, unredacted personal information, unauthorized enterprise data, or real customer data in this repository.
-

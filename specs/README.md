@@ -9,6 +9,8 @@ The goal of `specs/` is to keep the engineering-facing layer separate from essay
 | Specification | Purpose | Related schema | Related example |
 |---|---|---|---|
 | [Governance Event](./governance-event.md) | Minimal record for an AI-related action before risk interpretation | [`schemas/governance-event.schema.json`](../schemas/governance-event.schema.json) | [`examples/governance/governance-event.sample.json`](../examples/governance/governance-event.sample.json) |
+| [RiskAlert](./risk-alert.md) | Minimal object for detected or suspected reviewable risk | [`schemas/risk-alert.schema.json`](../schemas/risk-alert.schema.json) | [`examples/fshi/api-contract/risk-alert.sample.json`](../examples/fshi/api-contract/risk-alert.sample.json) |
+| [AuditTrace](./audit-trace.md) | Minimal trace for review, escalation, decision, execution, or recovery | [`schemas/audit-trace.schema.json`](../schemas/audit-trace.schema.json) | [`examples/fshi/api-contract/audit-trace.sample.json`](../examples/fshi/api-contract/audit-trace.sample.json) |
 
 ## Object chain
 

@@ -66,6 +66,7 @@ Goal: make the protocol runnable.
 - Provide a minimal validation script that checks the request -> response -> RiskAlert -> AuditTrace chain.
 - Keep examples non-invasive: FSHI may recommend enterprise actions, but execution belongs to the enterprise unless explicit integration feedback exists.
 - Explain the relationship between the local engine, Cell Protocol, and the future protocol network.
+- Maintain a conformance and testing guide so contributors know what "validated" means at each stage.
 
 ## Phase 4: External review
 
