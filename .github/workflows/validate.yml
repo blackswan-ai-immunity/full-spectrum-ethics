@@ -29,6 +29,10 @@ jobs:
         shell: pwsh
         run: ./scripts/validate-fshi-contract.ps1
 
+      - name: Validate node contract sample
+        shell: pwsh
+        run: ./scripts/validate-node-contract.ps1
+
       - name: Validate GovernanceEvent sample
         shell: pwsh
         run: ./scripts/validate-governance-event.ps1
