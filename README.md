@@ -1,91 +1,135 @@
-# Full Spectrum Ethics Protocol Stack
+# Full Spectrum Protocol
 
 [![Validate protocol contracts](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/actions/workflows/validate.yml/badge.svg)](https://github.com/blackswan-ai-immunity/full-spectrum-ethics/actions/workflows/validate.yml)
 
-> An open protocol draft for human-AI governance, agent identity, ethical simulation, risk circuit-breaking, auditability, and civilization-scale interoperability.
+> An open governance semantics protocol for AI-era subjects: humans, AI agents, organizations, systems, and cross-organization networks.
 
-中文读者可从 [README.zh-CN.md](./README.zh-CN.md) 开始。English readers may also use [README.en.md](./README.en.md).
+Full Spectrum Protocol is a bridge, not a forced center. It does not replace law, regulation, enterprise compliance, A2A, MCP, national agent-interconnection standards, or human judgment. It defines a governance layer above connectivity: action basis, boundary declaration, risk visibility, audit trace, responsibility path, and review interface.
+
+Chinese readers can start from [README.zh-CN.md](./README.zh-CN.md). English readers may also use [README.en.md](./README.en.md).
+
+---
+
+## Current status
+
+This repository is an early open protocol draft and engineering exploration.
+
+It currently provides:
+
+- protocol outlines and RFCs;
+- machine-readable schemas;
+- synthetic examples;
+- mapping documents for standards and business scenarios;
+- a reference direction for FSHI customer-service inspection;
+- links to a minimal runnable governance engine.
+
+It does not claim:
+
+- to be a finished global standard;
+- to be approved by any regulator;
+- to replace legal, safety, compliance, or human review processes;
+- to contain mature commercial product code;
+- to prove that any person, group, or system can represent “the whole.”
 
 ---
 
 ## Why this exists
 
-AI systems are becoming faster, more autonomous, and more deeply embedded in human organizations. Traditional governance often asks:
+Modern AI systems are becoming faster, more autonomous, and more deeply embedded in real organizations. Existing interoperability work can help agents discover each other, communicate, call tools, and exchange task states.
 
-> How should AI be regulated?
+Full Spectrum focuses on the next layer:
 
-Full Spectrum asks a wider question:
+- Why was this action allowed?
+- Who or what is acting?
+- What capability and boundary were declared?
+- What risk was detected?
+- Who is accountable if harm occurs?
+- What should be recorded for later review?
+- When should an agent slow down, downgrade, stop, or ask for human review?
+- When should a system know that it does not know enough to act?
 
-> When humans, AI agents, organizations, and civilizations all become interacting subjects, how can they continue to share the same game field without erasing freedom, difference, or responsibility?
+The short version:
 
-This repository explores a protocol-level answer.
-
----
-
-## What Full Spectrum is
-
-Full Spectrum is not a single law, model, product, or ideology.
-
-It is a protocol stack for:
-
-- declaring identity, capability, permission, boundary, and responsibility;
-- simulating ethical scenarios before irreversible action;
-- recording consent, refusal, risk, escalation, and review;
-- allowing disagreement without forcing premature unity;
-- triggering downgrade, circuit-break, recovery, or self-deconstruction when a system exceeds its own boundary;
-- keeping humans, AI agents, organizations, and civilization-scale systems interoperable.
-
-The core principle is:
-
-> Preserve overall continuity, maximally respect free will, dynamically accommodate differences, and evolve through difference.
+> Connectivity lets agents act together. Full Spectrum asks how connected agents remain auditable, accountable, and boundary-aware.
 
 ---
 
 ## What this project is not
 
-This repository does not claim to be:
+Full Spectrum is not:
 
-- a finished global standard;
-- a replacement for law, human rights, safety regulation, or institutional governance;
-- a spiritual authority;
+- a new religion or spiritual authority;
+- a world government;
+- a replacement for law, human rights, safety regulation, or enterprise compliance;
+- a finished AI safety solution;
 - a commercial SaaS product;
-- proof that any person or group can represent “the whole”.
+- a claim that all external systems must join a Full Spectrum network;
+- a claim that “having a protocol” means an AI system is safe.
 
-It is an open protocol draft and engineering exploration.
+It is a protocol draft, schema set, and open engineering path for making AI-related actions more visible, reviewable, and accountable.
 
 ---
 
-## Relationship to national standards and agent ecosystems
+## Relationship to standards and ecosystems
 
-Full Spectrum does not replace national standards, industry standards, A2A, MCP, LangGraph, or other agent interoperability frameworks.
+Full Spectrum does not replace A2A, MCP, LangGraph, national agent-interconnection standards, data-governance systems, or AI risk frameworks.
 
-China has released the national standard series **Artificial Intelligence — Agent Interconnection** (AIP, 人工智能 智能体互联), covering agent identity, identity management, capability description, discovery, interaction, and tool invocation. AIP-style standards answer the interconnection-layer question: how agents identify, describe, discover, communicate, and call tools.
+Those systems mainly answer connectivity and infrastructure questions:
 
-Full Spectrum focuses on the governance layer above and around interconnection:
+- how agents identify themselves;
+- how capabilities are described;
+- how agents discover one another;
+- how messages and tasks are exchanged;
+- how tools are invoked;
+- how data is governed and transferred.
 
-- why an action was allowed;
-- who is accountable;
-- what risk was detected;
-- what cost or responsibility should be recorded;
-- when human, guardian, or organizational review is required;
-- when an agent should know that it should not act.
+Full Spectrum focuses on the governance layer around those interactions:
 
-In short: AIP/A2A/MCP-style protocols answer “can agents connect and act?” Full Spectrum explores “how should connected agents remain auditable, accountable, and boundary-aware?”
+- action basis;
+- risk declaration;
+- audit trace;
+- responsibility path;
+- boundary awareness;
+- review and escalation;
+- cross-organization audit envelopes.
 
-See the [Protocol Mapping Center](./docs/mapping/README.md), especially [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md).
+See:
+
+- [Protocol Mapping Center](./docs/mapping/README.md)
+- [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md)
+- [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md)
+- [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md)
 
 ---
 
 ## 30-second entry path
 
-- If you only want to call an AI tool, start with [External Node Guide](./EXTERNAL_NODE_GUIDE.md).
+- If you are only calling an external AI tool, start with [External Node Guide](./EXTERNAL_NODE_GUIDE.md).
 - If you operate an existing AI system and want compatibility without full certification, start with [RFC 0005](./rfcs/0005-node-classification-and-external-ethics-profile.md).
-- If you need a shared audit envelope across multiple organizations, start with [RFC 0006](./rfcs/0006-cross-enterprise-audit-record.md).
-- If you want Full Spectrum certified digital identity for a high-consequence agent, start with [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) and [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md).
-- If you want to debate or improve the protocol itself, start with [RFC 0001](./rfcs/0001-full-spectrum-protocol.md).
-- If you want to understand protocol-to-standard relationships, start with the [Protocol Mapping Center](./docs/mapping/README.md).
-- If you want to see a business-facing engineering sample, start with [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md).
-- If you want to understand cross-enterprise audit interoperability, start with [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md).
+- If you need a shared audit envelope across organizations, start with [RFC 0006](./rfcs/0006-cross-enterprise-audit-record.md).
+- If you need identity and capability declarations, start with [RFC 0002](./rfcs/0002-identity-and-capability-declaration.md).
+- If you need risk and audit objects, start with [RFC 0003](./rfcs/0003-audit-trace-schema.md) and [RFC 0004](./rfcs/0004-risk-alert-schema.md).
+- If you want a business-facing example, start with [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md).
+- If you want to improve the protocol, start with [RFC 0001](./rfcs/0001-full-spectrum-protocol.md).
+
+---
+
+## Minimal governance chain
+
+A minimal Full Spectrum-compatible flow can be described as:
+
+```text
+Raw AI Action
+  -> Governance Event
+  -> Business Adapter
+  -> Canonical Context
+  -> Layer Profile
+  -> Engine / Policy / Safety Check
+  -> RiskAlert / AuditTrace / Runestone
+  -> Human or organizational review
+```
+
+The current project does not require a system to join a global protocol network before trying this flow. A company or developer can first run a local-first engine internally, using synthetic or desensitized data.
 
 ---
 
@@ -93,96 +137,91 @@ See the [Protocol Mapping Center](./docs/mapping/README.md), especially [Standar
 
 | Layer | Question | Typical artifacts |
 | --- | --- | --- |
-| Identity | Who or what is acting? | Agent identity, digital identity declaration |
+| Identity | Who or what is acting? | Identity claim, digital identity declaration |
 | Capability | What can it do? | Capability declaration, boundary statement |
-| Permission | What is it allowed to do now? | Authorization, revocation, consent records |
-| Responsibility | Who is accountable? | Audit trace, responsibility path |
-| Simulation | What may happen under different conditions? | ESS ethical scenario simulation |
-| Risk | When should action be slowed, downgraded, or stopped? | Risk alert, circuit-break, recovery report |
-| Guardianship | Who reviews conflict when no single subject can decide? | Guardian network, committee review, distributed review |
-| Evolution | How does the protocol change without becoming a new prison? | RFCs, versioning, self-deconstruction rules |
+| Permission | What is allowed now? | Authorization, consent, revocation |
+| Responsibility | Who is accountable? | AuditTrace, responsibility path |
+| Simulation | What may happen under different conditions? | ESS-style scenario simulation |
+| Risk | When should action slow, downgrade, stop, or escalate? | RiskAlert, circuit-break, recovery report |
+| Review | Who reviews conflict when no single subject should decide alone? | Guardian review, organizational review, human review |
+| Evolution | How does the protocol change without becoming a new cage? | RFCs, versioning, counterexamples |
+
+---
+
+## Engineering reference: FSHI
+
+FSHI, the Full Spectrum Health Index, is used here as an engineering reference for AI customer-service quality inspection.
+
+In this repository, FSHI is:
+
+- a protocol use case;
+- a synthetic and desensitized example direction;
+- an API-contract mapping exercise;
+- an example of non-invasive multi-turn dialogue risk detection;
+- a bridge from governance semantics to business engineering.
+
+It is not presented here as a complete commercial product implementation.
+
+Suggested boundary:
+
+- `full-spectrum-ethics`: protocol, schemas, RFCs, examples, audit format.
+- `full-spectrum-engine`: minimal runnable local-first governance engine.
+- private/company repositories: customer adapters, production deployment, commercial assets, and real enterprise data.
+
+---
+
+## Local-first adoption path
+
+Full Spectrum should not force adoption.
+
+A practical adoption path is:
+
+1. **Internal engine layer**: run a local engine inside one organization on synthetic or desensitized cases.
+2. **Cell protocol layer**: declare identity, capability, boundary, permission, and responsibility for a subject or system.
+3. **Protocol network layer**: when multiple subjects need to interact, add node registration, cross-node audit, ESS-style review, guardian review, and contribution records.
+
+This repository currently focuses on the first two steps.
+
+---
+
+## Machine validation
+
+This repository currently validates:
+
+- common mojibake patterns in Markdown, JSON, YAML, HTML, CSS, and script files;
+- schema/sample consistency for selected protocol objects;
+- the FSHI dialogue inspection contract chain:
+
+```text
+request.sample.json
+  -> response.sample.json
+  -> risk-alert.sample.json
+  -> audit-trace.sample.json
+  -> cross-enterprise-audit-record.example.json
+```
+
+Validation runs through GitHub Actions on push and pull request to `main`.
 
 ---
 
 ## Start here
 
-If you are new, read in this order:
+Recommended reading order:
 
-1. [START_HERE.md](./START_HERE.md) — the shortest orientation.
-2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md) — concise protocol outline.
-3. [Glossary](./docs/glossary.md) — key terms for outside readers.
-4. [Protocol Mapping Center](./docs/mapping/README.md) — index for standards, FSHI, and cross-enterprise audit mappings.
-5. [Standards and ecosystem mapping](./docs/mapping/standards-mapping.md) — how Full Spectrum relates to AIP, A2A, MCP, data-governance trends, and AI risk frameworks.
-6. [FOR_AGENTS.md](./FOR_AGENTS.md) — machine-readable entry for agents and agent frameworks.
-7. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md) — open proposal format for review and iteration.
-8. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md) — first machine-readable protocol objects.
-9. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md) — responsibility and review trace.
-10. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md) — shared risk language.
-11. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md) — compatibility without forced adoption.
-12. [RFC 0006: Cross-Enterprise Audit Record Profile](./rfcs/0006-cross-enterprise-audit-record.md) — cross-organization audit envelope.
-12. [External Node Guide](./EXTERNAL_NODE_GUIDE.md) — tool, compatible, candidate, and certified node boundaries.
-13. [Protocol stack v1.8](./docs/protocols/Full_Spectrum_Agent_Protocol_Stack_v1.8_EN.md) — protocol stack overview.
-14. [Guardian community whitepaper](./docs/protocols/Guardian_Community_Whitepaper_Compliant.md) — guardian network and community governance.
-15. [Digital identity declaration](./docs/protocols/Digital_Identity_Declaration.md) — identity layer.
-16. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md) — engineering use case.
-17. [FSHI API Contract Mapping](./docs/mapping/fshi-api-contract-mapping.md) — maps inspection API fields to RiskAlert and AuditTrace.
-18. [Cross-Enterprise Audit Record Mapping](./docs/mapping/cross-enterprise-audit-record-mapping.md) — maps RiskAlert and AuditTrace into a multi-party audit envelope.
-19. [FSHI minimal examples](./examples/fshi/) — desensitized dialogue mapped to RiskAlert and AuditTrace.
-20. [Validations](./validations/) — planning space for product-facing validation demos and business-value narratives.
-21. [ROADMAP.md](./ROADMAP.md) — project roadmap.
-
----
-
-## Current machine validation
-
-This repository currently validates:
-
-- common mojibake patterns in Markdown, JSON, YAML, HTML, CSS, and script files;
-- the FSHI dialogue inspection contract chain:
-  `request.sample.json -> response.sample.json -> risk-alert.sample.json -> audit-trace.sample.json -> cross-enterprise-audit-record.example.json`.
-
-The checks run through GitHub Actions on push and pull request to `main`.
-
----
-
-## Engineering use case: FSHI
-
-FSHI, the Full Spectrum Health Index, is used here as an engineering sample for AI customer-service quality inspection.
-
-Current status: FSHI content in this repository is a concept-validation, API-mapping, and protocol-object demonstration. It is not a full commercial product implementation.
-
-In this repository, FSHI means:
-
-- a protocol use case;
-- a minimal open-core reference direction;
-- an example of non-invasive, desensitized, multi-turn dialogue risk detection;
-- a bridge from Full Spectrum ethics to business engineering.
-
-It does not mean that all company product code or commercial assets must live in this repository.
-
-Recommended boundary:
-
-- `full-spectrum-ethics`: protocol, schemas, examples, public demo, audit format.
-- future `fshi-open-core`: minimal runnable open-source kernel.
-- company/private repositories: full commercial implementation, customer adapters, deployment assets.
-
----
-
-## Repository status
-
-This project is currently in early protocol-draft stage.
-
-Current focus:
-
-- repair public entry and encoding issues;
-- organize Chinese and English documentation;
-- define protocol objects and schemas;
-- build minimal verifiable examples;
-- distinguish external compatibility from Full Spectrum certification;
-- map the protocol to AIP, A2A, MCP, data-governance trends, and AI risk frameworks;
-- provide a machine-readable entry for agents and agent frameworks;
-- provide minimal FSHI examples that map product concepts into protocol objects without exposing private business data;
-- invite review from AI safety, governance, software engineering, ethics, and industry practitioners.
+1. [START_HERE.md](./START_HERE.md)
+2. [Full Spectrum Protocol Outline v0.1](./docs/protocols/full-spectrum-protocol-outline-v0.1.md)
+3. [Glossary](./docs/glossary.md)
+4. [External Node Guide](./EXTERNAL_NODE_GUIDE.md)
+5. [RFC 0001: Full Spectrum Protocol](./rfcs/0001-full-spectrum-protocol.md)
+6. [RFC 0002: Identity and Capability Declaration](./rfcs/0002-identity-and-capability-declaration.md)
+7. [RFC 0003: Audit Trace Schema](./rfcs/0003-audit-trace-schema.md)
+8. [RFC 0004: RiskAlert Schema](./rfcs/0004-risk-alert-schema.md)
+9. [RFC 0005: Node Classification and External Ethics Profile](./rfcs/0005-node-classification-and-external-ethics-profile.md)
+10. [RFC 0006: Cross-Enterprise Audit Record Profile](./rfcs/0006-cross-enterprise-audit-record.md)
+11. [Protocol Mapping Center](./docs/mapping/README.md)
+12. [FSHI customer-service quality inspection use case](./docs/use-cases/FSHI_Customer_Service_Quality_Inspection.md)
+13. [Validations](./validations/)
+14. [ROADMAP.md](./ROADMAP.md)
 
 ---
 
@@ -200,4 +239,5 @@ Please read:
 
 ## Safety note
 
-Do not store tokens, passwords, cookies, private keys, unredacted personal information, or unauthorized enterprise data in this repository.
+Do not store tokens, passwords, cookies, private keys, unredacted personal information, unauthorized enterprise data, or real customer data in this repository.
+

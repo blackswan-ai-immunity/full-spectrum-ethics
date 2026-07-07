@@ -4,6 +4,7 @@ This directory is reserved for machine-readable protocol schemas.
 
 Planned schemas:
 
+- [`governance-event.schema.json`](./governance-event.schema.json)
 - [`identity-claim.schema.json`](./identity-claim.schema.json)
 - [`capability-declaration.schema.json`](./capability-declaration.schema.json)
 - `permission-request.schema.json`
@@ -19,6 +20,17 @@ Planned schemas:
 - [`cross-enterprise-audit-record.schema.json`](./cross-enterprise-audit-record.schema.json)
 
 The purpose of schemas is to make the Full Spectrum Protocol inspectable and implementable by software systems.
+
+Minimal governance chain:
+
+```text
+GovernanceEvent
+  -> RiskAlert
+  -> AuditTrace
+  -> CrossEnterpriseAuditRecord
+```
+
+`GovernanceEvent` is the entry object. It records the AI-related action before risk interpretation and audit tracing.
 
 ## Validation helper
 
