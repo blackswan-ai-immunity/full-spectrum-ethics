@@ -57,11 +57,18 @@ Each CASE should include:
 
 Recommended early CASE directions:
 
+| Case | Scenario | Public example |
+|---|---|---|
+| CASE002 | Ecommerce AI customer-service conflict | [CASE002_ecommerce_ai_customer_service_conflict.md](./CASE002_ecommerce_ai_customer_service_conflict.md) |
+| CASE004 | Cross-enterprise data sharing and responsibility boundary | [CASE004_cross_enterprise_data_responsibility_boundary.md](./CASE004_cross_enterprise_data_responsibility_boundary.md) |
+
+Recommended future CASE directions:
+
 - cross-border AI payment conflict;
-- ecommerce AI customer-service knowledge-source conflict;
 - logistics customer-service compensation conflict;
 - enterprise multi-agent permission conflict;
-- cross-organization data-sharing boundary conflict.
+- ecommerce knowledge-source adapter conflict;
+- logistics knowledge-source adapter conflict.
 
 ---
 
@@ -70,4 +77,3 @@ Recommended early CASE directions:
 Do not submit real customer data.
 
 Use synthetic, desensitized, or fictionalized examples. If an example is inspired by a real scenario, remove identifying details and state that it is a synthetic reconstruction.
-
