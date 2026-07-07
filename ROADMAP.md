@@ -4,7 +4,7 @@ This roadmap describes how the Full Spectrum Ethics Protocol Stack may evolve fr
 
 ## Phase 0: Public entry repair
 
-Status: in progress.
+Status: largely complete on the `docs/public-entry-v0.1` branch; pending review and merge.
 
 - Fix README encoding and public entry.
 - Add Chinese and English entry documents.
@@ -12,6 +12,7 @@ Status: in progress.
 - Clarify the relationship between protocol, use case, and product.
 - Clarify the relationship between Full Spectrum, AIP-style agent interconnection standards, A2A/MCP-style ecosystems, and data-governance trends.
 - Add a machine-readable entry document for agents and agent frameworks.
+- Add minimal GovernanceEvent specification and validation sample.
 
 ## Phase 1: Protocol consolidation
 
@@ -31,6 +32,7 @@ Goal: make the protocol readable and reviewable.
   - ESS request/result;
   - guardian review;
   - audit trace.
+- Keep object specifications under `specs/` and machine-readable contracts under `schemas/`.
 
 ## Phase 2: Schema and examples
 
@@ -49,12 +51,13 @@ Goal: make the protocol inspectable by developers.
 - Add an agent-oriented reading path that separates implementation artifacts from philosophical essays.
 - Add minimal ESS simulation examples.
 - Add cell protocol examples for organizations and AI agents.
+- Add `specs/README.md` so implementers can find the engineering-facing objects quickly.
 
 ## Phase 3: Open-core implementation
 
 Goal: make the protocol runnable.
 
-- Create or link a minimal FSHI open-core repository.
+- Create or link a minimal local-first engine repository.
 - Provide desensitized multi-turn dialogue samples.
 - Provide risk scoring and audit-output examples.
 - Provide logistics and e-commerce adaptation examples.
@@ -62,6 +65,7 @@ Goal: make the protocol runnable.
 - Provide paired FSHI request/response schemas so inspection payloads can be checked before conversion into RiskAlert and AuditTrace.
 - Provide a minimal validation script that checks the request -> response -> RiskAlert -> AuditTrace chain.
 - Keep examples non-invasive: FSHI may recommend enterprise actions, but execution belongs to the enterprise unless explicit integration feedback exists.
+- Explain the relationship between the local engine, Cell Protocol, and the future protocol network.
 
 ## Phase 4: External review
 
